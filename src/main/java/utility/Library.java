@@ -33,13 +33,10 @@ public class Library  {
 
      	public static void custom_click(WebElement element,String Fieldname) {
     	 
-    	 try
-    	 {
+    	
     		   element.click();
     		   test.log(Status.PASS, " Succesfully Clicked On "+ Fieldname);
-    	 }catch(Exception e) {
-    		 test.log(Status.FAIL,e.getMessage());
-    	 }
+    	
      }
      
      	public static void custom_sendkeys(WebElement element,String value,String fieldname) {

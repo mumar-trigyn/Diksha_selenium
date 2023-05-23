@@ -35,4 +35,29 @@ public void run() throws Exception {
 	Course_Consumption.consume_PDF_Course_Content(course);
 		
    }
+
+//	String contentName=UploadContent.UploadPdf();
+//	UploadContent.sendPdf_For_Review(contentName);
+//	UserOnBoarding.logout_As_Creator();
+//	UserOnBoarding.loginasreviewer();
+//	UploadContent.up_For_Review(contentName);
+//	UserOnBoarding.logout_As_Reviewer();
+//	UserOnBoarding.reLoginAsCreator();
+//	
+//	String course=Course_Creation.UploadContentFromLibrary(contentName);
+//	UserOnBoarding.logout_As_Creator();
+//	UserOnBoarding.loginasreviewer();
+//	UploadContent.publishCourseFromUpForReview(course);
+//	UserOnBoarding.logout_As_Reviewer();
+//	UserOnBoarding.reLoginAsCreator();
+//	TPD.createBatch(course);
+//	UserOnBoarding.logout_As_Creator();
+//	
+//	UserOnBoarding.loginasCustodian();
+//	Course_Consumption.consume_PDF_Course_Content(course);
+//	
+	
+	
 }
+
+
