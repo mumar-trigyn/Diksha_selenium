@@ -19,10 +19,11 @@ import pageObject.SchoolHeadProfile;
 import pageObject.StudentProfile;
 import pageObject.TeacherProfile;
 import utility.BaseClass;
+import utility.DikshaUtils;
 import utility.Library;
 
 public  class UserOnBoarding extends BaseClass {
-
+	
 	
 	public static void studenticon()   {
 		
@@ -94,9 +95,9 @@ public  class UserOnBoarding extends BaseClass {
 		   	}	
 		}
 		    
-		   public static void schoolheadicon()  {
+		   public static void schoolheadicon() throws InterruptedException  {
 			
-		  try {
+		 
 			
 			   SchoolHeadProfile schoolhead=PageFactory.initElements(driver , SchoolHeadProfile.class );
 			   Library.custom_click(schoolhead.getSchoolhead(),"SchoolHead");
@@ -105,49 +106,49 @@ public  class UserOnBoarding extends BaseClass {
 			// schoolhead.getContinueButton().click();
 			   Thread.sleep(1000);
 			
-			}catch(Exception e) {
+	
 				
-				System.out.println(e.getMessage());
-			}	
+				
 		}
 		    
 
-			public static void bmcpopuphandle()  {
-				
-				try {
+			public static void bmcpopuphandle() throws InterruptedException  {
 				
 				BMCPopup bmcpopup=PageFactory.initElements(driver, BMCPopup.class);
-				Library.custom_click(bmcpopup.getBoard(),"board");
-				Library.custom_click(bmcpopup.getCbsc(),"cbsc");
-				Thread.sleep(4000);
+				//Library.custom_click(bmcpopup.getBoard(),"board");
+				DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getBoard());
+				//Library.custom_click(bmcpopup.getCbsc(),"cbsc");
+				DikshaUtils.waitToBeClickableAndClick(bmcpopup.getCbsc());
+			//	Thread.sleep(4000);
+				//Library.custom_click(bmcpopup.getMedium(),"medium");
+				DikshaUtils.waitToBeClickableAndClick(bmcpopup.getMedium());
+			//	Thread.sleep(2000);
+				//Library.custom_click(bmcpopup.getEnglish(),"english");
+				DikshaUtils.waitToBeClickableAndClick(bmcpopup.getEnglish());
 				
-				Library.custom_click(bmcpopup.getMedium(),"medium");
-				Library.custom_click(bmcpopup.getEnglish(),"english");
 				Thread.sleep(1000);
 				
 				 Actions act=new Actions(driver);
 				 act.moveByOffset(50, 100).click().build().perform();
 				 Thread.sleep(1000);
 				 
-				Library.custom_click(bmcpopup.getClasss(),"classs");
-				Library.custom_click(bmcpopup.getClass2(),"class2");
+				//Library.custom_click(bmcpopup.getClasss(),"classs");
+				 DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getClasss());
+				 
+				//Library.custom_click(bmcpopup.getClass2(),"class2");
+				 DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getClass2());
 				act.moveByOffset(50, 100).click().build().perform();
 				Thread.sleep(1000);
 				Library.custom_click(bmcpopup.getBMCSubmit(),"bmcsubmit");
 			//	bmcpopup.getBMCSubmit().click();
 				Thread.sleep(2000);
 			
-			}catch(Exception e) {
-				
-				System.out.println(e.getMessage());
-			}
+		
 			
 				
 			}
 			
-			public static void locationpopuphandle() {
-				
-				try {
+			public static void locationpopuphandle() throws InterruptedException {
 				
 				LocationPopup locationpopup=PageFactory.initElements(driver, LocationPopup.class);
 				Library.custom_click(locationpopup.getState(),"state");
@@ -161,16 +162,12 @@ public  class UserOnBoarding extends BaseClass {
 				Library.custom_click(locationpopup.getSubmitButton(),"submitbutton");
 				Thread.sleep(1000);
 			
-				}catch(Exception e) {
-				
-			System.out.println(e.getMessage());
-			
-				}
+		
 			}
 			
-			public static void loginascreator()  {
+			public static void loginascreator() throws InterruptedException  {
 			
-			try {
+	
 				UserOnBoarding.schoolheadicon();
 				UserOnBoarding.bmcpopuphandle();
 				UserOnBoarding.locationpopuphandle();
@@ -189,10 +186,7 @@ public  class UserOnBoarding extends BaseClass {
 				Library.custom_click(loginpage.getLogin(),"login");
 				Thread.sleep(1000);
 				
-				}catch(Exception e) {
-					
-					System.out.println(e.getMessage());
-				}	
+				
 					
 			}
 			

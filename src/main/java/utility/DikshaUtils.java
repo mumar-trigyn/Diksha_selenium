@@ -2,11 +2,21 @@ package utility;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pageObject.BMCPopup;
 public class DikshaUtils extends BaseClass {
 
+	
+	
+	
 	public static String generate_Do_id() {
 		
 		
@@ -52,9 +62,52 @@ public class DikshaUtils extends BaseClass {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        
     
 }
+	
+	public static WebElement waitForElementToBeVisible(WebElement element) {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
 
+	public static WebElement waitForElementToBeClickable(WebElement element) {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+	
+	public static void waitToBeVisibleAndClick(WebElement element) {
+		
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.click();
+       
+    }
+
+	public static void waitToBeClickableAndClick(WebElement element) {
+		
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+		
+    }
+	
+	public static void waitToBeVisibleAndSendKeys(WebElement element,String value) {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(element));
+        driver.findElement(By.xpath(element.toString())).sendKeys(value);
+       
+        
+    }
+
+	public static void waitToBeClickableAndSendKeys(WebElement element, String value) {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        driver.findElement(By.xpath(element.toString())).sendKeys(value);
+        
+    }
+	
 }
 
 
