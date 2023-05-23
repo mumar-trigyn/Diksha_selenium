@@ -7,9 +7,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import io.reactivex.rxjava3.functions.Action;
 import pageObject.CreateBatchForCourse;
+import pageObject.LoginPage;
 import utility.BaseClass;
 import utility.Library;
 
@@ -18,6 +20,7 @@ public class TPD extends BaseClass {
 	public static void createBatch(String course) throws InterruptedException {
 		
 		CreateBatchForCourse createBatch=PageFactory.initElements(driver, CreateBatchForCourse.class);
+		 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
 		
 		Library.custom_sendkeys(createBatch.getSearchtextfield(),course , "Searchtextfield");
 		Thread.sleep(2000);
@@ -56,5 +59,7 @@ public class TPD extends BaseClass {
 		Library.custom_click(createBatch.getCreateButton(), "Create button");
 		Thread.sleep(2000);
 		Library.custom_click(createBatch.getBackAfterCreateBatchButton(), "BackAfterCreateBatchButton");
+		
+		Assert.assertTrue(loginpage.getHeaderDropdown().isDisplayed());
 	}
 }

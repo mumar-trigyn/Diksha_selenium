@@ -44,7 +44,15 @@ public class CourseConsumption {
 	
 	@FindBy(how=How.XPATH,using="")
 	private WebElement courseCompleted;
+	
+	@FindBy(how=How.XPATH,using="//button[text()='Continue learning']")
+	private WebElement continuelearningtab;
 
+	public WebElement getcontinuelearningtab() {
+		return continuelearningtab;
+	}
+	
+	
 	public WebElement getSearchtextfield() {
 		return searchtextfield;
 	}

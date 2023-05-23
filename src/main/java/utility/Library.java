@@ -52,13 +52,15 @@ public class Library  {
  
 
     		    
-     	public  static void assert_Is_Displayed(WebElement element) {
-    			 
-    			 if(element.isDisplayed()) {
- 					Assert.fail();
- 				}
-    			 
-    		 }  
+     	public  static void assert_Is_Displayed(WebElement element,String fieldname) {
+     		
+			 if(element.isDisplayed()) {
+				 test.log(Status.PASS, " Succesfully Clicked On "+ fieldname);
+			 }else {
+	    		 test.log(Status.FAIL,"not able to Clicked On "+ fieldname );
+			 }	  
+	}
+ 
     		   
 }
  

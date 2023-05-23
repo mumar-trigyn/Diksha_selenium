@@ -11,6 +11,8 @@ public class BMCPopup {
 	
 	@FindBy(how=How.XPATH,using="//mat-option[@aria-label='CBSE/NCERT']")
 	private WebElement Cbsc;
+	//span[text()='CBSE']
+	//mat-option[@aria-label='CBSE/NCERT']
 	
 	@FindBy(how=How.XPATH,using="//mat-form-field[@id='medium']")
 	private WebElement Medium;

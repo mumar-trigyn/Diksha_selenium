@@ -10,6 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import pageObject.UpForReview;
 import pageObject.UploadPdfContent;
@@ -26,6 +27,7 @@ public class UploadContent extends BaseClass {
 		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		UploadPdfContent Upload=PageFactory.initElements(driver, UploadPdfContent.class);
+		
 		Thread.sleep(1000);
 		Library.custom_click(Upload.getHeaderDropdown(), "Guest icon");
 		Thread.sleep(1000);
@@ -46,9 +48,14 @@ public class UploadContent extends BaseClass {
 	    Thread.sleep(2000);
 	    Library.custom_click(Upload.getClose(), "close");
 	    Thread.sleep(3000);
+	    
+	    
+	    
 	    String randomName=DikshaUtils.set_Content_Name("PDF_Content");
 	    excel.updateData("TestData","PDF" ,randomName, "");
 	   
+	    Assert.assertTrue(Upload.getSendforreview().isDisplayed());
+	    
 	    
 	    return randomName;
 	}
@@ -56,6 +63,8 @@ public class UploadContent extends BaseClass {
 	public static void sendPdf_For_Review(String randomname) throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		UploadPdfContent Upload=PageFactory.initElements(driver, UploadPdfContent.class);
+		UpForReview review=PageFactory.initElements(driver, UpForReview.class);
+		
 		Thread.sleep(2000);
 		Library.custom_click(Upload.getSendforreview(),"send for review");
 		Thread.sleep(2000);
@@ -72,12 +81,14 @@ public class UploadContent extends BaseClass {
 	    Library.custom_click(Upload.getSavebutton(),"savebutton");
 	    Thread.sleep(5000);
 	    
+	    Assert.assertTrue(review.getHeaderDropdown().isDisplayed());
 		
 	}
 	
 	public static void up_For_Review(String fullname) throws InterruptedException {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		UpForReview review=PageFactory.initElements(driver, UpForReview.class);
+		
 		Library.custom_click(review.getHeaderDropdown(),"c-icon");
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView(true);",review.getWorkspace());
@@ -114,11 +125,14 @@ public class UploadContent extends BaseClass {
 		Library.custom_click(review.getLanguage(), "Language");
 		Library.custom_click(review.getConfirmForPublishBook(), "Confirm Publish");
 		
+		Assert.assertTrue(review.getUpForReview().isDisplayed());
+		
 	}
 	
 	public static void publishCourseFromUpForReview(String coursename) throws InterruptedException {
 UpForReview review=PageFactory.initElements(driver, UpForReview.class);
 		wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+		
 		Library.custom_click(review.getHeaderDropdown(), "HeaderDropdown");
 		Thread.sleep(1000);
 		Library.custom_click(review.getWorkspace(),"Workspace");
@@ -147,6 +161,7 @@ UpForReview review=PageFactory.initElements(driver, UpForReview.class);
 		Library.custom_click(review.getConfirmpublishTheCourse(),"ConfirmForPublishCourse");
 		Thread.sleep(1000);
 		
+		Assert.assertTrue(review.getHeaderDropdown().isDisplayed());
 	}
 }
 

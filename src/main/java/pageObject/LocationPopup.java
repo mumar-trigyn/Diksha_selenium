@@ -23,6 +23,15 @@ public class LocationPopup {
 	
 	@FindBy(how=How.XPATH,using="(//button[@type='submit'])[2]")
 	private WebElement SubmitButton;
+	//ngx-avatar[@title='Welcome Guest, Click here to continue to your profile']
+	
+	@FindBy(how=How.XPATH,using="//ngx-avatar[@title='Welcome Guest, Click here to continue to your profile']")
+	private WebElement Guesticon;
+	
+	public WebElement getGuesticon() {
+		return Guesticon;
+	}
+	
 	
 	public WebElement getRole() {
 		return Role;

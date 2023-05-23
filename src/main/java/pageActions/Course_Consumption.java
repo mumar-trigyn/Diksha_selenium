@@ -16,6 +16,7 @@ public class Course_Consumption extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		CourseConsumption cc=PageFactory.initElements(driver, CourseConsumption.class);
+		
 		Thread.sleep(1000);
 	    Library.custom_sendkeys(cc.getSearchtextfield(), coursename, "course name searched");
 	    Thread.sleep(1000);
@@ -46,7 +47,7 @@ public class Course_Consumption extends BaseClass {
 		Library.custom_click(cc.getBackButton(), "BackButton");
 		Thread.sleep(1000);
 		
-		
+		Assert.assertTrue(cc.getcontinuelearningtab().isDisplayed());
 		
 	}
 	

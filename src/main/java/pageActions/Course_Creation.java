@@ -4,8 +4,10 @@ package pageActions;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import pageObject.CourseCreation;
+import pageObject.LoginPage;
 import utility.BaseClass;
 import utility.DikshaUtils;
 import utility.Library;
@@ -16,6 +18,8 @@ public class Course_Creation extends BaseClass {
  public static String UploadContentFromLibrary(String contentName) throws Exception {
 			
 	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
+	 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+	 
 		Library.custom_click(content.getHeaderDropdown(), "HeaderDropdown");
 		Library.custom_click(content.getWorkspace(), "workspace");
 		Thread.sleep(3000);
@@ -106,6 +110,8 @@ public class Course_Creation extends BaseClass {
 		Library.custom_click(content.getNewCoursesubmitButton(),"SubmitForreviewButton");
 		Thread.sleep(4000);
 	
+		Assert.assertTrue(loginpage.getHeaderDropdown().isDisplayed());
+		
 		return randomname;
 		
 

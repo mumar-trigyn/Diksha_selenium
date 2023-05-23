@@ -21,7 +21,7 @@ public void run() throws Exception {
 	UploadContent.up_For_Review(contentName);
 	UserOnBoarding.logout_As_Reviewer();
 	UserOnBoarding.reLoginAsCreator();
-	
+
 	String course=Course_Creation.UploadContentFromLibrary(contentName);
 	UserOnBoarding.logout_As_Creator();
 	UserOnBoarding.loginasreviewer();
@@ -33,8 +33,6 @@ public void run() throws Exception {
 	
 	UserOnBoarding.loginasCustodian();
 	Course_Consumption.consume_PDF_Course_Content(course);
-	
-	
-	
-}
+		
+   }
 }
