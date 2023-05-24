@@ -1,13 +1,17 @@
 package pageObject;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class CourseConsumption {
-
-	@FindBy(how=How.XPATH,using="//input[@title='Search or enter QR code']")
+    
 	private WebElement searchtextfield;
+	@FindAll({
+	@FindBy(how=How.XPATH,using="//input[@title='Search or enter QR code']")
+	
+	})
 	
 	@FindBy(how=How.XPATH,using="//button[text()='Search']")
 	private WebElement searchbutton;
