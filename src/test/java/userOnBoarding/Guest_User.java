@@ -1,4 +1,4 @@
-package userOnBoarding;
+package userOnboarding;
 
 import org.testng.annotations.Test;
 
