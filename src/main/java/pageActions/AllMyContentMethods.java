@@ -7,7 +7,7 @@ import pageObject.AllMyContentBucket;
 import pageObject.CourseCreation;
 import utility.BaseClass;
 import utility.DikshaUtils;
-
+//commited
 public class AllMyContentMethods extends BaseClass {
 
 	public static void searchContent(String value) {
