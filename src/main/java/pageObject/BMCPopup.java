@@ -20,15 +20,31 @@ public class BMCPopup {
 	@FindBy(how=How.XPATH,using="(//span[text()='English'])[2]")
 	private WebElement English;
 	
+	
+    @FindBy(how=How.XPATH,using="//span[text()='Hindi']")
+	private WebElement Hindi;
+	
 	@FindBy(how=How.XPATH,using="//mat-form-field[@id='gradeLevel']")
 	private WebElement Classs;
 	
 	@FindBy(how=How.XPATH,using=" //*[contains(@aria-label,'Class 1')]//following::span[2]")
 	private WebElement  Class2;
 	
+	@FindBy(how=How.XPATH,using="//mat-option[@aria-label='Class 4']")
+	private WebElement Class4;
+	
 	@FindBy(how=How.XPATH,using=" //button[@class='sb-btn sb-btn-normal sb-btn-primary']")
 	private WebElement   BMCSubmit;
 
+	public WebElement getClass4() {
+		return Class4;
+	}
+	
+	public WebElement getHindi() {
+		return Hindi;
+	}
+	
+	
 	public WebElement getBoard() {
 		return Board;
 	}
