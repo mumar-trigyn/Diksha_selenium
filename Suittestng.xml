@@ -6,7 +6,7 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="testScripts.Demo_Run"/>
+      <class name="contentCreation.ValidateAllMyContentBucket"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

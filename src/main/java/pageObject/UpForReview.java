@@ -6,35 +6,19 @@ import org.openqa.selenium.support.How;
 
 public class UpForReview {
 	
-	
-	
-	public WebElement getTaboncourse() {
-		return taboncourse;
-	}
-
-
-	public void setTaboncourse(WebElement taboncourse) {
-		this.taboncourse = taboncourse;
-	}
-
-
 	@FindBy(how=How.XPATH,using="//tr[@class='UpForReviewListHover cursor-pointer ng-star-inserted']")
 	private WebElement taboncourse;
 
 	@FindBy(how=How.XPATH,using="(//div[@class='avatar-container'])[2]")
-
 	private WebElement headerDropdown;
 
 	
 
 	@FindBy(how=How.XPATH,using="//*[contains(text(),'Workspace')]")
-
 	private WebElement Workspace;
 
-	
 
 	@FindBy(how=How.XPATH,using="//a[contains(text(),'Up For Review')]")
-
 	private WebElement upForReview;
 
 	
@@ -45,31 +29,19 @@ public class UpForReview {
 	
 
 	@FindBy(how=How.XPATH,using="//div[@class='UpReviewHeader']")
-
 	private WebElement searchedContentForPublish;
 
-	@FindBy(how=How.XPATH,using="//div[contains(text(),'PDF_')]")
-
+	@FindBy(how=How.XPATH,using="(//div[@class='UpReviewHeader'])[1]")
 	private WebElement clickSearchContent;	
 
 	
 
 	@FindBy(how=How.XPATH,using="//button[text()= ' Publish ']")
-
 	private WebElement publishTheCourse;
 
 	@FindBy(how=How.XPATH,using="//button[text()= ' Yes ']")
-
 	private WebElement confirmpublishTheCourse;
 
-	public WebElement getConfirmpublishTheCourse() {
-		return confirmpublishTheCourse;
-	}
-
-
-	public void setConfirmpublishTheCourse(WebElement confirmpublishTheCourse) {
-		this.confirmpublishTheCourse = confirmpublishTheCourse;
-	}
 
 
 	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[1]")
@@ -99,6 +71,34 @@ public class UpForReview {
 	
 	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[9]")
     private WebElement Contentplayscorrectly;
+	
+
+	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[10]")
+    private WebElement contentclearOnDesk;
+	
+	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[11]")
+    private WebElement audio;
+	
+	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[12]")
+    private WebElement NoSpellingmistakes;
+	
+	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[13]")
+    private WebElement language;
+	
+	
+	
+	@FindBy(how=How.XPATH,using="(//button[text()=' Publish '])[2]")
+    private WebElement confirmForPublishBook;
+	
+
+	public WebElement getConfirmpublishTheCourse() {
+		return confirmpublishTheCourse;
+	}
+
+
+	public void setConfirmpublishTheCourse(WebElement confirmpublishTheCourse) {
+		this.confirmpublishTheCourse = confirmpublishTheCourse;
+	}
 	
 	public WebElement getNoHateSpeech() {
 		return noHateSpeech;
@@ -230,22 +230,6 @@ public class UpForReview {
 	}
 
 
-	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[10]")
-    private WebElement contentclearOnDesk;
-	
-	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[11]")
-    private WebElement audio;
-	
-	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[12]")
-    private WebElement NoSpellingmistakes;
-	
-	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[13]")
-    private WebElement language;
-	
-	
-	
-	@FindBy(how=How.XPATH,using="(//button[text()=' Publish '])[2]")
-    private WebElement confirmForPublishBook;
 	
 	
 	public WebElement getClickSearchContent() {
@@ -301,6 +285,16 @@ public class UpForReview {
 	return confirmForPublishBook;
 
 	}
+	
+	public WebElement getTaboncourse() {
+		return taboncourse;
+	}
+
+
+	public void setTaboncourse(WebElement taboncourse) {
+		this.taboncourse = taboncourse;
+	}
+
 
 }
 

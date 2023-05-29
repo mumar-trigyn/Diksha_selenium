@@ -83,6 +83,7 @@ public class Course_Creation extends BaseClass {
 		Thread.sleep(1000);
 		Library.custom_sendkeys(content.getSelectCopyRightYear(),"2023","SelectCopyRightYear");
 		Thread.sleep(1000);
+		js.executeScript("window.scrollTo(0, 0)");
 		Library.custom_click(content.getSaveAsDraft(),"SaveAsDraft");
 		Thread.sleep(3000);
 		Library.custom_click(content.getAddChild(),"SelectBoardForcourse");

@@ -96,7 +96,7 @@ public class DikshaUtils extends BaseClass {
 	public static void waitToBeVisibleAndSendKeys(WebElement element,String value) {
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(element));
-        driver.findElement(By.xpath(element.toString())).sendKeys(value);
+        element.sendKeys(value);
        
         
     }
@@ -104,7 +104,7 @@ public class DikshaUtils extends BaseClass {
 	public static void waitToBeClickableAndSendKeys(WebElement element, String value) {
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(element));
-        driver.findElement(By.xpath(element.toString())).sendKeys(value);
+        element.sendKeys(value);
         
     }
 	

@@ -6,6 +6,52 @@ import org.openqa.selenium.support.How;
 
 public class UploadPdfContent {
 	
+	@FindBy(how=How.XPATH,using="//button[text()='Upload']")
+	private WebElement uploadButtonAfterUrl;
+	
+	public WebElement getUploadButtonAfterUrl() {
+		return uploadButtonAfterUrl;
+	}
+
+	@FindBy(how=How.XPATH,using="(//div[@id='url-upload'])/div/input")
+	private WebElement contentURL;
+	
+	@FindBy(how=How.XPATH,using="//button[text()='Select']")
+	private WebElement selectButton;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Subject']")
+	private WebElement selectSubject;
+	
+	@FindBy(how=How.XPATH,using="(//div[text()='English'])[2]")
+	private WebElement subjectSelected;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Class']")
+	private WebElement selectClass;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Class 1']")
+	private WebElement classSelected;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Medium']")
+	private WebElement selectMedium;
+	
+	@FindBy(how=How.XPATH,using="(//div[text()='English'])[1]")
+	private WebElement mediumSelected;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='State (Tamil Nadu)']")
+	private WebElement boardSelected;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']")
+	private WebElement selectBoardSyllabus;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='Add an image']")
+	private WebElement clickOnAddImage;
+	
+	@FindBy(how=How.XPATH,using="//a[text()='All image']")
+	private WebElement clickOnAllImage;
+	
+	@FindBy(how=How.XPATH,using="//div[@id='all-image-tab']//following-sibling::div[2]/div/div/div/img")
+	private WebElement selectImageFromAllImage;
+	
 	@FindBy(how=How.XPATH,using="//i[@class='send icon']")
 	private WebElement sendforreview;
 	
@@ -59,6 +105,61 @@ public class UploadPdfContent {
 	@FindBy(how=How.XPATH,using="//div[@id='url-upload']")
 	private WebElement enterurl;
 	
+	
+	
+	
+	public WebElement getContentURL() {
+		return contentURL;
+	}
+
+	public WebElement getSelectButton() {
+		return selectButton;
+	}
+
+	public WebElement getSelectSubject() {
+		return selectSubject;
+	}
+
+	public WebElement getSubjectSelected() {
+		return subjectSelected;
+	}
+
+	public WebElement getSelectClass() {
+		return selectClass;
+	}
+
+	public WebElement getClassSelected() {
+		return classSelected;
+	}
+
+	public WebElement getSelectMedium() {
+		return selectMedium;
+	}
+
+	public WebElement getMediumSelected() {
+		return mediumSelected;
+	}
+
+	public WebElement getBoardSelected() {
+		return boardSelected;
+	}
+
+	public WebElement getSelectBoardSyllabus() {
+		return selectBoardSyllabus;
+	}
+
+	public WebElement getClickOnAddImage() {
+		return clickOnAddImage;
+	}
+
+	public WebElement getClickOnAllImage() {
+		return clickOnAllImage;
+	}
+
+	public WebElement getSelectImageFromAllImage() {
+		return selectImageFromAllImage;
+	}
+
 	public WebElement getSavebutton() {
 		return savebutton;
 	}

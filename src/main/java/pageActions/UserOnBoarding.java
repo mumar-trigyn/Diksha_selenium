@@ -10,6 +10,7 @@ import org.testng.Assert;
 import pageObject.BMCPopup;
 import pageObject.CreateBook;
 import pageObject.ExplorePage;
+import pageObject.GuestProfileSection;
 import pageObject.LocationPopup;
 import pageObject.LoginAsCustodian;
 import pageObject.LoginPage;
@@ -190,12 +191,51 @@ public  class UserOnBoarding extends BaseClass {
 				
 			}
 			
+			public static void locationpopuphandleWithGuestName() throws Exception {
+				
+				
+				LocationPopup locationpopup=PageFactory.initElements(driver, LocationPopup.class);
+				GuestProfileSection guest=PageFactory.initElements(driver, GuestProfileSection.class);
+				
+				locationpopup.getGuestNameTextField().clear();
+				Library.custom_sendkeys(locationpopup.getGuestNameTextField(),"Custodian", "GuestNameTextField");
+				
+				Library.custom_click(locationpopup.getState(),"state");
+				Thread.sleep(1000);
+				Library.custom_click(locationpopup.getMaharashtraState(),"Maharashtra");
+				Thread.sleep(1000);
+				Library.custom_click(locationpopup.getDistrict(),"district");
+				Thread.sleep(1000);
+				Library.custom_click(locationpopup.getAkolaDistrict(),"Akola");
+				Thread.sleep(1000);
+				Library.custom_click(locationpopup.getSubmitButton(),"submitbutton");
+				Thread.sleep(1000);
+				Assert.assertTrue(guest.getProfileIcon().isDisplayed());
+				
+			}
+			
+			public static void login(String user) throws Exception  {
+				LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+			
+		        	DikshaUtils.waitToBeVisibleAndClick(loginpage.getHeaderDropdown());
+				DikshaUtils.waitToBeClickableAndClick(loginpage.getLogintab());
+				
+				String cred[] = excel.getCredentails(user);
+				String username = cred[0];
+				String password = cred[1];
+				
+				DikshaUtils.waitToBeClickableAndSendKeys(loginpage.getUserName(),username);
+				DikshaUtils.waitToBeClickableAndSendKeys(loginpage.getPassword(),password);
+				DikshaUtils.waitToBeClickableAndClick(loginpage.getLogin());
+				
+				Thread.sleep(2000);
+				
+		}
+			
 			public static void loginascreator() throws Exception  {
 			
 			
-                UserOnBoarding.schoolheadicon();
-				UserOnBoarding.bmcpopuphandle();
-				UserOnBoarding.locationpopuphandle();
+            
 			
 				LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
 				
@@ -323,7 +363,7 @@ public  class UserOnBoarding extends BaseClass {
 			Library.custom_sendkeys(Log.getUserName(),excel.getExcelData("Credentials", 5,1 ), "username");
 			Library.custom_sendkeys(Log.getPassword(),excel.getExcelData("Credentials", 5,2 ), "Password");
 			Library.custom_click(Log.getLogin(),"login button");
-			
+			Thread.sleep(2000);
 			Assert.assertTrue(Log.getHeaderDropdown().isDisplayed());
 	}
 	

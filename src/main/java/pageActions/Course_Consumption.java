@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 import pageObject.CourseConsumption;
 import utility.BaseClass;
+import utility.DikshaUtils;
 import utility.Library;
 
 public class Course_Consumption extends BaseClass {
@@ -17,19 +18,20 @@ public class Course_Consumption extends BaseClass {
 		
 		CourseConsumption cc=PageFactory.initElements(driver, CourseConsumption.class);
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	    Library.custom_sendkeys(cc.getSearchtextfield(), coursename, "course name searched");
 	    Thread.sleep(1000);
 	    Library.custom_click(cc.getSearchbutton(), "search button");
 	    Thread.sleep(1000);
 	    Library.custom_click(cc.getSearchedcourse(), "searched course click");
-	    Thread.sleep(1000);
+	    Thread.sleep(2000);
 	    Library.custom_click(cc.getJoincourse(), "Join course");
-	    Thread.sleep(1000);
-	    Library.custom_click(cc.getConsentcheckbox(), " Consent Checkbox");
-		Thread.sleep(1000);
+	    Thread.sleep(2000);
+	    //Library.custom_click(cc.getConsentcheckbox(), " Consent Checkbox");
+	    DikshaUtils.waitToBeVisibleAndClick(cc.getConsentcheckbox());
+		Thread.sleep(2000);
 	    Library.custom_click(cc.getShareButton(), "Share Button");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	    Library.custom_click(cc.getStartLearning(), "Start Learning");
 		Thread.sleep(1000);
 		

@@ -7,11 +7,11 @@ import org.openqa.selenium.support.How;
 
 public class CourseConsumption {
     
-	private WebElement searchtextfield;
-	@FindAll({
-	@FindBy(how=How.XPATH,using="//input[@title='Search or enter QR code']")
+
 	
-	})
+	@FindBy(how=How.XPATH,using="//input[@title='Search or enter QR code']")
+	private WebElement searchtextfield;
+	
 	
 	@FindBy(how=How.XPATH,using="//button[text()='Search']")
 	private WebElement searchbutton;
