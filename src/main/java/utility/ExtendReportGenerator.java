@@ -20,6 +20,7 @@ public class ExtendReportGenerator {
 		extent.attachReporter(reporter);
 		extent.setSystemInfo("Project Name","Diksha");
 		extent.setSystemInfo("O.S", "Windows");
+	
 		
 		return extent;
 	}	

@@ -1,24 +1,32 @@
 package contentCreation;
 
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+import pageActions.SendForReviewMethods;
 import pageActions.UpForReviewMethods;
 import pageActions.UploadContentMethods;
 import pageActions.UserOnBoarding;
+import pageObject.ExplorePage;
 import utility.BaseClass;
+import utility.DikshaUtils;
 
 public class UploadAllContentsTypes extends BaseClass {
-    @Test
+	
+	ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
+	
+	  @Test
 	public void uploadPdf() throws Exception {
 		
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginascreator();
+		UserOnBoarding.login("Creator");
 		String contentName=UploadContentMethods.UploadPdf();
-		UploadContentMethods.sendPdf_For_Review(contentName);
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		SendForReviewMethods.sendPdf_For_Review(contentName);
+		UserOnBoarding.logout();
+		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
@@ -29,11 +37,12 @@ public class UploadAllContentsTypes extends BaseClass {
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginascreator();
+		UserOnBoarding.login("Creator");
 		String contentName=UploadContentMethods.UploadMp4();
-		UploadContentMethods.sendPdf_For_Review(contentName);
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		SendForReviewMethods.sendMp4_For_Review(contentName);
+		UserOnBoarding.logout();
+		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
@@ -43,11 +52,12 @@ public class UploadAllContentsTypes extends BaseClass {
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginascreator();
+		UserOnBoarding.login("Creator");
 		String contentName=UploadContentMethods.UploadEpub();
-		UploadContentMethods.sendEpub_For_Review(contentName);
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		SendForReviewMethods.sendEpub_For_Review(contentName);
+		UserOnBoarding.logout();
+		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
@@ -57,11 +67,12 @@ public class UploadAllContentsTypes extends BaseClass {
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginascreator();
+		UserOnBoarding.login("Creator");
 		String contentName=UploadContentMethods.UploadWebm();
-		UploadContentMethods.sendWebm_For_Review(contentName);
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		SendForReviewMethods.sendWebm_For_Review(contentName);
+		UserOnBoarding.logout();
+		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
@@ -72,26 +83,28 @@ public class UploadAllContentsTypes extends BaseClass {
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginascreator();
+		UserOnBoarding.login("Creator");
 		String contentName=UploadContentMethods.UploadH5p();
-		UploadContentMethods.sendH5p_For_Review(contentName);
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		SendForReviewMethods.sendH5p_For_Review(contentName);
+		UserOnBoarding.logout();
+		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
     
-    //@Test
+   // @Test
 	public void uploadYTContent() throws Exception {
 		
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginascreator();
+		UserOnBoarding.login("Creator");
 		String contentName=UploadContentMethods.UploadYoutubeContent();
-		UploadContentMethods.sendYoutubeContent_For_Review(contentName);
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		SendForReviewMethods.sendYoutubeContent_For_Review(contentName);
+		UserOnBoarding.logout();
+		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
@@ -102,14 +115,30 @@ public class UploadAllContentsTypes extends BaseClass {
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginascreator();
+		UserOnBoarding.login("Creator");
 		String contentName=UploadContentMethods.UploadHtmlContent();
-		UploadContentMethods.sendHtmlContent_For_Review(contentName);
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		SendForReviewMethods.sendHtmlContent_For_Review(contentName);
+		UserOnBoarding.logout();
+		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
     
-    
+	 // @Test
+		public void uploadMoreThan50MbContent() throws Exception {
+			
+			UserOnBoarding.teachericon();
+			UserOnBoarding.bmcpopuphandle();
+			UserOnBoarding.locationpopuphandle();
+			UserOnBoarding.login("Creator");
+			String contentName=UploadContentMethods.UploadMorethan50MbContent();
+			SendForReviewMethods.sendMoreThan50MbContent_For_Review(contentName);
+			UserOnBoarding.logout();
+			DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+			UserOnBoarding.login("Reviewer");
+			UpForReviewMethods.up_For_Review(contentName);
+			
+		}
+	    
 }

@@ -34,7 +34,7 @@ public class CourseConsumption {
 	@FindBy(how=How.XPATH,using="//span[@class='pageNumberFullcount']")
 	private WebElement pagecount;
 	
-	@FindBy(how=How.XPATH,using="(//button[@class='navigation-arrows player-nextIcon paginate right ml-4'])[1]")
+	@FindBy(how=How.XPATH,using="//div[@class='d-flex player-slides ml-8']/sb-player-next-navigation/button")
 	private WebElement nextButton;
 	
 	@FindBy(how=How.XPATH,using="//i[@class='close icon']")

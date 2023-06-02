@@ -6,7 +6,13 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
+<<<<<<< HEAD
       <class name="Groups.CreateTheGroups"/>
+=======
+      <class name="contentCreation.CreateResourcesAndPublish"/>
+   
+      
+>>>>>>> 0d237f4723870fc7bef0eaa76331575d25487258
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

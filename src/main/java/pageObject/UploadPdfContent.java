@@ -22,8 +22,11 @@ public class UploadPdfContent {
 	@FindBy(how=How.XPATH,using="//div[text()='Select Subject']")
 	private WebElement selectSubject;
 	
-	@FindBy(how=How.XPATH,using="//div[text()='EVS']")
-	private WebElement subjectSelected;
+
+	//@FindBy(how=How.XPATH,using="//div[text()='EVS']")
+
+	@FindBy(how=How.XPATH,using="//div[text()='Select Subject']/../div/div")
+    private WebElement subjectSelected;
 	//div[text()='EVS']
 	//(//div[text()='English'])[2]
 	
@@ -36,11 +39,13 @@ public class UploadPdfContent {
 	@FindBy(how=How.XPATH,using="//div[text()='Select Medium']")
 	private WebElement selectMedium;
 	
-	@FindBy(how=How.XPATH,using="(//div[text()='English'])[1]")
+	@FindBy(how=How.XPATH,using="//div[@class='menu transition visible']/div[text()='English']")
 	private WebElement mediumSelected;
 	
+
 	@FindBy(how=How.XPATH,using="//div[text()='Others']")
-	private WebElement boardSelected;
+	//@FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']/../div/div")
+   private WebElement boardSelected;
 	//div[text()='Others']
 	//div[text()='State (Tamil Nadu)']
 	////select[@name='sb-dropdown']/option[text()='Others']
@@ -89,6 +94,13 @@ public class UploadPdfContent {
 	@FindBy(how=How.XPATH,using="//span[text()='Upload Content']")
 	private WebElement uploadcontent;
 
+	@FindBy(how=How.XPATH,using="//span[text()='Upload Large Videos (>50 MB)']")
+	private WebElement uploadMoreThan50Mbcontent;
+
+
+	public WebElement getUploadMoreThan50Mbcontent() {
+		return uploadMoreThan50Mbcontent;
+	}
 
 	@FindBy(how=How.XPATH,using="//*[@id='_selectPrimaryCategory']")
 	private WebElement contenttypetab;

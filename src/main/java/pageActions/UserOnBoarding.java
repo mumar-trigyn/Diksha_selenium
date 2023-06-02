@@ -140,6 +140,8 @@ public class UserOnBoarding extends BaseClass {
 		Thread.sleep(2000);
 
 	}
+	
+	
 
 public static void loginAsNewCustodian() throws Exception {
 		
@@ -160,7 +162,7 @@ public static void loginAsNewCustodian() throws Exception {
 	//	Assert.assertTrue(Log.getCustodianheaderDropdown().isDisplayed());
 }
 	
-public static void loginasCustodian() throws Exception {
+	public static void loginasCustodian() throws Exception {
 	
 	
 	ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
