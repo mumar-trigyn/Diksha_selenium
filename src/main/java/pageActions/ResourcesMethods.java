@@ -67,7 +67,7 @@ public class ResourcesMethods extends BaseClass {
 	    
 	    DikshaUtils.waitToBeClickableAndClick(assesment.getAddSlideButton());
 	    DikshaUtils.waitToBeClickableAndClick(assesment.getAddQuestionSetButton());
-	    DikshaUtils.waitToBeClickableAndClick(assesment.getSelectQuestionCheckBox());
+	    DikshaUtils.waitToBeClickableAndClick(assesment.getSelectQuestionCheckBox1());
 	    DikshaUtils.waitToBeClickableAndClick(assesment.getNextButton());
 	    DikshaUtils.waitToBeClickableAndSendKeys(assesment.getQuestionSetTitleTextfield(),"QA Questions");
 	    DikshaUtils.waitToBeClickableAndClick(assesment.getAddButton());
@@ -120,7 +120,7 @@ public class ResourcesMethods extends BaseClass {
 		DikshaUtils.waitToBeClickableAndClick(rs.getResourceTab());
 		
 		String randomName=DikshaUtils.set_Content_Name("Resource_");
-	//	excel.updateData("TestData","Resource" ,randomName, "");
+		excel.updateData("TestData","Resource" ,randomName, "");
 		
 		DikshaUtils.waitToBeClickableAndSendKeys(rs.getResourceNameTextfield(),randomName);
 		DikshaUtils.waitToBeClickableAndClick(rs.getSelectContentType());
@@ -202,5 +202,45 @@ public class ResourcesMethods extends BaseClass {
 		
 		return randomName;
 }
+		
+		public static String shuffleAndCopyQuestionsInQuestionSet() throws Exception {
+			
+			ResourcesPom rs=PageFactory.initElements(driver, ResourcesPom.class);
+			UploadPdfContent Upload=PageFactory.initElements(driver, UploadPdfContent.class);
+			CourseAssesment assesment=PageFactory.initElements(driver, CourseAssesment.class);
+			
+			DikshaUtils.waitToBeClickableAndClick(Upload.getHeaderDropdown());
+			DikshaUtils.waitToBeClickableAndClick(Upload.getWorkspace());
+			DikshaUtils.waitToBeClickableAndClick(rs.getResourceTab());
+			
+			String randomName=DikshaUtils.set_Content_Name("Resource_");
+			excel.updateData("TestData","Resource" ,randomName, "");
+			
+			DikshaUtils.waitToBeClickableAndSendKeys(rs.getResourceNameTextfield(),randomName);
+			DikshaUtils.waitToBeClickableAndClick(rs.getSelectContentType());
+			Thread.sleep(1000);
+			DikshaUtils.waitToBeVisibleAndClick(rs.getContentTypeSelected());
+			DikshaUtils.waitToBeClickableAndClick(rs.getStartCreatingButton());
+			Thread.sleep(8000);
+			WebElement iframe = driver.findElement(By.tagName("iframe"));
+			driver.switchTo().frame(iframe);
+			
+			DikshaUtils.waitToBeClickableAndClick(assesment.getAddQuestionSetButton());
+			DikshaUtils.waitToBeClickableAndClick(rs.getCopyQuestionButton());
+			
+			
+			
+			
+			
+			return randomName;
+			
+		}
+		
+		
+		
+		
+		
+		
+		
 	
 }

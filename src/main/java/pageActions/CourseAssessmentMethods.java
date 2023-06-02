@@ -60,7 +60,7 @@ public class CourseAssessmentMethods extends BaseClass {
 	    
 	    DikshaUtils.waitToBeClickableAndClick(assesment.getAddSlideButton());
 	    DikshaUtils.waitToBeClickableAndClick(assesment.getAddQuestionSetButton());
-	    DikshaUtils.waitToBeClickableAndClick(assesment.getSelectQuestionCheckBox());
+	    DikshaUtils.waitToBeClickableAndClick(assesment.getSelectQuestionCheckBox1());
 	    DikshaUtils.waitToBeClickableAndClick(assesment.getNextButton());
 	    DikshaUtils.waitToBeClickableAndSendKeys(assesment.getQuestionSetTitleTextfield(),"QA Questions");
 	    DikshaUtils.waitToBeClickableAndClick(assesment.getAddButton());

@@ -94,6 +94,9 @@ public class ResourcesPom {
 	@FindBy(how=How.XPATH,using="(//div[@class='qb-question-action three wide column'])[51]/child::span[2]")
 	private WebElement editQuestionButton;
 	
+	@FindBy(how=How.XPATH,using="(//div[@class='qb-question-action three wide column'])[1]//child::span[2]")
+	private WebElement copyQuestionButton;
+	
 	@FindBy(how=How.XPATH,using="//button[text()='Add answer ']")
 	private WebElement addAnswerButton;
 	
@@ -103,6 +106,12 @@ public class ResourcesPom {
 	@FindBy(how=How.XPATH,using="//i[@class='cursor-pointer close link icon']")
 	private WebElement crossIcon;
 	
+	
+	
+	public WebElement getCopyQuestionButton() {
+		return copyQuestionButton;
+	}
+
 	public WebElement getCrossIcon() {
 		return crossIcon;
 	}

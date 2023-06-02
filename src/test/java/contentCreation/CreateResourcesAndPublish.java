@@ -48,10 +48,10 @@ public class CreateResourcesAndPublish extends BaseClass{
   		
   		//work in progress
   		String contentName=	ResourcesMethods.createAndEditQuestionsInQuestionSet();
-//  		SendForReviewMethods.TvLessonResource_For_Review(contentName);
-//  		UserOnBoarding.logout_As_Creator();
-//  		UserOnBoarding.loginasreviewer();
-//  		UpForReviewMethods.up_For_Review(contentName); 		
+  		SendForReviewMethods.sendResource_For_Review(contentName);
+  		UserOnBoarding.logout_As_Creator();
+  		UserOnBoarding.loginasreviewer();
+  		UpForReviewMethods.up_For_Review(contentName); 		
   		
   		
   	}

@@ -66,6 +66,9 @@ public class CourseAssesment {
 	@FindBy(how=How.XPATH,using="(//div[@data-tooltip='select question']//input[@type='checkbox'])[1]//..")
 	private WebElement selectQuestionCheckBox;
 	
+	@FindBy(how=How.XPATH,using="(//div[@data-tooltip='select question']//input[@type='checkbox'])[2]//..")
+	private WebElement selectQuestionCheckBox2;
+	
 	@FindBy(how=How.XPATH,using="//button[@class='ui blue button next-button']")
 	private WebElement nextButton;
 	
@@ -82,6 +85,10 @@ public class CourseAssesment {
 	private WebElement addtimeAndClockButton;
 
 	
+	public WebElement getSelectQuestionCheckBox2() {
+		return selectQuestionCheckBox2;
+	}
+
 	public WebElement getAddActivityButton() {
 		return addActivityButton;
 	}
@@ -175,7 +182,7 @@ public class CourseAssesment {
 		return addQuestionSetButton;
 	}
 
-	public WebElement getSelectQuestionCheckBox() {
+	public WebElement getSelectQuestionCheckBox1() {
 		return selectQuestionCheckBox;
 	}
 
