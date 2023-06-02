@@ -6,7 +6,7 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="contentCreation.ValidateAllMyContentBucket"/>
+      <class name="Groups.CreateTheGroups"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

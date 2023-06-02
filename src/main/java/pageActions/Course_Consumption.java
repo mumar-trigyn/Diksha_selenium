@@ -19,35 +19,28 @@ public class Course_Consumption extends BaseClass {
 		CourseConsumption cc=PageFactory.initElements(driver, CourseConsumption.class);
 		
 		Thread.sleep(2000);
-	    Library.custom_sendkeys(cc.getSearchtextfield(), coursename, "course name searched");
-	    Thread.sleep(1000);
-	    Library.custom_click(cc.getSearchbutton(), "search button");
-	    Thread.sleep(1000);
-	    Library.custom_click(cc.getSearchedcourse(), "searched course click");
-	    Thread.sleep(2000);
-	    Library.custom_click(cc.getJoincourse(), "Join course");
-	    Thread.sleep(2000);
+		DikshaUtils.waitToBeClickableAndClick(cc.getSearchtextfield());
+		cc.getSearchtextfield().sendKeys(coursename);
+	    DikshaUtils.waitToBeClickableAndClick(cc.getSearchbutton());
+	    DikshaUtils.waitToBeClickableAndClick(cc.getSearchedcourse());
+	    DikshaUtils.waitToBeClickableAndClick(cc.getJoincourse());
 	    //Library.custom_click(cc.getConsentcheckbox(), " Consent Checkbox");
-	    DikshaUtils.waitToBeVisibleAndClick(cc.getConsentcheckbox());
+	  //  DikshaUtils.waitToBeVisibleAndClick(cc.getConsentcheckbox());
 		Thread.sleep(2000);
-	    Library.custom_click(cc.getShareButton(), "Share Button");
-		Thread.sleep(2000);
-	    Library.custom_click(cc.getStartLearning(), "Start Learning");
-		Thread.sleep(1000);
+		DikshaUtils.waitToBeClickableAndClick(cc.getShareButton());
+		DikshaUtils.waitToBeClickableAndClick(cc.getStartLearning());
 		
 		String pagecount = cc.getPagecount().getText();
 		int Count = Integer.parseInt(pagecount);
 		
 		for(int i=1;i<Count;i++) {
-			Library.custom_click(cc.getNextButton(), "next button");	
+
+			DikshaUtils.waitToBeClickableAndClick(cc.getNextButton());
 		}
 		Thread.sleep(2000);
-		Library.custom_click(cc.getCloseRatingPopup(), "CloseRatingPopup");
-		Thread.sleep(1000);
-		Library.custom_click(cc.getCloseCongratulations(), "CloseCongratulations");
-		Thread.sleep(1000);
-		Library.custom_click(cc.getBackButton(), "BackButton");
-		Thread.sleep(1000);
+		DikshaUtils.waitToBeClickableAndClick(cc.getCloseRatingPopup());
+		DikshaUtils.waitToBeClickableAndClick(cc.getCloseCongratulations());
+		DikshaUtils.waitToBeClickableAndClick(cc.getBackButton());
 		
 		Assert.assertTrue(cc.getcontinuelearningtab().isDisplayed());
 		
