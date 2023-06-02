@@ -214,7 +214,7 @@ public class ResourcesMethods extends BaseClass {
 			DikshaUtils.waitToBeClickableAndClick(rs.getResourceTab());
 			
 			String randomName=DikshaUtils.set_Content_Name("Resource_");
-			excel.updateData("TestData","Resource" ,randomName, "");
+		//	excel.updateData("TestData","Resource" ,randomName, "");
 			
 			DikshaUtils.waitToBeClickableAndSendKeys(rs.getResourceNameTextfield(),randomName);
 			DikshaUtils.waitToBeClickableAndClick(rs.getSelectContentType());
@@ -227,11 +227,17 @@ public class ResourcesMethods extends BaseClass {
 			
 			DikshaUtils.waitToBeClickableAndClick(assesment.getAddQuestionSetButton());
 			DikshaUtils.waitToBeClickableAndClick(rs.getCopyQuestionButton());
-			
-			
-			
-			
-			
+			DikshaUtils.waitToBeClickableAndClick(rs.getNextButton());
+			DikshaUtils.waitToBeClickableAndClick(rs.getSubmitButton());
+			DikshaUtils.waitToBeClickableAndClick(assesment.getSelectQuestionCheckBox2());
+			DikshaUtils.waitToBeClickableAndClick(assesment.getNextButton());
+			DikshaUtils.waitToBeClickableAndSendKeys(assesment.getQuestionSetTitleTextfield(),"QA Questions");
+			Thread.sleep(1000);
+			DikshaUtils.waitToBeClickableAndClick(rs.getShuffleQuestionsButton());
+		    DikshaUtils.waitToBeClickableAndClick(assesment.getAddButton());
+		    DikshaUtils.waitToBeClickableAndClick(Upload.getSave());
+		    DikshaUtils.waitToBeClickableAndClick(Upload.getClose());
+		
 			return randomName;
 			
 		}

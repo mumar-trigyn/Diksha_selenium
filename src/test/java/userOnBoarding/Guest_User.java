@@ -36,4 +36,15 @@ public class Guest_User extends BaseClass {
 		
 	}
 	
+	@Test
+	public void Verify_if_the_Guest_user_edit_BMC_Values_and_save() throws Exception {
+		
+		UserOnBoarding.studenticon();
+		UserOnBoarding.bmcpopuphandle();
+		UserOnBoarding.locationpopuphandle();
+		UserOnBoarding.Verify_Guest_user_is_able_to_edit_BMC_Values();
+		
+	}
+	
+	
 }

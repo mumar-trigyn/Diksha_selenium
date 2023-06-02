@@ -106,8 +106,20 @@ public class ResourcesPom {
 	@FindBy(how=How.XPATH,using="//i[@class='cursor-pointer close link icon']")
 	private WebElement crossIcon;
 	
+	@FindBy(how=How.XPATH,using="(//button[@id='save-question-button'])[2]")
+	private WebElement submitButton;
 	
+	@FindBy(how=How.XPATH,using="//input[@id='shuffle0questions']")
+	private WebElement shuffleQuestionsButton;
 	
+	public WebElement getShuffleQuestionsButton() {
+		return shuffleQuestionsButton;
+	}
+
+	public WebElement getSubmitButton() {
+		return submitButton;
+	}
+
 	public WebElement getCopyQuestionButton() {
 		return copyQuestionButton;
 	}
