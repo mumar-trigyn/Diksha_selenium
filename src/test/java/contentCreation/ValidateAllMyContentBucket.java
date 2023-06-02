@@ -10,7 +10,7 @@ public class ValidateAllMyContentBucket extends BaseClass {
   @Test
 	public void  validateContentsInAllMyContentsBucket() throws Exception {
 		
-		UserOnBoarding.schoolheadicon();
+		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
 		UserOnBoarding.login("Creator");

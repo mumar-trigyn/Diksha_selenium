@@ -10,14 +10,14 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class Listeners extends BaseClass implements ITestListener {
-
+public class Listeners extends BaseClass implements ITestListener{
+    ExtentTest test;
 	ExtentReports  extent=ExtendReportGenerator.getReport();
 	ThreadLocal<ExtentTest> extenttest=new ThreadLocal<ExtentTest>();
 	
 	
 	public void onTestStart(ITestResult result) {
-	Library.test=extent.createTest(result.getTestClass().getName()+"=="+result.getMethod().getMethodName());
+	Library.test=extent.createTest(result.getTestClass().getName()+"-"+result.getMethod().getMethodName());
 	extenttest.set(Library.test);
 	}
 
@@ -37,6 +37,16 @@ public class Listeners extends BaseClass implements ITestListener {
 		extenttest.get().log(Status.SKIP, "Test Case Skip");
 		
 	}
+	
+	public void getResult(ITestResult result) {
+	
+		if(result.getStatus()==ITestResult.FAILURE) {
+		extenttest.get().log(Status.FAIL, result.getThrowable());
+		
+	}
+	
+	}
+	
 
 	public void onFinish(ITestContext context) {
 		extent.flush();

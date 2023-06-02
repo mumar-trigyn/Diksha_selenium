@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import pageActions.Course_Consumption;
 import pageActions.Course_Creation;
+import pageActions.SendForReviewMethods;
 import pageActions.TPD;
 import pageActions.UpForReviewMethods;
 import pageActions.UploadContentMethods;
@@ -18,7 +19,7 @@ public void run() throws Exception {
 	UserOnBoarding.locationpopuphandle();
 	UserOnBoarding.loginascreator();
 	String contentName=UploadContentMethods.UploadPdf();
-	UploadContentMethods.sendPdf_For_Review(contentName);
+	SendForReviewMethods.sendPdf_For_Review(contentName);
 	UserOnBoarding.logout_As_Creator();
 	UserOnBoarding.loginasreviewer();
 	UpForReviewMethods.up_For_Review(contentName);
