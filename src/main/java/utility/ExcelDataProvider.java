@@ -83,42 +83,23 @@ public class ExcelDataProvider extends BaseClass {
 		String sheetname = "Credentials";
 		String username = "";
 		String password = "";
+		String role = "";
 
 		Sheet sheet = wb.getSheet(sheetname);
 
 		int lastRowNum = (sheet.getLastRowNum()) + 1;
-		Row row_username = sheet.getRow(1);
-		Row row_password = sheet.getRow(2);
 
-		int lastCellNum = row_username.getLastCellNum();
+		for (int i = 1; i <= lastRowNum; i++) {
 
-		Cell username_cell = row_username.getCell(1);
-		Cell password_cell = row_password.getCell(2);
-
-		// Get Username from the excel
-
-		for (int i = 2; i <= lastRowNum; i++) {
-
-			username = username_cell.getStringCellValue();
-			if (username.equals(user)) {
+			role = sheet.getRow(i).getCell(0).getStringCellValue();
+			if (role.equals(user)) {
+				
+				username = sheet.getRow(i).getCell(1).getStringCellValue();
+				password = sheet.getRow(i).getCell(2).getStringCellValue();
 
 				break;
 			}
 
-			break;
-		}
-
-		// Get password from the excel
-
-		for (int j = 2; j <= lastRowNum; j++) {
-
-			password = password_cell.getStringCellValue();
-			if (password.equals(user)) {
-
-				break;
-			}
-
-			break;
 		}
 		cred[0] = username;
 		cred[1] = password;

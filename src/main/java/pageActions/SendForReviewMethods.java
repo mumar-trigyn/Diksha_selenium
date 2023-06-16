@@ -28,7 +28,7 @@ public class SendForReviewMethods extends BaseClass {
 	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectButton());
 	    
 	    JavascriptExecutor js=(JavascriptExecutor)driver;
-	    
+	   
 	    js.executeScript("arguments[0].scrollIntoView(true);", Upload.getSelectBoardSyllabus());
 	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectBoardSyllabus());
 	    DikshaUtils.waitToBeClickableAndClick(Upload.getBoardSelected());

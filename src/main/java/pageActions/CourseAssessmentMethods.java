@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import pageObject.CourseAssesment;
+import pageObject.ResourcesPom;
 import pageObject.UploadPdfContent;
 import utility.BaseClass;
 import utility.DikshaUtils;
@@ -75,4 +76,76 @@ public class CourseAssessmentMethods extends BaseClass {
 	    return randomName;
 	    
 	}
+	
+public static String createAssessmentWithQuestion() throws InterruptedException, Exception {
+		ResourcesPom rs=PageFactory.initElements(driver, ResourcesPom.class);	
+		CourseAssesment assesment=PageFactory.initElements(driver, CourseAssesment.class);
+		UploadPdfContent Upload=PageFactory.initElements(driver, UploadPdfContent.class);
+		
+		DikshaUtils.waitToBeClickableAndClick(Upload.getHeaderDropdown());
+		DikshaUtils.waitToBeClickableAndClick(Upload.getWorkspace());
+		DikshaUtils.waitToBeClickableAndClick(assesment.getCourseAssesmentTab());
+		String randomName=DikshaUtils.set_Content_Name("CourseAssessment_");
+		excel.updateData("TestData","CourseAssessment" ,randomName, "");
+		DikshaUtils.waitToBeClickableAndSendKeys(assesment.getNameTextField(), randomName);
+		DikshaUtils.waitToBeClickableAndSendKeys(assesment.getMaxAttemptTextField(), "3");
+		DikshaUtils.waitToBeVisibleAndClick(assesment.getStartCreatingButton());
+		Thread.sleep(8000);
+		WebElement iframe = driver.findElement(By.tagName("iframe"));
+		driver.switchTo().frame(iframe);
+		DikshaUtils.waitToBeClickableAndClick(assesment.getAddQuestionSetButton());
+		DikshaUtils.waitToBeClickableAndClick(rs.getCreateQuestionButton());
+		DikshaUtils.waitToBeClickableAndClick(rs.getSelectMCQButton());
+		Thread.sleep(2000);
+		WebElement iframe1 = driver.findElement(By.xpath("//iframe[contains(@title,'Rich Text Editor')]"));
+		driver.switchTo().frame(iframe1);
+	
+		Thread.sleep(2000);
+		DikshaUtils.waitToBeClickableAndClick(rs.getEnterTheQuestionTextfield());
+		DikshaUtils.waitToBeClickableAndSendKeys(rs.getEnterTheQuestionTextfield(),"Capital of India");
+	
+		driver.switchTo().defaultContent();
+		Thread.sleep(1000);
+		WebElement iframe2 = driver.findElement(By.xpath("//iframe[@class='iziModal-iframe']"));
+		driver.switchTo().frame(iframe2);
+		
+		
+		 JavascriptExecutor js=(JavascriptExecutor)driver;
+		 js.executeScript("arguments[0].scrollIntoView(true);", rs.getTickCorrectAnswer());
+		
+		
+		DikshaUtils.waitToBeClickableAndClick(rs.getTickCorrectAnswer());
+		
+		DikshaUtils.waitToBeClickableAndClick(rs.getAnswerNo1Textfield());
+		DikshaUtils.waitToBeClickableAndSendKeys(rs.getAnswerNo1Textfield(),"Delhi");
+		
+		DikshaUtils.waitToBeClickableAndClick(rs.getAnswerNo2Textfield());
+		DikshaUtils.waitToBeClickableAndSendKeys(rs.getAnswerNo2Textfield(),"Mumbai");
+		DikshaUtils.waitToBeClickableAndClick(rs.getNextButton());
+	
+		DikshaUtils.waitToBeClickableAndClick(rs.getSelectBoardSyllabus());
+		DikshaUtils.waitToBeClickableAndClick(rs.getBoardSelected());
+		DikshaUtils.waitToBeClickableAndClick(rs.getSelectMedium());
+		DikshaUtils.waitToBeClickableAndClick(rs.getMediumSelected());
+		DikshaUtils.waitToBeClickableAndClick(rs.getSelectGrade());
+		DikshaUtils.waitToBeClickableAndClick(rs.getGradeSelected());
+		DikshaUtils.waitToBeClickableAndClick(rs.getSelectSubject());
+		DikshaUtils.waitToBeClickableAndClick(rs.getSubjectSelected());
+		DikshaUtils.waitToBeClickableAndClick(rs.getSelectLevel());
+		DikshaUtils.waitToBeClickableAndClick(rs.getLevelSelected());
+		DikshaUtils.waitToBeClickableAndClick(rs.getSaveAndCreateButton());
+		DikshaUtils.waitToBeClickableAndClick(rs.getCancelButton());
+		DikshaUtils.waitToBeClickableAndClick(rs.getNextButtonAfterClickingCheckbox());
+		
+		DikshaUtils.waitToBeClickableAndSendKeys(assesment.getQuestionSetTitleTextfield(),"QA Questions");
+	    DikshaUtils.waitToBeClickableAndClick(assesment.getAddButton());
+	  
+	    
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSave());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getClose());
+	   
+	    return randomName;
+	    
+	}
+	
 }

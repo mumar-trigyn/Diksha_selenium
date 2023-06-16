@@ -17,7 +17,7 @@ public class CreateResourcesAndPublish extends BaseClass{
 	public void verifyECMLResource() throws Exception {
 		
 		ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
-		
+
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
@@ -25,7 +25,6 @@ public class CreateResourcesAndPublish extends BaseClass{
 		String contentName=	ResourcesMethods.resourceWithECMLContent();
 		SendForReviewMethods.ECMLContent_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
@@ -41,7 +40,6 @@ public class CreateResourcesAndPublish extends BaseClass{
  		String contentName=	ResourcesMethods.resourceWithTVLesson();
  		SendForReviewMethods.TvLessonResource_For_Review(contentName);
  		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
  		UpForReviewMethods.up_For_Review(contentName);
  		
@@ -56,7 +54,6 @@ public class CreateResourcesAndPublish extends BaseClass{
  		String contentName=	ResourcesMethods.createAndEditQuestionsInQuestionSet();
  		SendForReviewMethods.sendResource_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
   		UpForReviewMethods.up_For_Review(contentName); 		
   		
@@ -73,15 +70,11 @@ public class CreateResourcesAndPublish extends BaseClass{
  		String contentName=	ResourcesMethods.shuffleAndCopyQuestionsInQuestionSet();
 // 		SendForReviewMethods.sendResource_For_Review(contentName);
 //		UserOnBoarding.logout();
-//		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 //		UserOnBoarding.login("Reviewer");
 //  		UpForReviewMethods.up_For_Review(contentName); 		
 //  		
   		
   	}
      
-     
-     
-     
-     
+
 }

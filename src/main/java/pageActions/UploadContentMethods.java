@@ -8,7 +8,9 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -246,37 +248,23 @@ public static String UploadEpub() throws Exception {
 	public static void publishCourseFromUpForReview(String coursename) throws InterruptedException {
 		UpForReview review=PageFactory.initElements(driver, UpForReview.class);
 		wait=new WebDriverWait(driver, Duration.ofSeconds(30));
-		
-		Library.custom_click(review.getHeaderDropdown(), "HeaderDropdown");
+		DikshaUtils.waitToBeClickableAndClick(review.getHeaderDropdown());
+		DikshaUtils.waitToBeClickableAndClick(review.getWorkspace());
+		DikshaUtils.waitToBeClickableAndClick(review.getUpForReview());
+		DikshaUtils.waitToBeClickableAndSendKeys(review.getSearchForReview(),coursename);
+		DikshaUtils.waitToBeClickableAndClick(review.getSearchedContentForPublish());
+		DikshaUtils.waitToBeClickableAndClick(review.getTaboncourse());
+		driver.navigate().refresh();
+		driver.navigate().refresh();
+		DikshaUtils.waitToBeVisibleAndClick(review.getPublishTheCourse());
+		DikshaUtils.waitToBeClickableAndClick(review.getConfirmpublishTheCourse());
 		Thread.sleep(1000);
-		Library.custom_click(review.getWorkspace(),"Workspace");
+		WebElement publishPopup= driver.findElement(By.xpath("//strong[text()='Content is published']"));
+		String publish = publishPopup.getText();
+		Assert.assertEquals(publish , "Content is published");
+
 		Thread.sleep(1000);
-		Library.custom_click(review.getUpForReview(),"UpForReview");
-		Thread.sleep(1000);
-		Library.custom_sendkeys(review.getSearchForReview(), coursename, "SearchForReview");
-		Thread.sleep(1000);
-		Library.custom_click(review.getSearchedContentForPublish(), "SearchedContentForPublish");
-		Thread.sleep(1000);
-		Library.custom_click(review.getTaboncourse(), "Taboncourse");
-		Thread.sleep(1000);
-		
-		int i=3;
-		while(!review.getPublishTheCourse().isDisplayed()) {
-			driver.navigate().refresh();
-			Thread.sleep(2000);
-			if(review.getPublishTheCourse().isDisplayed()&& i<4)
-				DikshaUtils.waitToBeVisibleAndClick(review.getPublishTheCourse());
-			//Library.custom_click(review.getPublishTheCourse(), "PublishTheCourse");
-			i++;
-			break;
-		}
-		
-		Library.custom_click(review.getPublishTheCourse(), "PublishTheCourse");
-		Thread.sleep(1000);
-		Library.custom_click(review.getConfirmpublishTheCourse(),"ConfirmForPublishCourse");
-		Thread.sleep(1000);
-		
-		Assert.assertTrue(review.getHeaderDropdown().isDisplayed());
+	
 	}
 	
 	

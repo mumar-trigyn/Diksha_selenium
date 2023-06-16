@@ -23,7 +23,6 @@ public class CreateCourseAssessmentAndSendForReview extends BaseClass {
 		String contentName=CourseAssessmentMethods.createAssessmentWithAllTypeContent();
 		SendForReviewMethods.sendCourseAssessment_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		

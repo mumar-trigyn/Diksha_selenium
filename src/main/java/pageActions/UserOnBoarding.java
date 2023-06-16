@@ -142,18 +142,35 @@ public class UserOnBoarding extends BaseClass {
 	public static void logout() throws Exception { 
 
 		Logout log = PageFactory.initElements(driver, Logout.class);
+		ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
+		
 		DikshaUtils.waitToBeClickableAndClick(log.getDigitaltextbooktab());
 		DikshaUtils.waitToBeClickableAndClick(log.getCreatorIcon());
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", log.getLogout());
 		DikshaUtils.waitToBeClickableAndClick(log.getLogout());
-	
-		
 		Thread.sleep(2000);
-		 
+		explore.getExplorebutton().click();
 
 		}
-
+	
+	public static void loginasAdmin() throws Exception {
+		
+		
+		ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
+		LoginAsCustodian Log=PageFactory.initElements(driver, LoginAsCustodian.class);
+	   
+		explore.getExplorebutton().click();
+	    
+		Library.custom_click(Log.getHeaderDropdown(), "HeaderDropdown");
+		Thread.sleep(1000);
+		Library.custom_click(Log.getLogintab(),"Logintab");
+		Thread.sleep(1000);
+		Library.custom_sendkeys(Log.getUserName(),excel.getExcelData("Credentials", 4,1 ), "username");
+		Library.custom_sendkeys(Log.getPassword(),excel.getExcelData("Credentials", 4,2 ), "Password");
+		Library.custom_click(Log.getLogin(),"login button");
+		
+	}
 public static void loginAsNewCustodian() throws Exception {
 		
 		
@@ -179,7 +196,7 @@ public static void loginAsNewCustodian() throws Exception {
 	ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
 	LoginAsCustodian Log=PageFactory.initElements(driver, LoginAsCustodian.class);
    
-//	explore.getExplorebutton().click();
+	explore.getExplorebutton().click();
     
 	Library.custom_click(Log.getHeaderDropdown(), "HeaderDropdown");
 	Thread.sleep(1000);
@@ -492,12 +509,12 @@ public static void NewUser() throws Exception {
 	 }	 	 
 	
 	
-}	
+	
 
 //Below code is obsolete and wouldn't be used going forward
 
 
-/*	public static void loginascreator() throws Exception {
+	public static void loginascreator() throws Exception {
 
 		LoginPage loginpage = PageFactory.initElements(driver, LoginPage.class);
 
@@ -543,26 +560,26 @@ public static void NewUser() throws Exception {
 
 	}
 
-	public static void createBook() throws Exception {
-
-		CreateBook createbook = PageFactory.initElements(driver, CreateBook.class);
-
-		Library.custom_click(createbook.getHeaderDropdown(), "headerdropdown");
-		Thread.sleep(1000);
-		Library.custom_click(createbook.getWorkspace(), "workspace");
-		Thread.sleep(4000);
-		// createbook.getBook().click();
-		Library.custom_click(createbook.getBook(), "book");
-		Thread.sleep(4000);
-
-		String randomname = RandomStringUtils.randomAlphabetic(10);
-		Library.custom_sendkeys(createbook.getBookname(), randomname, "bookname");
-//			createbook.getBookname().sendKeys(randomname);
-		Thread.sleep(4000);
-		Library.custom_click(createbook.getStartCreating(), "startcreating");
-		Thread.sleep(1000);
-
-	}
+//	public static void createBook() throws Exception {
+//
+//		CreateBook createbook = PageFactory.initElements(driver, CreateBook.class);
+//
+//		Library.custom_click(createbook.getHeaderDropdown(), "headerdropdown");
+//		Thread.sleep(1000);
+//		Library.custom_click(createbook.getWorkspace(), "workspace");
+//		Thread.sleep(4000);
+//		// createbook.getBook().click();
+//		Library.custom_click(createbook.getBook(), "book");
+//		Thread.sleep(4000);
+//
+//		String randomname = RandomStringUtils.randomAlphabetic(10);
+//		Library.custom_sendkeys(createbook.getBookname(), randomname, "bookname");
+////			createbook.getBookname().sendKeys(randomname);
+//		Thread.sleep(4000);
+//		Library.custom_click(createbook.getStartCreating(), "startcreating");
+//		Thread.sleep(1000);
+//
+//	}
 
 	public static void logout_As_Creator() throws Exception {
 
@@ -598,7 +615,7 @@ public static void NewUser() throws Exception {
 
 	}
 
-	public static void loginasCustodian() throws Exception {
+	public static void loginasCustodian1() throws Exception {
 
 		ExplorePage explore = PageFactory.initElements(driver, ExplorePage.class);
 		LoginAsCustodian Log = PageFactory.initElements(driver, LoginAsCustodian.class);
@@ -637,5 +654,5 @@ public static void NewUser() throws Exception {
 		Assert.assertTrue(loginpage.getHeaderDropdown().isDisplayed());
 
 	}
+	}	
 
-*/

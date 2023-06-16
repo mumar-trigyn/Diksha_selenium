@@ -54,4 +54,17 @@ public class Course_Consumption extends BaseClass {
 	}
 	
 	
+	public static void searchContentForConsumption(String coursename) throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		CourseConsumption cc=PageFactory.initElements(driver, CourseConsumption.class);
+		
+		Thread.sleep(2000);
+	    Library.custom_sendkeys(cc.getSearchtextfield(), coursename, "course name searched");
+	    Thread.sleep(1000);
+	    DikshaUtils.waitToBeClickableAndClick(cc.getSearchbutton());
+	   
+	    DikshaUtils.waitToBeClickableAndClick(cc.getSearchedcourse());
+	    
+	}
 }

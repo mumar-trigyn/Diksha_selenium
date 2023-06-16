@@ -17,6 +17,9 @@ public class CreateBatchForCourse {
 	
 	@FindBy(how=How.XPATH,using="//button[text()='Create Batch']")
 	private WebElement createBatchButton;
+
+	@FindBy(how=How.XPATH,using="//button[text()=' Edit ']")
+	private WebElement editBatchButton;
 	
 	@FindBy(how=How.XPATH,using="//input[@name='name']")
 	private WebElement BatchName;
@@ -39,6 +42,10 @@ public class CreateBatchForCourse {
 	@FindBy(how=How.XPATH,using="//input[@id='no']")
 	private WebElement issueCertificateNo;
 	
+	@FindBy(how=How.XPATH,using="//input[@id='true']/..")
+	private WebElement enableDiscussionsButton;
+	
+	
 	@FindBy(how=How.XPATH,using="//input[@type='checkbox']")
 	private WebElement courseterms;
 	
@@ -48,6 +55,92 @@ public class CreateBatchForCourse {
 	@FindBy(how=How.XPATH,using="//i[@class='icon-svg icon-svg--xxs icon-back mr-4']")
 	private WebElement backAfterCreateBatchButton;
 
+	@FindBy(how=How.XPATH,using="//button[text()=' View course dashboard ']")
+	private WebElement viewDashboardButton;
+
+	@FindBy(how=How.XPATH,using="//span[text()='Ongoing']")
+	private WebElement ongoingBatchButton;
+
+	@FindBy(how=How.XPATH,using="//span[text()='Upcoming']")
+	private WebElement upcomingBatchButton;
+	
+	@FindBy(how=How.XPATH,using="//div[text()='No batches found']")
+	private WebElement noBatchFoundMsg;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Expired']")
+	private WebElement expiredBatchButton;
+	
+	@FindBy(how=How.XPATH,using="(//div[@class='mat-form-field-infix'])[2]//child::mat-select")
+	private WebElement selectBatchDropdown;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Batch 1']")
+	private WebElement BatchSelected;
+	
+	@FindBy(how=How.XPATH,using="//button[@title='Forum']")
+	private WebElement discussionForumIcon;
+	
+	@FindBy(how=How.XPATH,using="//div[@id='mat-select-value-55']")
+	private WebElement selectMentorDropdown;
+	
+	@FindBy(how=How.XPATH,using="//span[text()=' admin (ad********@gmail.com) ']")
+	private WebElement MentorSelected;
+	
+
+	public WebElement getEditBatchButton() {
+		return editBatchButton;
+	}
+
+
+	public WebElement getSelectMentorDropdown() {
+		return selectMentorDropdown;
+	}
+
+
+	public WebElement getMentorSelected() {
+		return MentorSelected;
+	}
+
+
+	public WebElement getDiscussionForumIcon() {
+		return discussionForumIcon;
+	}
+
+
+	public WebElement getSelectBatchDropdown() {
+		return selectBatchDropdown;
+	}
+
+
+	public WebElement getBatchSelected() {
+		return BatchSelected;
+	}
+
+
+	public WebElement getOngoingBatchButton() {
+		return ongoingBatchButton;
+	}
+
+
+	public WebElement getUpcomingBatchButton() {
+		return upcomingBatchButton;
+	}
+
+
+	public WebElement getNoBatchFoundMsg() {
+		return noBatchFoundMsg;
+	}
+
+
+	public WebElement getExpiredBatchButton() {
+		return expiredBatchButton;
+	}
+
+
+	public WebElement getViewDashboardButton() {
+		return viewDashboardButton;
+	}
+
+
 	public WebElement getBackAfterCreateBatchButton() {
 		return backAfterCreateBatchButton;
 	}
@@ -56,6 +149,7 @@ public class CreateBatchForCourse {
 	public void setBackAfterCreateBatchButton(WebElement backAfterCreateBatchButton) {
 		this.backAfterCreateBatchButton = backAfterCreateBatchButton;
 	}
+	
 
 	public WebElement getSearchtextfield() {
 		return searchtextfield;
@@ -64,7 +158,6 @@ public class CreateBatchForCourse {
 	public void setSearchtextfield(WebElement searchtextfield) {
 		this.searchtextfield = searchtextfield;
 	}
-
 	public WebElement getSearchbutton() {
 		return searchbutton;
 	}
@@ -144,6 +237,12 @@ public class CreateBatchForCourse {
 	public void setIssueCertificateNo(WebElement issueCertificateNo) {
 		this.issueCertificateNo = issueCertificateNo;
 	}
+
+	
+	public WebElement getEnableDiscussionsButton() {
+		return enableDiscussionsButton;
+	}
+
 
 	public WebElement getCourseterms() {
 		return courseterms;

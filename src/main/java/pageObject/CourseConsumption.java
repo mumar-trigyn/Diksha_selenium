@@ -52,6 +52,29 @@ public class CourseConsumption {
 	@FindBy(how=How.XPATH,using="//button[text()='Continue learning']")
 	private WebElement continuelearningtab;
 
+	@FindBy(how=How.XPATH,using="//button[text()='Leave course']")
+	private WebElement leaveCoursetab;
+
+	@FindBy(how=How.XPATH,using="//button[text()=' Leave course ']")
+	private WebElement confirmLeavebutton;
+	
+	
+	
+	public WebElement getConfirmLeavebutton() {
+		return confirmLeavebutton;
+	}
+
+
+	public WebElement getContinuelearningtab() {
+		return continuelearningtab;
+	}
+
+
+	public WebElement getLeaveCoursetab() {
+		return leaveCoursetab;
+	}
+
+
 	public WebElement getcontinuelearningtab() {
 		return continuelearningtab;
 	}
@@ -108,7 +131,6 @@ public class CourseConsumption {
 	public WebElement getStartLearning() {
 		return startLearning;
 	}
-
 	public void setStartLearning(WebElement startLearning) {
 		this.startLearning = startLearning;
 	}

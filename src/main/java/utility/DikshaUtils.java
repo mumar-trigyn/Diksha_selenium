@@ -108,6 +108,21 @@ public class DikshaUtils extends BaseClass {
         
     }
 	
+	public static void mergeXpathAndClick(String loc, String val) throws InterruptedException { 
+		String locatorInfo = loc.substring(loc.indexOf("//"), loc.lastIndexOf("'']"));
+		String xpath = locatorInfo + "'" + val +"']";
+		System.out.println(xpath); 
+		Thread.sleep(4000);
+		//WebElement element =driver.findElement(By.xpath(xpath));
+		//waitToBeClickableAndClick(element);
+		driver.findElement(By.xpath(xpath)).click(); 
+		
+	}
+	
+	
+	
+	
+	
 }
 
 

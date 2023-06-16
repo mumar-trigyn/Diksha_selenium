@@ -54,7 +54,7 @@ public class CourseCreation {
 		@FindBy(how=How.XPATH,using="//li[contains(text(),'Select Class')]")
 		private WebElement selectClassForCourse;
 		
-		@FindBy(how=How.XPATH,using="//label[contains(text(),'Class(es) of the audience')]//following::label[2]")
+		@FindBy(how=How.XPATH,using="//label[contains(text(),'Class(es) of the audience')]//following::label[3]")
 		private WebElement selectclass;
 		
 		@FindBy(how=How.XPATH,using="//li[contains(text(),'Select Subject')]")
@@ -99,6 +99,21 @@ public class CourseCreation {
 		@FindBy(how=How.XPATH,using="(//button[@type='button'])[7]")
 		private WebElement NewCoursesubmitButton;
 		
+		@FindBy(how=How.XPATH,using="//span[@class='fancytree-expander fa fa-caret-right']")
+		private WebElement courseUnitExpandButton;
+
+		@FindBy(how=How.XPATH,using="//span[contains(text(),'PDF_')]")
+		private WebElement verifyContentUnderCourse;
+		
+		
+		public WebElement getVerifyContentUnderCourse() {
+			return verifyContentUnderCourse;
+		}
+
+
+		public WebElement getCourseUnitExpandButton() {
+			return courseUnitExpandButton;
+		}
 
 
 		public WebElement getHeaderDropdown() {

@@ -25,7 +25,6 @@ public class UploadAllContentsTypes extends BaseClass {
 		String contentName=UploadContentMethods.UploadPdf();
 		SendForReviewMethods.sendPdf_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
@@ -41,7 +40,6 @@ public class UploadAllContentsTypes extends BaseClass {
 		String contentName=UploadContentMethods.UploadMp4();
 		SendForReviewMethods.sendMp4_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
@@ -56,7 +54,6 @@ public class UploadAllContentsTypes extends BaseClass {
 		String contentName=UploadContentMethods.UploadEpub();
 		SendForReviewMethods.sendEpub_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
@@ -71,7 +68,6 @@ public class UploadAllContentsTypes extends BaseClass {
 		String contentName=UploadContentMethods.UploadWebm();
 		SendForReviewMethods.sendWebm_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
@@ -87,7 +83,6 @@ public class UploadAllContentsTypes extends BaseClass {
 		String contentName=UploadContentMethods.UploadH5p();
 		SendForReviewMethods.sendH5p_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
@@ -103,7 +98,6 @@ public class UploadAllContentsTypes extends BaseClass {
 		String contentName=UploadContentMethods.UploadYoutubeContent();
 		SendForReviewMethods.sendYoutubeContent_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
@@ -119,7 +113,6 @@ public class UploadAllContentsTypes extends BaseClass {
 		String contentName=UploadContentMethods.UploadHtmlContent();
 		SendForReviewMethods.sendHtmlContent_For_Review(contentName);
 		UserOnBoarding.logout();
-		DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.up_For_Review(contentName);
 		
@@ -135,7 +128,6 @@ public class UploadAllContentsTypes extends BaseClass {
 			String contentName=UploadContentMethods.UploadMorethan50MbContent();
 			SendForReviewMethods.sendMoreThan50MbContent_For_Review(contentName);
 			UserOnBoarding.logout();
-			DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
 			UserOnBoarding.login("Reviewer");
 			UpForReviewMethods.up_For_Review(contentName);
 			
