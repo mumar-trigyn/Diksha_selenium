@@ -22,8 +22,13 @@ public class UploadPdfContent {
 	@FindBy(how=How.XPATH,using="//div[text()='Select Subject']")
 	private WebElement selectSubject;
 	
+
+	//@FindBy(how=How.XPATH,using="//div[text()='EVS']")
+
 	@FindBy(how=How.XPATH,using="//div[text()='Select Subject']/../div/div")
-	private WebElement subjectSelected;
+    private WebElement subjectSelected;
+	//div[text()='EVS']
+	//(//div[text()='English'])[2]
 	
 	@FindBy(how=How.XPATH,using="//div[text()='Select Class']")
 	private WebElement selectClass;
@@ -37,11 +42,18 @@ public class UploadPdfContent {
 	@FindBy(how=How.XPATH,using="//div[@class='menu transition visible']/div[text()='English']")
 	private WebElement mediumSelected;
 	
-	@FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']/../div/div")
-	private WebElement boardSelected;
+
+	@FindBy(how=How.XPATH,using="//div[text()='Others']")
+	//@FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']/../div/div")
+   private WebElement boardSelected;
+	//div[text()='Others']
+	//div[text()='State (Tamil Nadu)']
+	////select[@name='sb-dropdown']/option[text()='Others']
 	
 	@FindBy(how=How.XPATH,using="//div[text()='Select Board/Syllabus']")
 	private WebElement selectBoardSyllabus;
+//	//select[@name='sb-dropdown']/option[text()='Select Board/Syllabus ']
+	//div[text()='Select Board/Syllabus']
 	
 	@FindBy(how=How.XPATH,using="//div[text()='Add an image']")
 	private WebElement clickOnAddImage;
@@ -112,7 +124,24 @@ public class UploadPdfContent {
 	@FindBy(how=How.XPATH,using="//div[@id='url-upload']")
 	private WebElement enterurl;
 	
+	@FindBy(how=How.XPATH,using="//select[@id='_selectyear']")
+	private WebElement YearDropdown;
 	
+	
+	@FindBy(how=How.XPATH,using="//select[@id='_selectyear']//option[@data-value='2008']")
+	private WebElement YearVlaue;
+	//select[@id='_selectyear']//option[@data-value='2008']
+	//option[text()='2008']
+	//select[@id='_selectyear']//option[2]
+	
+	public WebElement getYearVlaue() {
+		return YearVlaue;
+	}
+	
+	
+	public WebElement getYearDropdown() {
+		return YearDropdown;
+	}
 	
 	
 	public WebElement getContentURL() {

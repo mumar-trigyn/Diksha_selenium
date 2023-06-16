@@ -8,8 +8,6 @@ import org.openqa.selenium.support.How;
 public class ManageUser {
      
 	
-	@FindBy(how=How.XPATH,using="//div[text()=' Add user ']")
-	private WebElement AddAnotherUserTab;
 	
 			
 	@FindBy(how=How.XPATH,using="//input[@placeholder='Enter your name']")
@@ -18,9 +16,7 @@ public class ManageUser {
 	@FindBy(how=How.XPATH,using="//button[text()=' Add user ']")
 	private WebElement AddUserTab;
 
-	public WebElement getAddAnotherUserTab() {
-		return AddAnotherUserTab;
-	}
+	
 	
 	public WebElement getEnterName() {
 		return EnterName;

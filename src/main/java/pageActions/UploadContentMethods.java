@@ -267,7 +267,56 @@ public static String UploadEpub() throws Exception {
 	
 	}
 	
-	
-	
+
+	public static void LessonPlan_send_For_Review(String name) throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		UploadPdfContent Upload=PageFactory.initElements(driver, UploadPdfContent.class);
+		UpForReview review=PageFactory.initElements(driver, UpForReview.class);
+		
+		
+		Thread.sleep(2000);
+		Library.custom_click(Upload.getSendforreview(),"send for review");
+		Thread.sleep(2000);
+		Upload.getName().clear();
+		Thread.sleep(1000);
+		Upload.getName().sendKeys(name);
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getClickOnAddImage());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getClickOnAllImage());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectImageFromAllImage());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectButton());
+	    
+       JavascriptExecutor js=(JavascriptExecutor)driver;
+	    
+	    js.executeScript("arguments[0].scrollIntoView(true);", Upload.getSelectBoardSyllabus());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectBoardSyllabus());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getBoardSelected());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectMedium());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getMediumSelected());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectClass());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getClassSelected());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectSubject());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSubjectSelected());
+	    
+	    js.executeScript("arguments[0].scrollIntoView(true);", Upload.getYearDropdown());
+	    Thread.sleep(1000);
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getYearDropdown());
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getYearVlaue());
+	    
+	    
+//	    js.executeScript("arguments[0].scrollIntoView(true);", Upload.getCopyright());
+//	    Thread.sleep(1000);
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getCopyright());
+	    Upload.getCopyright().sendKeys("2023");
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSavebutton());
+//	    Library.custom_sendkeys(Upload.getCopyright(),"2023", "copyright year");
+//	    Thread.sleep(1000);
+//	    Library.custom_click(Upload.getSavebutton(),"savebutton");
+//	    Thread.sleep(5000);
+	       	
+	}
+		
+
 }
+
+
 

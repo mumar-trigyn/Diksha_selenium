@@ -6,10 +6,13 @@ import org.openqa.selenium.support.How;
 
 public class LocationPopup {
 	
+	@FindBy(how=How.XPATH,using="//ngx-avatar[@title='Welcome Guest, Click here to continue to your profile']")
+	private WebElement Guesticon;
+	
 	@FindBy(how=How.XPATH,using="//input[@id='name']")
 	private WebElement guestNameTextField;
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"persona\"]/div[1]")
+	@FindBy(how=How.XPATH,using="(//div[@role='list'])[3]")
 	private WebElement Role;
 	
 	@FindBy(how=How.XPATH,using="//*[@id='state']/div[1]")
@@ -17,6 +20,9 @@ public class LocationPopup {
 	
 	@FindBy(how=How.XPATH,using="//*[@id='state']//span[text()='Maharashtra']")
 	private WebElement MaharashtraState;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Andhra Pradesh']")
+	private WebElement AndhraPradesh;
 	
 	@FindBy(how=How.XPATH,using="//*[@id='district']/div[1]")
 	private WebElement District;
@@ -28,8 +34,190 @@ public class LocationPopup {
 	private WebElement SubmitButton;
 	//ngx-avatar[@title='Welcome Guest, Click here to continue to your profile']
 	
-	@FindBy(how=How.XPATH,using="//ngx-avatar[@title='Welcome Guest, Click here to continue to your profile']")
-	private WebElement Guesticon;
+	@FindBy(how=How.XPATH,using="(//button[text()='Edit'])[1]")
+	private WebElement locationeditbutton;
+	
+	@FindBy(how=How.XPATH,using="(//div[@role='list'])[1]")
+	private WebElement guestRole;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Teacher']")
+	private WebElement teacher;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Student']")
+	private WebElement student;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Amravati']")
+	private WebElement Amravati;
+	
+	@FindBy(how=How.XPATH,using="(//button[@type='submit'])[2]")
+	private WebElement LocationSubmitButton;
+	
+	@FindBy(how=How.XPATH,using="//div[text()=' Amravati ']")
+	private WebElement TextAmravati;
+	
+	@FindBy(how=How.XPATH,using=" //div[text()=' Teacher']")
+	private WebElement Teacherprofile;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Head teacher & Official']")
+	private WebElement HTOfficial;
+	
+	@FindBy(how=How.XPATH,using="//div[@aria-label='Principal, selected ,Select Subrole']")
+	private WebElement SubRole;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Principal']")
+	private WebElement principle;
+	
+	@FindBy(how=How.XPATH,using="//button[text()='Submit ']")
+	private WebElement PersonalDetailSubmitButton;
+	
+	@FindBy(how=How.XPATH,using=" //div[text()='Parent']")
+	private WebElement TextParent;
+	
+	@FindBy(how=How.XPATH,using="//div[text()=' Alluri Sita Rama Raju ']")
+	private WebElement TextDistrict;
+	
+	@FindBy(how=How.XPATH,using="//div[text()=' Andhra Pradesh']")
+	private WebElement TextAP;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Parent']")
+	private WebElement parent;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Alluri Sita Rama Raju']")
+	private WebElement DistrictAlluriSitaRamaRaju;
+	
+	public WebElement getDistrictAlluriSitaRamaRaju() {
+		return DistrictAlluriSitaRamaRaju;
+	}
+	
+	public WebElement getStudent() {
+		return student;
+	}
+
+	
+	public WebElement getAndhraPradesh() {
+		return AndhraPradesh;
+	}
+	
+	public WebElement getparent() {
+		return parent;
+	}
+	
+	public WebElement getTextParent() {
+		return TextParent;
+	}
+
+	public void setTextParent(WebElement textParent) {
+		TextParent = textParent;
+	}
+
+	public WebElement getTextDistrict() {
+		return TextDistrict;
+	}
+
+	public void setTextDistrict(WebElement textDistrict) {
+		TextDistrict = textDistrict;
+	}
+
+	public WebElement getTextAP() {
+		return TextAP;
+	}
+
+	public void setTextAP(WebElement textAP) {
+		TextAP = textAP;
+	}
+
+	public WebElement getPersonalDetailSubmitButton() {
+		return PersonalDetailSubmitButton;
+	}
+	
+	public WebElement getSubRole() {
+		return SubRole;
+	}
+
+
+	public WebElement getPrinciple() {
+		return principle;
+	}
+
+	
+	public WebElement getHTOfficial() {
+		return HTOfficial;
+	}
+	
+	public WebElement getguestRole() {
+		return guestRole;
+	}
+	
+	public WebElement getLocationeditbutton() {
+		return locationeditbutton;
+	}
+
+
+
+	public void setLocationeditbutton(WebElement locationeditbutton) {
+		this.locationeditbutton = locationeditbutton;
+	}
+
+
+
+	public WebElement getTeacher() {
+		return teacher;
+	}
+
+
+
+	public void setTeacher(WebElement teacher) {
+		this.teacher = teacher;
+	}
+
+
+
+	public WebElement getAmravati() {
+		return Amravati;
+	}
+
+
+
+	public void setAmravati(WebElement amravati) {
+		Amravati = amravati;
+	}
+
+
+
+	public WebElement getLocationSubmitButton() {
+		return LocationSubmitButton;
+	}
+
+
+
+	public void setLocationSubmitButton(WebElement locationSubmitButton) {
+		LocationSubmitButton = locationSubmitButton;
+	}
+
+
+
+	public WebElement getTextAmravati() {
+		return TextAmravati;
+	}
+
+
+
+	public void setTextAmravati(WebElement textAmravati) {
+		TextAmravati = textAmravati;
+	}
+
+
+
+	public WebElement getTeacherprofile() {
+		return Teacherprofile;
+	}
+
+
+
+	public void setTeacherprofile(WebElement teacherprofile) {
+		Teacherprofile = teacherprofile;
+	}
+	
 	
 	
 	

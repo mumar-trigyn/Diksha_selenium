@@ -17,7 +17,9 @@ import pageObject.OtherProfile;
 import pageObject.ParentProfile;
 import pageObject.SchoolHeadProfile;
 import pageObject.StudentProfile;
+import pageObject.SubmitDetails;
 import pageObject.TeacherProfile;
+import pageObject.UpdateProfile;
 import pageObject.userProfile;
 import utility.BaseClass;
 import utility.DikshaUtils;
@@ -139,38 +141,10 @@ public class UserOnBoarding extends BaseClass {
 
 	}
 	
-	public static void logout() throws Exception { 
 
-		Logout log = PageFactory.initElements(driver, Logout.class);
-		ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
-		
-		DikshaUtils.waitToBeClickableAndClick(log.getDigitaltextbooktab());
-		DikshaUtils.waitToBeClickableAndClick(log.getCreatorIcon());
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", log.getLogout());
-		DikshaUtils.waitToBeClickableAndClick(log.getLogout());
-		Thread.sleep(2000);
-		explore.getExplorebutton().click();
-
-		}
 	
-	public static void loginasAdmin() throws Exception {
-		
-		
-		ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
-		LoginAsCustodian Log=PageFactory.initElements(driver, LoginAsCustodian.class);
-	   
-		explore.getExplorebutton().click();
-	    
-		Library.custom_click(Log.getHeaderDropdown(), "HeaderDropdown");
-		Thread.sleep(1000);
-		Library.custom_click(Log.getLogintab(),"Logintab");
-		Thread.sleep(1000);
-		Library.custom_sendkeys(Log.getUserName(),excel.getExcelData("Credentials", 4,1 ), "username");
-		Library.custom_sendkeys(Log.getPassword(),excel.getExcelData("Credentials", 4,2 ), "Password");
-		Library.custom_click(Log.getLogin(),"login button");
-		
-	}
+
+
 public static void loginAsNewCustodian() throws Exception {
 		
 		
@@ -227,24 +201,40 @@ public static void NewUser() throws Exception {
 	
 }
 
+        public static void logout() throws Exception {
 
-	public static void Verify_Guest_user_is_able_to_edit_BMC_Values () throws Exception {
+     ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
+     Logout log = PageFactory.initElements(driver, Logout.class);
+
+     DikshaUtils.waitToBeClickableAndClick(log.getDigitaltextbooktab());
+     DikshaUtils.waitToBeClickableAndClick(log.getCreatorIcon());
+     JavascriptExecutor js = (JavascriptExecutor) driver;
+     js.executeScript("arguments[0].scrollIntoView(true);", log.getLogout());
+     DikshaUtils.waitToBeClickableAndClick(log.getLogout());  
+     DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+   
+
+}
+
+   public static void Verify_Guest_user_is_able_to_edit_BMC_Values () throws Exception {
 		 
 		 userProfile guest=PageFactory.initElements(driver, userProfile.class);
+		 LocationPopup locationpopup=PageFactory.initElements(driver, LocationPopup.class);
+		 BMCPopup bmcpopup = PageFactory.initElements(driver, BMCPopup.class);
 		 
 		 DikshaUtils.waitToBeClickableAndClick(guest.headerDropdown());
 		 DikshaUtils.waitToBeClickableAndClick(guest.getProfilebutton());
-        DikshaUtils.waitToBeClickableAndClick(guest.getLocationeditbutton());
-        DikshaUtils.waitToBeVisibleAndClick(guest.getguestRole());
-        DikshaUtils.waitToBeClickableAndClick(guest.getteacher());
-        DikshaUtils.waitToBeVisibleAndClick(guest.getDistrict());
-        DikshaUtils.waitToBeClickableAndClick(guest.getAmravati());
-        DikshaUtils.waitToBeClickableAndClick(guest.getLocationSubmitButton());
+        DikshaUtils.waitToBeClickableAndClick(locationpopup.getLocationeditbutton());
+        DikshaUtils.waitToBeVisibleAndClick(locationpopup.getguestRole());
+        DikshaUtils.waitToBeClickableAndClick(locationpopup.getTeacher());
+        DikshaUtils.waitToBeVisibleAndClick(locationpopup.getDistrict());
+        DikshaUtils.waitToBeClickableAndClick(locationpopup.getAmravati());
+        DikshaUtils.waitToBeClickableAndClick(locationpopup.getLocationSubmitButton());
 
 		Thread.sleep(2000);
 		
-		String actualRoleName = guest.getTeacherprofile().getText();
-       String actualDistrictName = guest.getTextAmravati().getText();
+		String actualRoleName = locationpopup.getTeacherprofile().getText();
+       String actualDistrictName = locationpopup.getTextAmravati().getText();
       
        Thread.sleep(2000);
        
@@ -257,35 +247,33 @@ public static void NewUser() throws Exception {
        Thread.sleep(2000);
 		
       JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView(true);",guest.getBMCeditbutton());
-		Library.custom_click(guest.getBMCeditbutton(),"BMCEditbutton");
+		js.executeScript("arguments[0].scrollIntoView(true);",bmcpopup.getBMCeditbutton());
+		Library.custom_click(bmcpopup.getBMCeditbutton(),"BMCEditbutton");
 		Thread.sleep(1000);
 		
 		
-		DikshaUtils.waitToBeVisibleAndClick(guest.getBoard());
-		DikshaUtils.waitToBeClickableAndClick(guest.getIGOT_Health());
+		DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getBoard());
+		DikshaUtils.waitToBeClickableAndClick(bmcpopup.getIGOT_Health());
 		Thread.sleep(4000);
-		DikshaUtils.waitToBeClickableAndClick(guest.getMedium());
-	    DikshaUtils.waitToBeClickableAndClick(guest.getGujarati());
-
-		
+		DikshaUtils.waitToBeClickableAndClick(bmcpopup.getMedium());
+	    DikshaUtils.waitToBeClickableAndClick(bmcpopup.getGujarati());
 		Thread.sleep(1000);
 		
 		 Actions act=new Actions(driver);
 		 act.moveByOffset(50, 100).click().build().perform();
 		 Thread.sleep(1000);
 		 
-		DikshaUtils.waitToBeVisibleAndClick(guest.getClasss());
-		DikshaUtils.waitToBeVisibleAndClick(guest.getPharmacist());
+		DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getClasss());
+		DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getPharmacist());
 		act.moveByOffset(50, 100).click().build().perform();
 		Thread.sleep(1000);
-		Library.custom_click(guest.getBMCSubmit(),"bmcsubmit");
+		Library.custom_click(bmcpopup.getBMCSubmit(),"bmcsubmit");
 		Thread.sleep(2000);
 	
 		
-		String actualBoardName = guest.getIGOT_Health().getText();
-       String actualMediumName = guest.getGujarati().getText();
-       String actualClassName = guest.getPharmacist().getText();
+		String actualBoardName = bmcpopup.getIGOT_Health().getText();
+       String actualMediumName = bmcpopup.getGujarati().getText();
+       String actualClassName = bmcpopup.getPharmacist().getText();
        
        System.out.println(actualBoardName);
        System.out.println(actualMediumName);
@@ -301,8 +289,9 @@ public static void NewUser() throws Exception {
 		 
 		 userProfile user=PageFactory.initElements(driver, userProfile.class);
 		 Logout log=PageFactory.initElements(driver, Logout.class);
-		 
+		 SubmitDetails sumbitdetails=PageFactory.initElements(driver, SubmitDetails.class);
 		 Thread.sleep(1000);
+		 
 		 DikshaUtils.waitToBeClickableAndClick(user.headerDropdown());
 		 DikshaUtils.waitToBeClickableAndClick(user.getProfilebutton());
 		 
@@ -310,14 +299,14 @@ public static void NewUser() throws Exception {
 	//    js.executeScript("arguments[0].scrollIntoView(true);",user.getSubmitDetails());
 	     js.executeScript("window.scrollBy(0, 500)");
 	     Thread.sleep(2000);
-		 user.getSubmitDetails().isDisplayed();
+	     sumbitdetails.getSubmitDetails().isDisplayed();
 		 Thread.sleep(1000);
-		 DikshaUtils.waitToBeClickableAndClick(user.getSubmitDetails());
-		 DikshaUtils.waitToBeVisibleAndClick(user.getInstitutionTab());
-		 DikshaUtils.waitToBeClickableAndClick(user.getCbscTab());
-		 DikshaUtils.waitToBeClickableAndClick(user.getSubmitDetailCheckbox());
+		 DikshaUtils.waitToBeClickableAndClick(sumbitdetails.getSubmitDetails());
+		 DikshaUtils.waitToBeVisibleAndClick(sumbitdetails.getInstitutionTab());
+		 DikshaUtils.waitToBeClickableAndClick(sumbitdetails.getCbscTab());
+		 DikshaUtils.waitToBeClickableAndClick(sumbitdetails.getSubmitDetailCheckbox());
 		 Thread.sleep(1000);
-		 user.getProfileSubmitbutton().isDisplayed();
+		 sumbitdetails.getProfileSubmitbutton().isDisplayed();
 		 Thread.sleep(2000);
 		 
 		 js.executeScript("window.scrollTo(0, 0)");
@@ -329,8 +318,7 @@ public static void NewUser() throws Exception {
 		 ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
 		 explore.getExplorebutton().click();
 		 
-		 
-		 
+		 	 
 	 }
 	 
 	 public static void VerifyTheUserIsAbleToUpdateTheBMCAndLocationDetails () throws Exception {
@@ -339,24 +327,25 @@ public static void NewUser() throws Exception {
 		 userProfile user=PageFactory.initElements(driver, userProfile.class);
 		 HomePage home=PageFactory.initElements(driver, HomePage.class);
 		 BMCPopup bmcpopup=PageFactory.initElements(driver,  BMCPopup.class);
+		 LocationPopup locationpopup=PageFactory.initElements(driver, LocationPopup.class);
 		 Thread.sleep(1000);
 		
 		 
 		 DikshaUtils.waitToBeClickableAndClick(user.headerDropdown());
 		 DikshaUtils.waitToBeClickableAndClick(user.getProfilebutton());
-		 DikshaUtils.waitToBeClickableAndClick(user.getLocationeditbutton());
-		 DikshaUtils.waitToBeVisibleAndClick(user.getRole());
-		 DikshaUtils.waitToBeClickableAndClick(user.getParent());
-		 DikshaUtils.waitToBeClickableAndClick(user.getState());
-		 DikshaUtils.waitToBeClickableAndClick(user.getAndhraPradesh());
-		 DikshaUtils.waitToBeClickableAndClick(user.getDistrict());
-		 DikshaUtils.waitToBeClickableAndClick(user.getDistrictAlluriSitaRamaRaju());
-		 DikshaUtils.waitToBeClickableAndClick(user.getLocationSubmitButton());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getLocationeditbutton());
+		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getRole());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getparent());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getState());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getAndhraPradesh());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getDistrict());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getDistrictAlluriSitaRamaRaju());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getLocationSubmitButton());
 		 Thread.sleep(2000);
 		
-		 String actualRoleName = user.getTextParent().getText();
-	        String actualDistrictName = user.getTextDistrict().getText();
-	        String actualStateName = user.getTextAP().getText();
+		 String actualRoleName = locationpopup.getTextParent().getText();
+	        String actualDistrictName = locationpopup.getTextDistrict().getText();
+	        String actualStateName = locationpopup.getTextAP().getText();
 	        
 	        System.out.println(actualRoleName);
 	        System.out.println(actualDistrictName);
@@ -374,7 +363,7 @@ public static void NewUser() throws Exception {
 
 		    
 		// Library.custom_click(user.getBMCeditbutton(), "BMCeditbutton");
-		 DikshaUtils.waitToBeClickableAndClick(user.getBMCeditbutton());
+		 DikshaUtils.waitToBeClickableAndClick(bmcpopup.getBMCeditbutton());
 		 Thread.sleep(2000);
 		 DikshaUtils.waitToBeClickableAndClick(bmcpopup.getBoard());
 		 DikshaUtils.waitToBeClickableAndClick(bmcpopup.getCbsc());
@@ -409,9 +398,9 @@ public static void NewUser() throws Exception {
 		 DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getBMCSubmit());
 		  Thread.sleep(2000);
 			
-		 String actualBoardName = user.getTextCbsc().getText();
-	     String actualMediumName = user.getTextEnglish().getText();
-	     String actualClassName = user.getTextClass2().getText();
+		 String actualBoardName = bmcpopup.getTextCbsc().getText();
+	     String actualMediumName = bmcpopup.getTextEnglish().getText();
+	     String actualClassName = bmcpopup.getTextClass2().getText();
 	        
 	        System.out.println(actualBoardName);
 	        System.out.println(actualMediumName);
@@ -428,6 +417,7 @@ public static void NewUser() throws Exception {
 		 
 
 		 userProfile user=PageFactory.initElements(driver,userProfile.class);
+		 UpdateProfile update=PageFactory.initElements(driver,UpdateProfile.class);
 		 Thread.sleep(1000);
 		
 		 
@@ -438,14 +428,14 @@ public static void NewUser() throws Exception {
 		 js.executeScript("window.scrollBy(0, 1200)");
 	    //js.executeScript("arguments[0].scrollIntoView(true);",user.getBeforeUpdateButton());
 	    Thread.sleep(2000);
-	    DikshaUtils.waitToBeClickableAndClick(user.getBeforeUpdateButton());
-		 DikshaUtils.waitToBeClickableAndClick(user.getId());
-		 DikshaUtils.waitToBeClickableAndClick(user.getAfterUpdateButton());
+	    DikshaUtils.waitToBeClickableAndClick(update.getBeforeUpdateButton());
+		 DikshaUtils.waitToBeClickableAndClick(update.getId());
+		 DikshaUtils.waitToBeClickableAndClick(update.getAfterUpdateButton());
 		 Thread.sleep(1000);
-		 js.executeScript("arguments[0].scrollIntoView(true);",user.getUpdateIdText());
+		 js.executeScript("arguments[0].scrollIntoView(true);",update.getUpdateIdText());
 		 Thread.sleep(1000);
 		
-		 String actualIdName =user.getUpdateIdText().getText();
+		 String actualIdName =update.getUpdateIdText().getText();
 		 Assert.assertEquals(actualIdName, "Akash123");
 		 
 	 
@@ -455,19 +445,20 @@ public static void NewUser() throws Exception {
 		 
 		 userProfile user=PageFactory.initElements(driver,userProfile.class);
 		 HomePage home=PageFactory.initElements(driver, HomePage.class);
+		 LocationPopup locationpopup=PageFactory.initElements(driver, LocationPopup.class);
 		 Thread.sleep(1000);
 		
 		 
 		 DikshaUtils.waitToBeClickableAndClick(user.headerDropdown());
 		 DikshaUtils.waitToBeClickableAndClick(user.getProfilebutton());
 		 Thread.sleep(2000);
-		 DikshaUtils.waitToBeClickableAndClick(user.getLocationeditbutton());
-		 DikshaUtils.waitToBeVisibleAndClick(user.getRole());
-		 DikshaUtils.waitToBeClickableAndClick(user.getHTOfficial());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getLocationeditbutton());
+		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getRole());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getHTOfficial());
 		 Thread.sleep(2000);
-//		 DikshaUtils.waitToBeVisibleAndClick(user.getSubRole());
-//		 DikshaUtils.waitToBeVisibleAndClick(user.getprinciple());
-		 DikshaUtils.waitToBeClickableAndClick(user.getPersonalDetailSubmitButton());
+		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getSubRole());
+		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getPrinciple());
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getPersonalDetailSubmitButton());
 		 Thread.sleep(2000);
 		 JavascriptExecutor js=(JavascriptExecutor)driver;
 		 js.executeScript("window.scrollTo(0, 0)");
@@ -478,7 +469,7 @@ public static void NewUser() throws Exception {
 		 	 	 
 	 }
 	 
-	 public static String addUser() throws Exception {
+	 public static String addManagedUser() throws Exception {
 		
 		 ManageUser adduser=PageFactory.initElements(driver,ManageUser.class);
 		
@@ -496,14 +487,14 @@ public static void NewUser() throws Exception {
 	 public static void CustodianUserIsAableToAddTheMUAUser() throws Exception {
 		
 		 userProfile user=PageFactory.initElements(driver,userProfile.class);
-		 ManageUser adduser=PageFactory.initElements(driver,ManageUser.class);
+		
 		 
 		 DikshaUtils.waitToBeClickableAndClick(user.headerDropdown());
-		 DikshaUtils.waitToBeClickableAndClick(adduser.getAddAnotherUserTab());
+		 DikshaUtils.waitToBeClickableAndClick(user.getAddAnotherUserTab());
 		  
 		 for(int i=0;i<30;i++) {
 			 
-			 UserOnBoarding.addUser();
+			 UserOnBoarding.addManagedUser();
 		 }
 		 	 
 	 }	 	 
@@ -533,8 +524,8 @@ public static void NewUser() throws Exception {
 
 		Assert.assertTrue(loginpage.getHeaderDropdown().isDisplayed());
 		Thread.sleep(2000);
-
 	}
+	
 
 	public static void loginasreviewer() throws Exception {
 
@@ -574,7 +565,7 @@ public static void NewUser() throws Exception {
 //
 //		String randomname = RandomStringUtils.randomAlphabetic(10);
 //		Library.custom_sendkeys(createbook.getBookname(), randomname, "bookname");
-////			createbook.getBookname().sendKeys(randomname);
+
 //		Thread.sleep(4000);
 //		Library.custom_click(createbook.getStartCreating(), "startcreating");
 //		Thread.sleep(1000);
@@ -585,8 +576,9 @@ public static void NewUser() throws Exception {
 
 		Logout log = PageFactory.initElements(driver, Logout.class);
 		ExplorePage explore = PageFactory.initElements(driver, ExplorePage.class);
-
-		Library.custom_click(log.getDigitaltextbooktab(), "Digital textbook tab");
+           
+		DikshaUtils.waitToBeVisibleAndClick(log.getDigitaltextbooktab());
+	//	Library.custom_click(log.getDigitaltextbooktab(), "Digital textbook tab");
 		Thread.sleep(1000);
 		Library.custom_click(log.getCreatorIcon(), "c icon");
 		Thread.sleep(1000);
@@ -597,8 +589,8 @@ public static void NewUser() throws Exception {
 		Assert.assertTrue(explore.getExplorebutton().isDisplayed());
 
 	}
-
-	public static void logout_As_Reviewer() throws Exception {
+}
+/*	public static void logout_As_Reviewer() throws Exception {
 
 		Logout log = PageFactory.initElements(driver, Logout.class);
 		ExplorePage explore = PageFactory.initElements(driver, ExplorePage.class);
@@ -656,3 +648,4 @@ public static void NewUser() throws Exception {
 	}
 	}	
 
+*/

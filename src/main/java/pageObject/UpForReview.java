@@ -45,8 +45,7 @@ public class UpForReview {
 
 
 	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[1]")
-
-	private WebElement noHateSpeech;
+    private WebElement noHateSpeech;
 
 	@FindBy(how=How.XPATH,using="(//input[@class='listItem'])[2]")
     private WebElement noSexualContent;
@@ -89,6 +88,23 @@ public class UpForReview {
 	
 	@FindBy(how=How.XPATH,using="(//button[text()=' Publish '])[2]")
     private WebElement confirmForPublishBook;
+	
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Publish']")
+    private WebElement publishLessonPlan;
+	
+	
+	@FindBy(how=How.XPATH,using="(//button[text()='Publish'])[1]")
+    private WebElement confirmForPublishLessonPlan;
+
+	public WebElement getconfirmForPublishLessonPlan() {
+		return confirmForPublishLessonPlan;
+	}
+	
+	
+	public WebElement getpublishLessonPlan() {
+		return publishLessonPlan;
+	}
 	
 
 	public WebElement getConfirmpublishTheCourse() {
