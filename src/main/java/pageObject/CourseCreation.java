@@ -54,9 +54,9 @@ public class CourseCreation {
 		@FindBy(how=How.XPATH,using="//li[contains(text(),'Select Class')]")
 		private WebElement selectClassForCourse;
 		
-		@FindBy(how=How.XPATH,using="//label[contains(text(),'Class(es) of the audience')]//following::label[2]")
+		@FindBy(how=How.XPATH,using="//label[contains(text(),'Class(es) of the audience')]//following::label[5]")
 		private WebElement selectclass;
-		
+		//label[contains(text(),'Class(es) of the audience')]//following::label[2]
 		@FindBy(how=How.XPATH,using="//li[contains(text(),'Select Subject')]")
 		private WebElement selectSubjectForCourse;
 		

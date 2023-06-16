@@ -21,9 +21,55 @@ public class FiltersInDiffrentTabs {
 	@FindBy(how=How.XPATH,using="//label[text()='Medium']")
 	private WebElement medium;
 	
+	
+	
+	@FindBy(how=How.XPATH,using="//span[text()=' Hindi ']")
+	private WebElement mediumhindi;
+	
+	@FindBy(how=How.XPATH,using="//span[text()=' English ']")
+	private WebElement mediumenglish;
+	
 	@FindBy(how=How.XPATH,using="//label[text()='Class']")
 	private WebElement classs;
 	
+	@FindBy(how=How.XPATH,using="//label[text()='Class']")
+	private WebElement Selectclasss1;
+	
+	@FindBy(how=How.XPATH,using="//span[text()=' Class 2 ']")
+	private WebElement Selectclasss2;
+	
+	public WebElement getMediumhindi() {
+		return mediumhindi;
+	}
+
+	public void setMediumhindi(WebElement mediumhindi) {
+		this.mediumhindi = mediumhindi;
+	}
+
+	public WebElement getMediumenglish() {
+		return mediumenglish;
+	}
+
+	public void setMediumenglish(WebElement mediumenglish) {
+		this.mediumenglish = mediumenglish;
+	}
+
+	public WebElement getSelectclasss1() {
+		return Selectclasss1;
+	}
+
+	public void setSelectclasss1(WebElement selectclasss1) {
+		Selectclasss1 = selectclasss1;
+	}
+
+	public WebElement getSelectclasss2() {
+		return Selectclasss2;
+	}
+
+	public void setSelectclasss2(WebElement selectclasss2) {
+		Selectclasss2 = selectclasss2;
+	}
+
 	@FindBy(how=How.XPATH,using="//label[text()='Subject']")
 	private WebElement subject;
 	

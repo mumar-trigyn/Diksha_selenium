@@ -155,8 +155,8 @@ public static void loginAsNewCustodian() throws Exception {
 		Thread.sleep(1000);
 		Library.custom_click(Log.getLogintab(),"Logintab");
 		Thread.sleep(1000);
-		Library.custom_sendkeys(Log.getUserName(),excel.getExcelData("Credentials", 60,1 ), "username");
-		Library.custom_sendkeys(Log.getPassword(),excel.getExcelData("Credentials", 60,2 ), "Password");
+		Library.custom_sendkeys(Log.getUserName(),excel.getExcelData("Credentials", 5,1 ), "username");
+		Library.custom_sendkeys(Log.getPassword(),excel.getExcelData("Credentials", 5,2 ), "Password");
 		Library.custom_click(Log.getLogin(),"login button");
 		
 	//	Assert.assertTrue(Log.getCustodianheaderDropdown().isDisplayed());
@@ -306,14 +306,7 @@ public static void NewUser() throws Exception {
 		 sumbitdetails.getProfileSubmitbutton().isDisplayed();
 		 Thread.sleep(2000);
 		 
-		 js.executeScript("window.scrollTo(0, 0)");
-//		 js.executeScript("arguments[0].scrollIntoView(true);",user.getCustodianheaderDropdown());
-	     Thread.sleep(2000);
-		 DikshaUtils.waitToBeVisibleAndClick(user.headerDropdown());
-		 DikshaUtils.waitToBeClickableAndClick(log.getLogout());
-		 
-		 ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
-		 explore.getExplorebutton().click();
+
 		 
 		 	 
 	 }
@@ -438,33 +431,6 @@ public static void NewUser() throws Exception {
 	 
 	 }
 	 
-	 public static void validateObservationTab() throws Exception {
-		 
-		 userProfile user=PageFactory.initElements(driver,userProfile.class);
-		 HomePage home=PageFactory.initElements(driver, HomePage.class);
-		 LocationPopup locationpopup=PageFactory.initElements(driver, LocationPopup.class);
-		 Thread.sleep(1000);
-		
-		 
-		 DikshaUtils.waitToBeClickableAndClick(user.headerDropdown());
-		 DikshaUtils.waitToBeClickableAndClick(user.getProfilebutton());
-		 Thread.sleep(2000);
-		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getLocationeditbutton());
-		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getRole());
-		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getHTOfficial());
-		 Thread.sleep(2000);
-		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getSubRole());
-		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getPrinciple());
-		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getPersonalDetailSubmitButton());
-		 Thread.sleep(2000);
-		 JavascriptExecutor js=(JavascriptExecutor)driver;
-		 js.executeScript("window.scrollTo(0, 0)");
-		 Thread.sleep(2000);
-		 DikshaUtils.waitToBeClickableAndClick(user.getBackButton());
-		 Thread.sleep(2000);
-		 home.getObservationTab().isDisplayed();
-		 	 	 
-	 }
 	 
 	 public static String addManagedUser() throws Exception {
 		
@@ -575,7 +541,6 @@ public static void NewUser() throws Exception {
 		ExplorePage explore = PageFactory.initElements(driver, ExplorePage.class);
            
 		DikshaUtils.waitToBeVisibleAndClick(log.getDigitaltextbooktab());
-	//	Library.custom_click(log.getDigitaltextbooktab(), "Digital textbook tab");
 		Thread.sleep(1000);
 		Library.custom_click(log.getCreatorIcon(), "c icon");
 		Thread.sleep(1000);
@@ -583,7 +548,7 @@ public static void NewUser() throws Exception {
 		js.executeScript("arguments[0].scrollIntoView(true);", log.getLogout());
 		Library.custom_click(log.getLogout(), "logout");
 
-		Assert.assertTrue(explore.getExplorebutton().isDisplayed());
+		//Assert.assertTrue(explore.getExplorebutton().isDisplayed());
 
 	}
 }

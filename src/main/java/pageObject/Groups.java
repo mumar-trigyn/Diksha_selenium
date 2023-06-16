@@ -27,10 +27,12 @@ public class Groups {
 	@FindBy(how=How.XPATH,using="//button[@class='sb-btn sb-btn-primary sb-btn-normal flex-ai-jc-center mb-8 ng-star-inserted']")
 	private WebElement AfterCreateGroupsButton;
 	
-	@FindBy(how=How.XPATH,using="(//div[@Class='sb--card sb--card--course--curiculum ng-star-inserted'])[1]")
+	@FindBy(how=How.XPATH,using="(//div[@class='sb--card__main-area'])[1]")
 	private WebElement Selectgroup;
 	
+		//	(//div[@Class='sb--card sb--card--course--curiculum ng-star-inserted'])[1]
 			//div[contains(text(),'GroupName_')]
+	
 	@FindBy(how=How.XPATH,using="//div[text()=' Add member ']")
 	private WebElement AddMember;
 	
@@ -61,6 +63,8 @@ public class Groups {
 	
 	@FindBy(how=How.XPATH,using="(//div[@Class='sb--card sb--card--theme2 sb--card--recently-viewed ng-star-inserted'])[1]")
     private WebElement OverTheBook;
+	
+
 	
 	@FindBy(how=How.XPATH,using="//div[@Class='kabab-menu']")
     private WebElement kababmenu;
@@ -104,6 +108,53 @@ public class Groups {
 	@FindBy(how=How.XPATH,using="//button[@id='close-discussion-forum']")
     private WebElement DiscussionCloseButton;
 	
+	@FindBy(how=How.XPATH,using="//h4[text()='Course']")
+    private WebElement CourseTab;
+	
+	@FindBy(how=How.XPATH,using="//input[@id='search-for-content-group']")
+    private WebElement SearchCourse;
+	
+	@FindBy(how=How.XPATH,using="(//button[text()='Search'])[2]")
+    private WebElement SearchCourseButton;
+	
+	@FindBy(how=How.XPATH,using="//div[@Class='sb--card ng-star-inserted']")
+    private WebElement SelectClass;
+	
+	@FindBy(how=How.XPATH,using="//button[text()=' Activity Dashboard']")
+    private WebElement ActivityDashboard;
+	
+	@FindBy(how=How.XPATH,using="(//td[text()='0'])[1]")
+    private WebElement ProgressInDashboard;
+	
+	public WebElement getProgressInDashboard() {
+		return  ProgressInDashboard;
+	}
+	
+	
+	
+	public WebElement getActivityDashboard() {
+		return  ActivityDashboard;
+	}
+	
+	
+	public WebElement getSelectClass() {
+		return  SelectClass;
+	}
+	
+	
+	public WebElement getSearchCourseButton() {
+		return  SearchCourseButton;
+	}
+	
+	public WebElement getSearchCourse() {
+		return  SearchCourse;
+	}
+	
+	public WebElement getCourseTab() {
+		return  CourseTab;
+	}
+	
+
 	public WebElement getDiscussionCloseButton() {
 		return  DiscussionCloseButton;
 	}

@@ -46,7 +46,7 @@ public class BaseClass {
 	   
 	      		
 	    ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
-	    explore.getExplorebutton().click();
+	    DikshaUtils.waitToBeVisibleAndClick(explore.getExplorebutton());
 	}
 
 

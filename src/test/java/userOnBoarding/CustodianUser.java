@@ -1,9 +1,13 @@
 package userOnBoarding;
 
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+import pageActions.Observation;
 import pageActions.UserOnBoarding;
+import pageObject.ExplorePage;
 import utility.BaseClass;
+import utility.DikshaUtils;
 
 public class CustodianUser extends BaseClass {
 
@@ -13,9 +17,13 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.NewUser();
+		UserOnBoarding.login("Public User1");
 		UserOnBoarding.VerifyTheUserShouldBeAbleToEditTheSubmittedDetailsOptionInProfile();
-		UserOnBoarding.loginAsNewCustodian();
+		UserOnBoarding.logout();
+		ExplorePage explore=PageFactory.initElements(driver,ExplorePage.class);
+		DikshaUtils.waitToBeVisibleAndClick(explore.getExplorebutton());
+		UserOnBoarding.login("Public User2");
+	//	UserOnBoarding.loginAsNewCustodian();
 		UserOnBoarding.VerifyUserShouldBeAbleToEditTheSubmittedDetails();
 		
 	}
@@ -26,7 +34,8 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("Public User1");
+//		UserOnBoarding.loginasCustodian();
 		UserOnBoarding.VerifyTheUserIsAbleToUpdateTheBMCAndLocationDetails();
 	} 
 	
@@ -36,8 +45,8 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.schoolheadicon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginAsNewCustodian();
-	   UserOnBoarding.validateObservationTab();
+		UserOnBoarding.login("Public User2");
+	   Observation.validateObservationTab();
 			
 	}
 	@Test
@@ -46,7 +55,7 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.schoolheadicon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginAsNewCustodian();;
+		UserOnBoarding.login("Public User2");
 		UserOnBoarding.CustodianUserIsAableToAddTheMUAUser();
 	   
 			

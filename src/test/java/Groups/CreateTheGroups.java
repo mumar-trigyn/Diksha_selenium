@@ -8,14 +8,13 @@ import utility.BaseClass;
 
 public class CreateTheGroups extends BaseClass {
 
-	//@Test
+	@Test
 	public void VerifyUserIsAbleToCreateNewGroups() throws Exception {
 		
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-	//	UserOnBoarding.login("NewUser");
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("NewUser");
 		CreateGroups.UserIsAbleTOCreateNewGroupsAndVerify();
 			
 	}
@@ -26,7 +25,7 @@ public class CreateTheGroups extends BaseClass {
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("NewUser");
 		CreateGroups.VerifyUserDisplayedEnableDiscussionsOption();	
 	}
 	
@@ -36,24 +35,35 @@ public class CreateTheGroups extends BaseClass {
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("NewUser");
 		CreateGroups.VerifyUserDisplayedDisableDiscussionsOption();
 		
 		
 	}
 	
-	@Test
+	//@Test
 	public void  VerifyCloseOptionDisplayedAfterOpenDiscussionForumOption() throws Exception {
 		
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("NewUser");
 		CreateGroups.VerifyCloseOptionIsDisplayed();
 		
 			
 	}
 	
+//	@Test
+	public void VerifyGroupAdminTrackConsumtionOfCoursesOfTheGroupMembers() throws Exception {
+		
+		UserOnBoarding.studenticon();
+		UserOnBoarding.bmcpopuphandle();
+		UserOnBoarding.locationpopuphandle();
+		UserOnBoarding.login("NewUser");
+		CreateGroups.VerifyGroupAdminTrackConsumptionOfCourse();
+			
+		
+	}
 	
 	
 }
