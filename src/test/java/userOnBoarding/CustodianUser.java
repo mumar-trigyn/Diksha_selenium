@@ -13,9 +13,9 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.NewUser();
+		UserOnBoarding.login("Public User1");
 		UserOnBoarding.VerifyTheUserShouldBeAbleToEditTheSubmittedDetailsOptionInProfile();
-		UserOnBoarding.loginAsNewCustodian();
+		UserOnBoarding.login("Public User2");
 		UserOnBoarding.VerifyUserShouldBeAbleToEditTheSubmittedDetails();
 		
 	}
@@ -26,7 +26,7 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("Public User2");
 		UserOnBoarding.VerifyTheUserIsAbleToUpdateTheBMCAndLocationDetails();
 	} 
 	
@@ -36,7 +36,7 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.schoolheadicon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginAsNewCustodian();
+		UserOnBoarding.login("Public User2");
 	   UserOnBoarding.validateObservationTab();
 			
 	}
@@ -46,7 +46,7 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.schoolheadicon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginAsNewCustodian();;
+		UserOnBoarding.login("Public User2");
 		UserOnBoarding.CustodianUserIsAableToAddTheMUAUser();
 	   
 			

@@ -15,7 +15,7 @@ public class CreateTheGroups extends BaseClass {
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
 	//	UserOnBoarding.login("NewUser");
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("Public User1");
 		CreateGroups.UserIsAbleTOCreateNewGroupsAndVerify();
 			
 	}

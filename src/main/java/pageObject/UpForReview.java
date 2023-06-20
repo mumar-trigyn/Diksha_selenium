@@ -96,6 +96,43 @@ public class UpForReview {
 	
 	@FindBy(how=How.XPATH,using="(//button[text()='Publish'])[1]")
     private WebElement confirmForPublishLessonPlan;
+	
+	@FindBy(how=How.XPATH,using="//button[text()=' Reject ']")
+    private WebElement RejectTheContent;
+	
+	
+	@FindBy(how=How.XPATH,using="//textarea[@placeholder='Add comment']")
+    private WebElement AddReviewComment;
+	
+	@FindBy(how=How.XPATH,using="//button[@id='submitReview']")
+    private WebElement SubmitReviewButton;
+	
+	
+	
+	public WebElement getAddReviewComment() {
+		return AddReviewComment;
+	}
+
+
+	public void setAddReviewComment(WebElement addReviewComment) {
+		AddReviewComment = addReviewComment;
+	}
+
+
+	public WebElement getSubmitReviewButton() {
+		return SubmitReviewButton;
+	}
+
+
+	public void setSubmitReviewButton(WebElement submitReviewButton) {
+		SubmitReviewButton = submitReviewButton;
+	}
+
+
+	public WebElement getRejectTheContent() {
+		return RejectTheContent;
+	}
+	
 
 	public WebElement getconfirmForPublishLessonPlan() {
 		return confirmForPublishLessonPlan;

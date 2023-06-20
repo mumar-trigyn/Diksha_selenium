@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import pageObject.Filter;
 import pageObject.FiltersInDiffrentTabs;
 import pageObject.GuestProfileSection;
 import pageObject.LoginAsCustodian;
@@ -111,10 +112,46 @@ public class Guest_User_Methods extends BaseClass {
 		Assert.assertTrue(home.getRecentlyPublishedCourse().isDisplayed());
 		js.executeScript("window.scrollTo(0, 0)");
 		
-		
+	
 	}
 	
-	
+	public static void VerifyProfileBMCValueForAnotherTab() throws Exception {
+		
+		FiltersInDiffrentTabs filter=PageFactory.initElements(driver, FiltersInDiffrentTabs.class);
+		Filter filtertab=PageFactory.initElements(driver, Filter.class);
+		LoginAsCustodian Log=PageFactory.initElements(driver, LoginAsCustodian.class);
+		UserHomeTab home=PageFactory.initElements(driver, UserHomeTab.class);
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		
+		DikshaUtils.waitToBeClickableAndClick(home.gethomeTab());
+		DikshaUtils.waitToBeClickableAndClick(filter.getDigitalTextbookTab());
+		
+		
+		Assert.assertTrue( filtertab.getMedium().isDisplayed());
+		Assert.assertTrue( filtertab.getMediumhindi().isDisplayed());
+	    Assert.assertTrue( filtertab.getClasss().isDisplayed());
+	    Assert.assertTrue( filtertab.getSelectclasss1().isDisplayed());
+		Thread.sleep(1000);
+		
+		DikshaUtils.waitToBeClickableAndClick( filtertab.getMedium());
+		DikshaUtils.waitToBeClickableAndClick( filtertab.getMediumhindi());
+		DikshaUtils.waitToBeClickableAndClick( filtertab.getClasss());
+		DikshaUtils.waitToBeClickableAndClick( filtertab.getSelectclasss2());
+		Thread.sleep(1000);
+		
+		Library.custom_click(filter.getCoursesTab(), "courseTab Click");
+		
+		
+		Thread.sleep(1000);
+		Assert.assertTrue( filtertab.getMedium().isDisplayed());
+		Assert.assertTrue( filtertab.getMediumhindi().isDisplayed());
+	    Assert.assertTrue( filtertab.getClasss().isDisplayed());
+	    Assert.assertTrue( filtertab.getSelectclasss1().isDisplayed());
+		Thread.sleep(1000);
+		
+				
+		
+	}
 	
 	
 }

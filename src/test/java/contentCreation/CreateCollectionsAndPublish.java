@@ -18,8 +18,8 @@ public class CreateCollectionsAndPublish extends BaseClass {
 		UserOnBoarding.locationpopuphandle();
 		UserOnBoarding.login("Creator");
 		String collection=CreateCollections.CreateCollectionsFromBook();
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		UserOnBoarding.logout();
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.Collections_up_For_Review(collection);
 			
 	}

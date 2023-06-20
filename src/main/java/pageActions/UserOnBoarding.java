@@ -206,12 +206,13 @@ public static void NewUser() throws Exception {
      ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
      Logout log = PageFactory.initElements(driver, Logout.class);
 
-     DikshaUtils.waitToBeClickableAndClick(log.getDigitaltextbooktab());
+     DikshaUtils.waitToBeVisibleAndClick(log.getDigitaltextbooktab());
      DikshaUtils.waitToBeClickableAndClick(log.getCreatorIcon());
      JavascriptExecutor js = (JavascriptExecutor) driver;
      js.executeScript("arguments[0].scrollIntoView(true);", log.getLogout());
-     DikshaUtils.waitToBeClickableAndClick(log.getLogout());  
-     DikshaUtils.waitToBeClickableAndClick(explore.getExplorebutton());
+     DikshaUtils.waitToBeClickableAndClick(log.getLogout()); 
+     Thread.sleep(2000);
+	DikshaUtils.waitToBeVisibleAndClick(explore.getExplorebutton());
    
 
 }

@@ -61,7 +61,7 @@ public class LocationPopup {
 	@FindBy(how=How.XPATH,using="//span[text()='Head teacher & Official']")
 	private WebElement HTOfficial;
 	
-	@FindBy(how=How.XPATH,using="//div[@aria-label='Principal, selected ,Select Subrole']")
+	@FindBy(how=How.XPATH,using="//div[@aria-label=', selected ,Select Subrole']")
 	private WebElement SubRole;
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Principal']")
@@ -84,6 +84,14 @@ public class LocationPopup {
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Alluri Sita Rama Raju']")
 	private WebElement DistrictAlluriSitaRamaRaju;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Headmaster']")
+	private WebElement Headmaster;
+	
+	public WebElement getHeadmaster() {
+		return Headmaster;
+	}
+	
 	
 	public WebElement getDistrictAlluriSitaRamaRaju() {
 		return DistrictAlluriSitaRamaRaju;

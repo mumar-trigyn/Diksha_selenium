@@ -15,6 +15,10 @@ public class CreateBatchForCourse {
 	@FindBy(how=How.XPATH,using="//bdi[contains(text(),'Course')]")
 	private WebElement searchedcourse;
 	
+	@FindBy(how=How.XPATH,using="//bdi[contains(text(),'eTextbook')]")
+	private WebElement searchedTextbook;
+	
+	
 	@FindBy(how=How.XPATH,using="//button[text()='Create Batch']")
 	private WebElement createBatchButton;
 
@@ -85,6 +89,10 @@ public class CreateBatchForCourse {
 	@FindBy(how=How.XPATH,using="//span[text()=' admin (ad********@gmail.com) ']")
 	private WebElement MentorSelected;
 	
+	public WebElement getsearchedTextbook() {
+		return searchedTextbook;
+	}
+
 
 	public WebElement getEditBatchButton() {
 		return editBatchButton;

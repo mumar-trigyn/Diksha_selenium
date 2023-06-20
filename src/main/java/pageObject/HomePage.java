@@ -25,7 +25,39 @@ public class HomePage {
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Class 2']")
 	private WebElement TextClass2;
+	
+	@FindBy(how=How.XPATH,using="//input[@title='Search or enter QR code']")
+	private WebElement searchtextfield;
+	
+	@FindBy(how=How.XPATH,using="//button[text()='Search']")
+	private WebElement searchbutton;
+	
+	@FindBy(how=How.XPATH,using="//bdi[contains(text(),'eTextbook')]")
+	private WebElement searchedTextbook;
 
+
+	public WebElement getSearchtextfield() {
+		return searchtextfield;
+	}
+
+	public void setSearchtextfield(WebElement searchtextfield) {
+		this.searchtextfield = searchtextfield;
+	}
+
+	public WebElement getSearchbutton() {
+		return searchbutton;
+	}
+
+	public void setSearchbutton(WebElement searchbutton) {
+		this.searchbutton = searchbutton;
+	}
+
+	public WebElement getsearchedTextbook() {
+		return searchedTextbook;
+	}
+
+
+	
 
 	public WebElement getHomeTab() {
 		return HomeTab;

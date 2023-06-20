@@ -41,12 +41,10 @@ public class BaseClass {
 	    driver=new ChromeDriver();
 	    driver.get(config.get_Env());
 	    driver.manage().window().maximize();
-//	    WebElement Explorebutton=driver.findElement(By.xpath("//button[@data-translate='btnExploreDiksha']"));
-//	    Explorebutton.click();
 	   
 	      		
 	    ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
-	    explore.getExplorebutton().click();
+	    DikshaUtils.waitToBeVisibleAndClick(explore.getExplorebutton());
 	}
 
 
