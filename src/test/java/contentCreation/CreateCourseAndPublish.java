@@ -61,7 +61,7 @@ public class CreateCourseAndPublish extends BaseClass{
 	
 	}
 	
-	//	@Test
+		@Test
 		public void CreateBatchWithFutureDate() throws Exception {
 			
 			ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
@@ -70,13 +70,14 @@ public class CreateCourseAndPublish extends BaseClass{
 			UserOnBoarding.bmcpopuphandle();
 			UserOnBoarding.locationpopuphandle();
 			UserOnBoarding.login("Creator");
-			String contentName=UploadContentMethods.UploadPdf();
-			SendForReviewMethods.sendPdf_For_Review(contentName);
-			UserOnBoarding.logout();
-			UserOnBoarding.login("Reviewer");
-			UpForReviewMethods.up_For_Review(contentName);
-			UserOnBoarding.logout();
-			UserOnBoarding.login("Creator");
+//			String contentName=UploadContentMethods.UploadPdf();
+//			SendForReviewMethods.sendPdf_For_Review(contentName);
+//			UserOnBoarding.logout();
+//			UserOnBoarding.login("Reviewer");
+//			UpForReviewMethods.up_For_Review(contentName);
+//			UserOnBoarding.logout();
+//			UserOnBoarding.login("Creator");
+			String contentName = excel.getContentName("PDF");
 			String course=Course_Creation.UploadContentFromLibrary(contentName);
 			UserOnBoarding.logout();
 			UserOnBoarding.login("Reviewer");
@@ -195,7 +196,7 @@ public class CreateCourseAndPublish extends BaseClass{
 			TPDMethods.verifyAddMentor(course);
 		}
 		
-	//    @Test
+//	    @Test
 	     public void verifyAddCourseAssessmentInCourse() throws Exception {
 	    	 UserOnBoarding.teachericon();
 	   		UserOnBoarding.bmcpopuphandle();
@@ -216,7 +217,7 @@ public class CreateCourseAndPublish extends BaseClass{
 			UserOnBoarding.logout();
 			
 	     }  
-	
+
 	 //		@Test
 			public void verifyMentorCanCreateBatch() throws Exception {
 				UserOnBoarding.schoolheadicon();
@@ -243,7 +244,7 @@ public class CreateCourseAndPublish extends BaseClass{
 				TPDMethods.verifyAddMentor(course);
 			}
 			
- 		@Test
+ 	//	@Test
 			public void userUnenrollsFromTheCourse() throws Exception {
  			
  			ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);

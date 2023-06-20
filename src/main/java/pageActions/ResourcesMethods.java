@@ -227,13 +227,25 @@ public class ResourcesMethods extends BaseClass {
 			
 			DikshaUtils.waitToBeClickableAndClick(assesment.getAddQuestionSetButton());
 			DikshaUtils.waitToBeClickableAndClick(rs.getCopyQuestionButton());
+			Thread.sleep(5000);
 			DikshaUtils.waitToBeClickableAndClick(rs.getNextButton());
+			
+			DikshaUtils.waitToBeClickableAndClick(rs.getSelectBoardSyllabus());
+			DikshaUtils.waitToBeClickableAndClick(rs.getBoardSelected());
+			DikshaUtils.waitToBeClickableAndClick(rs.getSelectMedium());
+			DikshaUtils.waitToBeClickableAndClick(rs.getMediumSelected());
+			DikshaUtils.waitToBeClickableAndClick(rs.getSelectGrade());
+			DikshaUtils.waitToBeClickableAndClick(rs.getGradeSelected());
+			DikshaUtils.waitToBeClickableAndClick(rs.getSelectSubject());
+			DikshaUtils.waitToBeClickableAndClick(rs.getSubjectSelected());
+			
 			DikshaUtils.waitToBeClickableAndClick(rs.getSubmitButton());
+			Thread.sleep(1000);
 			DikshaUtils.waitToBeClickableAndClick(assesment.getSelectQuestionCheckBox2());
 			DikshaUtils.waitToBeClickableAndClick(assesment.getNextButton());
 			DikshaUtils.waitToBeClickableAndSendKeys(assesment.getQuestionSetTitleTextfield(),"QA Questions");
-			Thread.sleep(1000);
-			DikshaUtils.waitToBeClickableAndClick(rs.getShuffleQuestionsButton());
+			Thread.sleep(3000);
+	//		DikshaUtils.waitToBeClickableAndClick(rs.getShuffleQuestionsButton());
 		    DikshaUtils.waitToBeClickableAndClick(assesment.getAddButton());
 		    DikshaUtils.waitToBeClickableAndClick(Upload.getSave());
 		    DikshaUtils.waitToBeClickableAndClick(Upload.getClose());

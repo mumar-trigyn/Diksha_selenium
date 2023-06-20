@@ -8,35 +8,35 @@ import utility.BaseClass;
 
 public class CreateTheGroups extends BaseClass {
 
-	//@Test
+	@Test
 	public void VerifyUserIsAbleToCreateNewGroups() throws Exception {
 		
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-	//	UserOnBoarding.login("NewUser");
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("Public User1");
+		//UserOnBoarding.loginasCustodian();
 		CreateGroups.UserIsAbleTOCreateNewGroupsAndVerify();
 			
 	}
 	
-//	@Test
+	@Test
 	public void  VerifyUserDisplayedWithEnableDiscussionsOption() throws Exception {
 		
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("Public User1");
 		CreateGroups.VerifyUserDisplayedEnableDiscussionsOption();	
 	}
 	
-//	@Test
+	@Test
 	public void  VerifyUserDisplayedwithDisableDiscussionsOption() throws Exception {
 		
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("Public User1");
 		CreateGroups.VerifyUserDisplayedDisableDiscussionsOption();
 		
 		
@@ -48,7 +48,7 @@ public class CreateTheGroups extends BaseClass {
 		UserOnBoarding.studenticon();
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
-		UserOnBoarding.loginasCustodian();
+		UserOnBoarding.login("Public User1");
 		CreateGroups.VerifyCloseOptionIsDisplayed();
 		
 			

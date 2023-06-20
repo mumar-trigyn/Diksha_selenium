@@ -19,7 +19,6 @@ public class Course_Creation extends BaseClass {
 			
 	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
 	 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
-
 	 DikshaUtils.waitToBeClickableAndClick(content.getHeaderDropdown());
 	 DikshaUtils.waitToBeClickableAndClick(content.getWorkspace());
 	 DikshaUtils.waitToBeClickableAndClick(content.getCoursetab());
@@ -27,9 +26,7 @@ public class Course_Creation extends BaseClass {
 	 content.getAddCourseTitle().clear();
 	 String randomname=DikshaUtils.set_Content_Name("Course_");
 	 DikshaUtils.waitToBeClickableAndSendKeys(content.getAddCourseTitle(),randomname);
-
-	 
-
+		
 	 String id= DikshaUtils.generate_Do_id();
 	 excel.updateData("TestData","Course" ,randomname, id);
        
@@ -42,8 +39,25 @@ public class Course_Creation extends BaseClass {
      DikshaUtils.waitToBeClickableAndClick(content.getCourseType());
      DikshaUtils.waitToBeClickableAndClick(content.getSelectcourseType());
      DikshaUtils.waitToBeClickableAndClick(content.getSubjectCovered());
-     DikshaUtils.waitToBeClickableAndClick(content.getSelectSubject());	
-     js.executeScript("arguments[0].scrollIntoView(true);",content.getSelectSubjectForCourse());
+     DikshaUtils.waitToBeClickableAndClick(content.getSelectSubject());
+     
+     JavascriptExecutor js1=(JavascriptExecutor)driver;
+     js1.executeScript("arguments[0].scrollIntoView(true);",content.getSelectBoardForcourse());
+     DikshaUtils.waitToBeClickableAndClick(content.getSelectBoardForcourse());
+     DikshaUtils.waitToBeClickableAndClick(content.getSelectBoard());
+     
+     js1.executeScript("arguments[0].scrollIntoView(true);",content.getSelectMediumForCourse());
+     
+     DikshaUtils.waitToBeClickableAndClick(content.getSelectMediumForCourse());
+     DikshaUtils.waitToBeClickableAndClick(content.getSelectMedium());
+     
+     js1.executeScript("arguments[0].scrollIntoView(true);",content.getSelectClassForCourse());
+     
+     DikshaUtils.waitToBeClickableAndClick(content.getSelectClassForCourse());
+     DikshaUtils.waitToBeClickableAndClick(content.getSelectclass());
+	
+     js1.executeScript("arguments[0].scrollIntoView(true);",content.getSelectSubjectForCourse());
+     
      DikshaUtils.waitToBeClickableAndClick(content.getSelectSubjectForCourse());
      DikshaUtils.waitToBeClickableAndClick(content.getSelectSubject2());
      DikshaUtils.waitToBeClickableAndSendKeys(content.getSelectCopyRightYear(),"2023");

@@ -6,17 +6,10 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
-<<<<<<< HEAD
-      <class name="Consumption.ConsumptionScenarios"/>
-=======
-<<<<<<< HEAD
-      <class name="Groups.CreateTheGroups"/>
-=======
-      <class name="contentCreation.CreateResourcesAndPublish"/>
->>>>>>> 898021a924cb0aea4e89aa29a6a521ee54c118a4
-   
-      
->>>>>>> 0d237f4723870fc7bef0eaa76331575d25487258
+	
+	  <class name="contentCreation.UploadAllContentsTypes"/>	
+	 
+	 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

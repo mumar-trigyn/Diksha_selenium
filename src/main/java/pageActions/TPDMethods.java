@@ -30,11 +30,12 @@ public class TPDMethods extends BaseClass {
 		 
 		 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getSearchtextfield(),course);
 		 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchbutton());
+		 Thread.sleep(2000);
 		 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchedcourse());
 		
 		 WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
 		 wait.until(ExpectedConditions.elementToBeClickable(createBatch.getCreateBatchButton()));
-	   
+		 Thread.sleep(2000);
 		 DikshaUtils.waitToBeClickableAndClick(createBatch.getCreateBatchButton());
 		 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getBatchName(),"Batch 1");
 		 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getDescription(),"This course is created via Automation");

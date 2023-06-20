@@ -19,13 +19,8 @@ public class CreateLessonPlanAndPublish extends BaseClass {
 		UserOnBoarding.login("Creator");
 		String contentname=CreateLessonPlan.createLessonPlan();
 		UploadContentMethods.LessonPlan_send_For_Review(contentname);
-//		UserOnBoarding.logout();
-//		Thread.sleep(1000);
-//		ExplorePage explore=PageFactory.initElements(driver,ExplorePage.class);
-//		explore.getExplorebutton().click();
-//		UserOnBoarding.login("Reviewer");
-		UserOnBoarding.logout_As_Creator();
-		UserOnBoarding.loginasreviewer();
+		UserOnBoarding.logout();
+		UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.LessonPlan_up_For_Review(contentname);
 		
 	}

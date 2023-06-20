@@ -61,7 +61,7 @@ public class LocationPopup {
 	@FindBy(how=How.XPATH,using="//span[text()='Head teacher & Official']")
 	private WebElement HTOfficial;
 	
-	@FindBy(how=How.XPATH,using="//div[@aria-label='Principal, selected ,Select Subrole']")
+	@FindBy(how=How.XPATH,using="//div[@aria-label=', selected ,Select Subrole']")
 	private WebElement SubRole;
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Principal']")
@@ -84,6 +84,96 @@ public class LocationPopup {
 	
 	@FindBy(how=How.XPATH,using="//span[text()='Alluri Sita Rama Raju']")
 	private WebElement DistrictAlluriSitaRamaRaju;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Headmaster']")
+	private WebElement Headmaster;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='State level - OICs']")
+	private WebElement StateLevelOIC;
+
+	public WebElement getStateLevelOIC() {
+		return StateLevelOIC;
+	}
+
+	public void setStateLevelOIC(WebElement stateLevelOIC) {
+		StateLevelOIC = stateLevelOIC;
+	}
+
+	public void setGuesticon(WebElement guesticon) {
+		Guesticon = guesticon;
+	}
+
+	public void setGuestNameTextField(WebElement guestNameTextField) {
+		this.guestNameTextField = guestNameTextField;
+	}
+
+	public void setRole(WebElement role) {
+		Role = role;
+	}
+
+	public void setState(WebElement state) {
+		State = state;
+	}
+
+	public void setMaharashtraState(WebElement maharashtraState) {
+		MaharashtraState = maharashtraState;
+	}
+
+	public void setAndhraPradesh(WebElement andhraPradesh) {
+		AndhraPradesh = andhraPradesh;
+	}
+
+	public void setDistrict(WebElement district) {
+		District = district;
+	}
+
+	public void setAkolaDistrict(WebElement akolaDistrict) {
+		AkolaDistrict = akolaDistrict;
+	}
+
+	public void setSubmitButton(WebElement submitButton) {
+		SubmitButton = submitButton;
+	}
+
+	public void setGuestRole(WebElement guestRole) {
+		this.guestRole = guestRole;
+	}
+
+	public void setStudent(WebElement student) {
+		this.student = student;
+	}
+
+	public void setHTOfficial(WebElement hTOfficial) {
+		HTOfficial = hTOfficial;
+	}
+
+	public void setSubRole(WebElement subRole) {
+		SubRole = subRole;
+	}
+
+	public void setPrinciple(WebElement principle) {
+		this.principle = principle;
+	}
+
+	public void setPersonalDetailSubmitButton(WebElement personalDetailSubmitButton) {
+		PersonalDetailSubmitButton = personalDetailSubmitButton;
+	}
+
+	public void setParent(WebElement parent) {
+		this.parent = parent;
+	}
+
+	public void setDistrictAlluriSitaRamaRaju(WebElement districtAlluriSitaRamaRaju) {
+		DistrictAlluriSitaRamaRaju = districtAlluriSitaRamaRaju;
+	}
+
+	public void setHeadmaster(WebElement headmaster) {
+		Headmaster = headmaster;
+	}
+
+	public WebElement getHeadmaster() {
+	return Headmaster;
+	}
 	
 	public WebElement getDistrictAlluriSitaRamaRaju() {
 		return DistrictAlluriSitaRamaRaju;
