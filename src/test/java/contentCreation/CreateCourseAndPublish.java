@@ -4,7 +4,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import pageActions.CourseAssessmentMethods;
-import pageActions.Course_Consumption;
+import pageActions.CourseConsumptionMethods;
 import pageActions.Course_Creation;
 import pageActions.SendForReviewMethods;
 import pageActions.TPDMethods;
@@ -17,7 +17,7 @@ import utility.DikshaUtils;
 
 public class CreateCourseAndPublish extends BaseClass{
 	
-	//@Test
+	@Test
 	public void createCourseSendForReviewAndPublish() throws Exception {
 		
 		ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
@@ -26,13 +26,14 @@ public class CreateCourseAndPublish extends BaseClass{
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
 		UserOnBoarding.login("Creator");
-		String contentName=UploadContentMethods.UploadPdf();
-		SendForReviewMethods.sendPdf_For_Review(contentName);
-		UserOnBoarding.logout();
-		UserOnBoarding.login("Reviewer");
-		UpForReviewMethods.up_For_Review(contentName);
-		UserOnBoarding.logout();
-		UserOnBoarding.login("Creator");
+//		String contentName=UploadContentMethods.UploadPdf();
+//		SendForReviewMethods.sendPdf_For_Review(contentName);
+//		UserOnBoarding.logout();
+//		UserOnBoarding.login("Reviewer");
+//		UpForReviewMethods.up_For_Review(contentName);
+//		UserOnBoarding.logout();
+//		UserOnBoarding.login("Creator");
+		String contentName = excel.getContentName("Mp4");
 		String course=Course_Creation.UploadContentFromLibrary(contentName);
 		UserOnBoarding.logout();
 		UserOnBoarding.login("Reviewer");
@@ -50,18 +51,19 @@ public class CreateCourseAndPublish extends BaseClass{
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
 		UserOnBoarding.login("Creator");
-		String contentName=UploadContentMethods.UploadPdf();
-		SendForReviewMethods.sendPdf_For_Review(contentName);
-		UserOnBoarding.logout();
-		UserOnBoarding.login("Reviewer");
-		UpForReviewMethods.up_For_Review(contentName);
-		UserOnBoarding.logout();
-		UserOnBoarding.login("Creator");
+		String contentName = excel.getContentName("PDF");
+//		String contentName=UploadContentMethods.UploadPdf();
+//		SendForReviewMethods.sendPdf_For_Review(contentName);
+//		UserOnBoarding.logout();
+//		UserOnBoarding.login("Reviewer");
+//		UpForReviewMethods.up_For_Review(contentName);
+//		UserOnBoarding.logout();
+//		UserOnBoarding.login("Creator");
 		String course=Course_Creation.checkUploadContentFromLibrary(contentName);
 	
 	}
 	
-		@Test
+	//	@Test
 		public void CreateBatchWithFutureDate() throws Exception {
 			
 			ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
@@ -119,7 +121,7 @@ public class CreateCourseAndPublish extends BaseClass{
 			UserOnBoarding.login("Public User1");
 			TPDMethods.userEnrollsInCourse(course);
 		}
-	//	@Test
+		//@Test
 		public void verifyOnlyOneOpenBatch() throws Exception {
 			
 			ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
@@ -128,14 +130,14 @@ public class CreateCourseAndPublish extends BaseClass{
 			UserOnBoarding.bmcpopuphandle();
 			UserOnBoarding.locationpopuphandle();
 			UserOnBoarding.login("Creator");
-			String contentName=UploadContentMethods.UploadPdf();
-			SendForReviewMethods.sendPdf_For_Review(contentName);
-			UserOnBoarding.logout();
-			UserOnBoarding.login("Reviewer");
-			UpForReviewMethods.up_For_Review(contentName);
-			UserOnBoarding.logout();
-			UserOnBoarding.login("Creator");
-//			String contentName=excel.getContentName("PDF");
+//			String contentName=UploadContentMethods.UploadPdf();
+//			SendForReviewMethods.sendPdf_For_Review(contentName);
+//			UserOnBoarding.logout();
+//			UserOnBoarding.login("Reviewer");
+//			UpForReviewMethods.up_For_Review(contentName);
+//			UserOnBoarding.logout();
+//			UserOnBoarding.login("Creator");
+			String contentName=excel.getContentName("PDF");
 			String course=Course_Creation.UploadContentFromLibrary(contentName);
 			UserOnBoarding.logout();
 			UserOnBoarding.login("Reviewer");
@@ -152,14 +154,14 @@ public class CreateCourseAndPublish extends BaseClass{
 			UserOnBoarding.bmcpopuphandle();
 			UserOnBoarding.locationpopuphandle();
 			UserOnBoarding.login("Creator");
-			String contentName=UploadContentMethods.UploadPdf();
-			SendForReviewMethods.sendPdf_For_Review(contentName);
-			UserOnBoarding.logout();
-			UserOnBoarding.login("Reviewer");
-			UpForReviewMethods.up_For_Review(contentName);
-			UserOnBoarding.logout();
-			UserOnBoarding.login("Creator");
-//			String contentName=excel.getContentName("PDF");
+//			String contentName=UploadContentMethods.UploadPdf();
+//			SendForReviewMethods.sendPdf_For_Review(contentName);
+//			UserOnBoarding.logout();
+//			UserOnBoarding.login("Reviewer");
+//			UpForReviewMethods.up_For_Review(contentName);
+//			UserOnBoarding.logout();
+//			UserOnBoarding.login("Creator");
+			String contentName=excel.getContentName("PDF");
 			String course=Course_Creation.UploadContentFromLibrary(contentName);
 			UserOnBoarding.logout();
 			UserOnBoarding.login("Reviewer");
@@ -196,20 +198,20 @@ public class CreateCourseAndPublish extends BaseClass{
 			TPDMethods.verifyAddMentor(course);
 		}
 		
-//	    @Test
+	 //   @Test
 	     public void verifyAddCourseAssessmentInCourse() throws Exception {
 	    	 UserOnBoarding.teachericon();
 	   		UserOnBoarding.bmcpopuphandle();
 	   		UserOnBoarding.locationpopuphandle();
 	   		UserOnBoarding.login("Creator");
-//	   		String Assessment=excel.getContentName("CourseAssessment");
-			String Assessment=CourseAssessmentMethods.createAssessmentWithQuestion();
-			SendForReviewMethods.sendCourseAssessment_For_Review(Assessment);
-			UserOnBoarding.logout();
-			UserOnBoarding.login("Reviewer");
-			UpForReviewMethods.up_For_Review(Assessment);
-			UserOnBoarding.logout();
-			UserOnBoarding.login("Creator");
+   		String Assessment=excel.getContentName("CourseAssessment");
+//			String Assessment=CourseAssessmentMethods.createAssessmentWithQuestion();
+//			SendForReviewMethods.sendCourseAssessment_For_Review(Assessment);
+//			UserOnBoarding.logout();
+//			UserOnBoarding.login("Reviewer");
+//			UpForReviewMethods.up_For_Review(Assessment);
+//			UserOnBoarding.logout();
+//			UserOnBoarding.login("Creator");
 			String course=Course_Creation.UploadContentFromLibrary(Assessment);
 			UserOnBoarding.logout();
 			UserOnBoarding.login("Reviewer");
@@ -241,7 +243,7 @@ public class CreateCourseAndPublish extends BaseClass{
 				TPDMethods.addMentor(course);
 				UserOnBoarding.logout();
 				UserOnBoarding.login("Admin");
-				TPDMethods.verifyAddMentor(course);
+				TPDMethods.mentorEditTheCourse(course);
 			}
 			
  	//	@Test
@@ -253,15 +255,15 @@ public class CreateCourseAndPublish extends BaseClass{
 				UserOnBoarding.bmcpopuphandle();
 				UserOnBoarding.locationpopuphandle();
 				UserOnBoarding.login("Creator");
-			//	String contentName=excel.getContentName("PDF");
+				String contentName=excel.getContentName("PDF");
 
-				String contentName=UploadContentMethods.UploadPdf();
-				SendForReviewMethods.sendPdf_For_Review(contentName);
-				UserOnBoarding.logout();
-				UserOnBoarding.login("Reviewer");
-				UpForReviewMethods.up_For_Review(contentName);
-				UserOnBoarding.logout();
-				UserOnBoarding.login("Creator");
+//				String contentName=UploadContentMethods.UploadPdf();
+//				SendForReviewMethods.sendPdf_For_Review(contentName);
+//				UserOnBoarding.logout();
+//				UserOnBoarding.login("Reviewer");
+//				UpForReviewMethods.up_For_Review(contentName);
+//				UserOnBoarding.logout();
+//				UserOnBoarding.login("Creator");
 				String course=Course_Creation.UploadContentFromLibrary(contentName);
 				UserOnBoarding.logout();
 				UserOnBoarding.login("Reviewer");

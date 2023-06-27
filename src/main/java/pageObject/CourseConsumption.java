@@ -20,6 +20,12 @@ public class CourseConsumption {
 	@FindBy(how=How.XPATH,using="//bdi[contains(text(),'Course')]")
 	private WebElement searchedcourse;
 	
+	@FindBy(how=How.XPATH,using="//bdi[contains(text(),'Tv_Lesson')]")
+	private WebElement searchedTvLesson;
+	
+	@FindBy(how=How.XPATH,using="//bdi[contains(text(),'eTextbook')]")
+	private WebElement searchedETextbook;
+	
 	@FindBy(how=How.XPATH,using="//button[text()='Join Course']")
 	private WebElement joincourse;
 	
@@ -59,8 +65,16 @@ public class CourseConsumption {
 	@FindBy(how=How.XPATH,using="//button[text()=' Leave course ']")
 	private WebElement confirmLeavebutton;
 	
+
 	@FindBy(how=How.XPATH,using="//a[text()=' Courses ']")
 	private WebElement coursetab;
+
+	@FindBy(how=How.XPATH,using="//img[@alt='Navigate to Next']")
+	private WebElement clickNextButton;
+	
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'Batch expiring in')]")
+	private WebElement batchExpiryMsg;
+
 	
 	@FindBy(how=How.XPATH,using="//button[text()=' View all ']")
 	private WebElement viewall;
@@ -198,6 +212,30 @@ public class CourseConsumption {
 
 
 	
+	
+	public WebElement getBatchExpiryMsg() {
+		return batchExpiryMsg;
+	}
+
+
+	public WebElement getClickNextButton() {
+		return clickNextButton;
+	}
+
+
+	public WebElement getSearchedETextbook() {
+		return searchedETextbook;
+	}
+
+
+
+
+
+	public WebElement getSearchedTvLesson() {
+		return searchedTvLesson;
+	}
+
+
 	public WebElement getConfirmLeavebutton() {
 		return confirmLeavebutton;
 	}

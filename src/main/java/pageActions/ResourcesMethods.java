@@ -88,14 +88,16 @@ public class ResourcesMethods extends BaseClass {
 		DikshaUtils.waitToBeClickableAndClick(Upload.getWorkspace());
 		DikshaUtils.waitToBeClickableAndClick(rs.getResourceTab());
 		
-		String randomName=DikshaUtils.set_Content_Name("ECML_");
-	//	excel.updateData("TestData","ECMLResource" ,randomName, "");
+		String randomName=DikshaUtils.set_Content_Name("Tv_Lesson_");
+		
 		
 		DikshaUtils.waitToBeClickableAndSendKeys(rs.getResourceNameTextfield(),randomName);
 		DikshaUtils.waitToBeClickableAndClick(rs.getSelectContentType());
 		DikshaUtils.waitToBeVisibleAndClick(rs.getContentTypeSelected());
 		DikshaUtils.waitToBeClickableAndClick(rs.getStartCreatingButton());
 		Thread.sleep(8000);
+		String id=DikshaUtils.generate_Do_id();
+		excel.updateData("TestData","TvLesson" ,randomName, id);
 		WebElement iframe = driver.findElement(By.tagName("iframe"));
 		driver.switchTo().frame(iframe);
 		DikshaUtils.waitToBeClickableAndClick(assesment.getAddVideoButton());

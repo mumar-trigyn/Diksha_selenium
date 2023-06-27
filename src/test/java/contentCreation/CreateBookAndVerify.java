@@ -108,6 +108,7 @@ public class CreateBookAndVerify extends BaseClass{
 	}
 	
 	//@Test
+	//Currently known issue  
 	public void VerifyReviewerViewTheCollaboratorAddedToeTextbook() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();

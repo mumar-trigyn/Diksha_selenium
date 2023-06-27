@@ -17,6 +17,7 @@ import io.reactivex.rxjava3.functions.Action;
 import pageObject.CourseConsumption;
 import pageObject.CreateBatchForCourse;
 import pageObject.LoginPage;
+import pageObject.ValidatePopUp;
 import utility.BaseClass;
 import utility.DikshaUtils;
 import utility.Library;
@@ -27,6 +28,7 @@ public class TPDMethods extends BaseClass {
 		
 		CreateBatchForCourse createBatch=PageFactory.initElements(driver, CreateBatchForCourse.class);
 		 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+		 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 		 
 		 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getSearchtextfield(),course);
 		 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchbutton());
@@ -61,6 +63,9 @@ public class TPDMethods extends BaseClass {
 		Thread.sleep(1000);
 		DikshaUtils.waitToBeClickableAndClick(createBatch.getCreateButton());
 		Thread.sleep(2000);
+	     String BatchCreatedPopup = popup.getBatchCreatedPopUp().getText();
+	     Assert.assertEquals(BatchCreatedPopup, "Batch created successfully...");
+	     Thread.sleep(2000);
 		DikshaUtils.waitToBeClickableAndClick(createBatch.getBackAfterCreateBatchButton());
 		DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchedcourse());
 		DikshaUtils.waitForElementToBeVisible(createBatch.getViewDashboardButton());
@@ -74,6 +79,7 @@ public class TPDMethods extends BaseClass {
 		
 		CreateBatchForCourse createBatch=PageFactory.initElements(driver, CreateBatchForCourse.class);
 		 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+		 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 		 
 		 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getSearchtextfield(),course);
 		 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchbutton());
@@ -104,11 +110,18 @@ public class TPDMethods extends BaseClass {
 		
 		Date.setTomorrowDate(driver);
 		Thread.sleep(1000);
+		action.sendKeys("\b").perform();
+		Thread.sleep(1000);
+		action.sendKeys("3").perform();
+		Thread.sleep(1000);
 		DikshaUtils.waitToBeClickableAndClick(createBatch.getCourseterms());
 		wait.until(ExpectedConditions.elementToBeClickable(createBatch.getCreateButton()));
 		Thread.sleep(1000);
 		DikshaUtils.waitToBeClickableAndClick(createBatch.getCreateButton());
 		Thread.sleep(2000);
+	     String BatchCreatedPopup = popup.getBatchCreatedPopUp().getText();
+	     Assert.assertEquals(BatchCreatedPopup, "Batch created successfully...");
+	     Thread.sleep(2000);
 		DikshaUtils.waitToBeClickableAndClick(createBatch.getBackAfterCreateBatchButton());
 
 		
@@ -162,6 +175,7 @@ public class TPDMethods extends BaseClass {
 			
 			CreateBatchForCourse createBatch=PageFactory.initElements(driver, CreateBatchForCourse.class);
 			 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+			 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 			 
 			 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getSearchtextfield(),course);
 			 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchbutton());
@@ -195,6 +209,9 @@ public class TPDMethods extends BaseClass {
 			Thread.sleep(1000);
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getCreateButton());
 			Thread.sleep(2000);
+		     String BatchCreatedPopup = popup.getBatchCreatedPopUp().getText();
+		     Assert.assertEquals(BatchCreatedPopup, "Batch created successfully...");
+		     Thread.sleep(2000);
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getOngoingBatchButton());
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getUpcomingBatchButton());
 			DikshaUtils.waitForElementToBeVisible(createBatch.getNoBatchFoundMsg());
@@ -254,6 +271,7 @@ public class TPDMethods extends BaseClass {
 			
 			CreateBatchForCourse createBatch=PageFactory.initElements(driver, CreateBatchForCourse.class);
 			 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+			 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 			 
 			 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getSearchtextfield(),course);
 			 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchbutton());
@@ -290,6 +308,9 @@ public class TPDMethods extends BaseClass {
 			Thread.sleep(1000);
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getCreateButton());
 			Thread.sleep(2000);
+		     String BatchCreatedPopup = popup.getBatchCreatedPopUp().getText();
+		     Assert.assertEquals(BatchCreatedPopup, "Batch created successfully...");
+		     Thread.sleep(2000);
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getBackAfterCreateBatchButton());
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchedcourse());
 			DikshaUtils.waitForElementToBeVisible(createBatch.getViewDashboardButton());
@@ -309,6 +330,7 @@ public static void addMentor(String course) throws InterruptedException {
 			
 			CreateBatchForCourse createBatch=PageFactory.initElements(driver, CreateBatchForCourse.class);
 			 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+			 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 			 
 			 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getSearchtextfield(),course);
 			 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchbutton());
@@ -354,6 +376,9 @@ public static void addMentor(String course) throws InterruptedException {
 			Thread.sleep(1000);
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getCreateButton());
 			Thread.sleep(2000);
+		     String BatchCreatedPopup = popup.getBatchCreatedPopUp().getText();
+		     Assert.assertEquals(BatchCreatedPopup, "Batch created successfully...");
+		     Thread.sleep(2000);
 			DikshaUtils.waitToBeVisibleAndClick(createBatch.getBackAfterCreateBatchButton());
 			Thread.sleep(5000);
 		}
