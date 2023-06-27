@@ -484,6 +484,307 @@ public static String CreateBookAddCollaboratorAndSendForReview() throws Exceptio
     	 
     	 
      }
+    
+     public static String CreatorAddAllTypeOfContent() throws Exception {
+	
+	
+    	 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
+    	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
+    	 
+         DikshaUtils.waitToBeClickableAndClick(create.getHeaderDropdown());
+ 	    DikshaUtils.waitToBeClickableAndClick(create.getWorkspace());
+ 	    DikshaUtils.waitToBeClickableAndClick(create.getBook());
+ 		
+ 		String Name=DikshaUtils.set_Content_Name("eTextbook_");
+ 		
+ 		DikshaUtils.waitToBeClickableAndSendKeys(create.getBookname(), Name);
+ 		DikshaUtils.waitToBeVisibleAndClick(create.getBookname());
+ 		DikshaUtils.waitToBeVisibleAndClick(create.getStartCreating());
+ 		
+ 		JavascriptExecutor js=(JavascriptExecutor)driver;
+ 		// js.executeScript("arguments[0].scrollIntoView(true);",Upload.getSelectBoardSyllabus());
+ 		    js.executeScript("window.scrollBy(0, 900)");
+ 		    Thread.sleep(1000);
+ 		    DikshaUtils.waitToBeVisibleAndClick(create.getSelectBoardSyllabus());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getBoardSelected());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getSelectMedium());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getMediumSelected());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getSelectClass());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getClassSelected());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getSelectSubject());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getSubjectSelected());
+ 		    
+ 		    js.executeScript("arguments[0].scrollIntoView(true);", create.getCopyright());
+ 		    Thread.sleep(1000);
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getCopyright());
+ 		    create.getCopyright().sendKeys("2023");
+ 		   js.executeScript("window.scrollTo(0, 0)");
+		   	DikshaUtils.waitToBeClickableAndClick(create.getSaveAsDraft());
+		    Thread.sleep(5000);
+		    DikshaUtils.waitToBeClickableAndClick(create.getAddChild());
+ 			DikshaUtils.waitToBeVisibleAndClick(content.getAddFromLibraryButton());
+ 			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+ 			
+ 			String pdffile = excel.getContentName("PDF");
+            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),pdffile);   
+ 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+			Thread.sleep(3000);
+			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+			Thread.sleep(1000);
+			
+			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+			content.getSearchContentFromLibrary().clear();
+		    String Mp4File = excel.getContentName("Mp4");
+            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),Mp4File);  
+ 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+			Thread.sleep(3000);
+			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+			Thread.sleep(1000);
+			
+
+			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+			content.getSearchContentFromLibrary().clear();
+		    String EpubFile = excel.getContentName("Epub");
+            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),EpubFile);  
+ 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+			Thread.sleep(3000);
+			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+			Thread.sleep(1000);
      
+			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+			content.getSearchContentFromLibrary().clear();
+		    String h5pFile = excel.getContentName("h5p");
+            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),h5pFile);  
+ 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+			Thread.sleep(3000);
+			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+			Thread.sleep(1000);
+     
+			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+			content.getSearchContentFromLibrary().clear();
+		    String htmlFile = excel.getContentName("html");
+            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),htmlFile);  
+ 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+			Thread.sleep(3000);
+			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+			Thread.sleep(1000);
+     
+			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+			content.getSearchContentFromLibrary().clear();
+		    String WebmFile = excel.getContentName("Webm");
+            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),WebmFile);  
+ 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+			Thread.sleep(3000);
+			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+			Thread.sleep(1000);
+			
+//			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+//			content.getSearchContentFromLibrary().clear();
+//		    String YTFile = excel.getContentName("YT");
+//            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),YTFile);  
+// 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+//			Thread.sleep(3000);
+//			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+//			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+//			Thread.sleep(1000);
+			
+//			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+//			content.getSearchContentFromLibrary().clear();
+//		    String Collectionsfile = excel.getContentName("Collections");
+//            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),Collectionsfile);  
+// 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+//			Thread.sleep(3000);
+//			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+//			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+//			Thread.sleep(1000);
+			
+//			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+//			content.getSearchContentFromLibrary().clear();
+//		    String Coursefile = excel.getContentName("Course");
+//            DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),Coursefile);  
+// 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+//			Thread.sleep(3000);
+//			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+//			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+//			Thread.sleep(1000);
+			
+			DikshaUtils.waitToBeClickableAndClick(content.getContentFromLibrayBackButton());
+			DikshaUtils.waitToBeClickableAndClick(create.getSaveAsDraft());
+			DikshaUtils.waitToBeClickableAndClick(create.getBackButton());
+			Thread.sleep(5000);
+			
+          excel.updateData("TestData","Collections" ,Name, "");
+			
+			return Name;
+     }
    
+     
+public static void SearchTheBookFromDraft(String fullname) throws Exception {
+    	 
+    	 Draft draft=PageFactory.initElements(driver, Draft.class);
+    	 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
+    	 
+    	 DikshaUtils.waitToBeClickableAndClick( draft.getHeaderDropdown());
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", draft.getWorkspace());
+			DikshaUtils.waitToBeClickableAndClick( draft.getWorkspace());
+			DikshaUtils.waitToBeClickableAndClick( draft.getDraft());
+			DikshaUtils.waitToBeClickableAndClick( draft.getSearchForPublished());
+			draft.getSearchForPublished().sendKeys(fullname);
+			DikshaUtils.waitToBeClickableAndClick(draft.getSearchIcon());
+			Thread.sleep(2000);
+            DikshaUtils.waitToBeClickableAndClick(draft.getClickSearchContent());
+			Thread.sleep(2000);
+     
+     
+    }
+     
+public static String CreatorAddAllTypeOfContentAndSendForReview() throws Exception {
+	
+	
+	 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
+	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
+	 
+    DikshaUtils.waitToBeClickableAndClick(create.getHeaderDropdown());
+    DikshaUtils.waitToBeClickableAndClick(create.getWorkspace());
+    DikshaUtils.waitToBeClickableAndClick(create.getBook());
+	
+	String Name=DikshaUtils.set_Content_Name("eTextbook_");
+	
+	DikshaUtils.waitToBeClickableAndSendKeys(create.getBookname(), Name);
+	DikshaUtils.waitToBeVisibleAndClick(create.getBookname());
+	DikshaUtils.waitToBeVisibleAndClick(create.getStartCreating());
+	
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	// js.executeScript("arguments[0].scrollIntoView(true);",Upload.getSelectBoardSyllabus());
+	    js.executeScript("window.scrollBy(0, 900)");
+	    Thread.sleep(1000);
+	    DikshaUtils.waitToBeVisibleAndClick(create.getSelectBoardSyllabus());
+	    DikshaUtils.waitToBeClickableAndClick(create.getBoardSelected());
+	    DikshaUtils.waitToBeClickableAndClick(create.getSelectMedium());
+	    DikshaUtils.waitToBeClickableAndClick(create.getMediumSelected());
+	    DikshaUtils.waitToBeClickableAndClick(create.getSelectClass());
+	    DikshaUtils.waitToBeClickableAndClick(create.getClassSelected());
+	    DikshaUtils.waitToBeClickableAndClick(create.getSelectSubject());
+	    DikshaUtils.waitToBeClickableAndClick(create.getSubjectSelected());
+	    
+	    js.executeScript("arguments[0].scrollIntoView(true);", create.getCopyright());
+	    Thread.sleep(1000);
+	    DikshaUtils.waitToBeClickableAndClick(create.getCopyright());
+	    create.getCopyright().sendKeys("2023");
+	   js.executeScript("window.scrollTo(0, 0)");
+	   	DikshaUtils.waitToBeClickableAndClick(create.getSaveAsDraft());
+	    Thread.sleep(5000);
+	    DikshaUtils.waitToBeClickableAndClick(create.getAddChild());
+		DikshaUtils.waitToBeVisibleAndClick(content.getAddFromLibraryButton());
+		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+		
+		String pdffile = excel.getContentName("PDF");
+       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),pdffile);   
+		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+		Thread.sleep(1000);
+		
+		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+		content.getSearchContentFromLibrary().clear();
+	    String Mp4File = excel.getContentName("Mp4");
+       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),Mp4File);  
+		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+		Thread.sleep(1000);
+		
+
+		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+		content.getSearchContentFromLibrary().clear();
+	    String EpubFile = excel.getContentName("Epub");
+       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),EpubFile);  
+		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+		Thread.sleep(1000);
+
+		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+		content.getSearchContentFromLibrary().clear();
+	    String h5pFile = excel.getContentName("h5p");
+       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),h5pFile);  
+		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+		Thread.sleep(1000);
+
+		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+		content.getSearchContentFromLibrary().clear();
+	    String htmlFile = excel.getContentName("html");
+       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),htmlFile);  
+		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+		Thread.sleep(1000);
+
+		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+		content.getSearchContentFromLibrary().clear();
+	    String WebmFile = excel.getContentName("Webm");
+       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),WebmFile);  
+		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+		Thread.sleep(1000);
+		
+//		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+//		content.getSearchContentFromLibrary().clear();
+//	    String YTFile = excel.getContentName("YT");
+//       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),YTFile);  
+//		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+//		Thread.sleep(3000);
+//		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+//		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+//		Thread.sleep(1000);
+		
+//		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+//		content.getSearchContentFromLibrary().clear();
+//	    String Collectionsfile = excel.getContentName("Collections");
+//       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),Collectionsfile);  
+//		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+//		Thread.sleep(3000);
+//		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+//		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+//		Thread.sleep(1000);
+		
+//		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+//		content.getSearchContentFromLibrary().clear();
+//	    String Coursefile = excel.getContentName("Course");
+//       DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),Coursefile);  
+//		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+//		Thread.sleep(3000);
+//		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+//		DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+//		Thread.sleep(1000);
+		
+		DikshaUtils.waitToBeClickableAndClick(content.getContentFromLibrayBackButton());
+		DikshaUtils.waitToBeClickableAndClick(create.getSubmitForreviewButton());
+		DikshaUtils.waitToBeClickableAndClick(create.getTermsAndConditionCheckbox());
+		DikshaUtils.waitToBeClickableAndClick(create.getNewCoursesubmitButton());
+		
+		Thread.sleep(5000);
+		
+       excel.updateData("TestData","Collections" ,Name, "");
+		
+		return Name;
+}
+
+
 }

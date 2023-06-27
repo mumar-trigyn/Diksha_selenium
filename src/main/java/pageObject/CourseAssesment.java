@@ -84,7 +84,44 @@ public class CourseAssesment {
 	@FindBy(how=How.XPATH,using="(//button[text()='Add'])[5]")
 	private WebElement addtimeAndClockButton;
 
+	@FindBy(how=How.XPATH,using="//img[@alt='Navigate to Next']")
+	private WebElement QueNextButton;
 	
+	@FindBy(how=How.XPATH,using="//button[text()=' Submit ']")
+	private WebElement Submitcourseassesmentbutton;
+	
+	@FindBy(how=How.XPATH,using="(//i[@class=\"icon ng-star-inserted\"])[2]")
+	private WebElement SelectRating;
+	
+	@FindBy(how=How.XPATH,using="//button[text()=' Submit ']")
+	private WebElement SubmitButton;
+	
+	public WebElement getSubmitButton() {
+		return SubmitButton;
+	}
+	
+	public WebElement getQueNextButton() {
+		return QueNextButton;
+	}
+
+	public void setQueNextButton(WebElement queNextButton) {
+		QueNextButton = queNextButton;
+	}
+
+	public WebElement getSubmitcourseassesmentbutton() {
+		return Submitcourseassesmentbutton;
+	}
+
+	public void setSubmitcourseassesmentbutton(WebElement submitcourseassesmentbutton) {
+		Submitcourseassesmentbutton = submitcourseassesmentbutton;
+	}
+
+	public WebElement getSelectRating() {
+		return SelectRating;
+	}
+
+	
+
 	public WebElement getSelectQuestionCheckBox2() {
 		return selectQuestionCheckBox2;
 	}

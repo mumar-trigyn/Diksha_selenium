@@ -7,7 +7,8 @@ import org.openqa.selenium.support.How;
 
 public class CourseConsumption {
     
-
+	@FindBy(how=How.XPATH,using="//bdi[contains(text(),'eTextbook')]")
+	private WebElement searchedTextbook;
 	
 	@FindBy(how=How.XPATH,using="//input[@title='Search or enter QR code']")
 	private WebElement searchtextfield;
@@ -58,7 +59,144 @@ public class CourseConsumption {
 	@FindBy(how=How.XPATH,using="//button[text()=' Leave course ']")
 	private WebElement confirmLeavebutton;
 	
+	@FindBy(how=How.XPATH,using="//a[text()=' Courses ']")
+	private WebElement coursetab;
 	
+	@FindBy(how=How.XPATH,using="//button[text()=' View all ']")
+	private WebElement viewall;
+	
+	@FindBy(how=How.XPATH,using="//button[text()='Close ']")
+	private WebElement closetab;
+	
+	@FindBy(how=How.XPATH,using="//bdi[text()='बहुकक्षीय-बहुस्तरीय शिक्षण (KGBV उत्तर प्रदेश)']")
+	private WebElement coursetitle;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Hindi']")
+	private WebElement coursemedium;
+	
+	@FindBy(how=How.XPATH,using="(//span[@title='सहज | SAHAJ'])[2]")
+	private WebElement coursepublisher;
+	
+	@FindBy(how=How.XPATH,using="/html/body/app-root/div[1]/div/main/app-view-all/div/div/div[2]/div/div/div[2]/div/div[1]/sb-library-card/span/sb-library-card-v2/div/div[1]/div[1]/div/img")
+	private WebElement courseimg;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Training']")
+	private WebElement coursesubject;
+	
+	@FindBy(how=How.XPATH,using="//span[text()='Class 1']")
+	private WebElement courseclass;
+	
+	public WebElement getcourseclass() {
+		return courseclass;
+	}
+	
+	public WebElement getCoursetab() {
+		return coursetab;
+	}
+
+
+
+	public void setCoursetab(WebElement coursetab) {
+		this.coursetab = coursetab;
+	}
+
+
+
+	public WebElement getViewall() {
+		return viewall;
+	}
+
+
+
+	public void setViewall(WebElement viewall) {
+		this.viewall = viewall;
+	}
+
+
+
+	public WebElement getClosetab() {
+		return closetab;
+	}
+
+
+
+	public void setClosetab(WebElement closetab) {
+		this.closetab = closetab;
+	}
+
+
+
+	public WebElement getCoursetitle() {
+		return coursetitle;
+	}
+
+
+
+	public void setCoursetitle(WebElement coursetitle) {
+		this.coursetitle = coursetitle;
+	}
+
+
+
+	public WebElement getCoursemedium() {
+		return coursemedium;
+	}
+
+
+
+	public void setCoursemedium(WebElement coursemedium) {
+		this.coursemedium = coursemedium;
+	}
+
+
+
+	public WebElement getCoursepublisher() {
+		return coursepublisher;
+	}
+
+
+
+	public void setCoursepublisher(WebElement coursepublisher) {
+		this.coursepublisher = coursepublisher;
+	}
+
+
+
+	public WebElement getCourseimg() {
+		return courseimg;
+	}
+
+
+
+	public void setCourseimg(WebElement courseimg) {
+		this.courseimg = courseimg;
+	}
+
+
+
+	public WebElement getCoursesubject() {
+		return coursesubject;
+	}
+
+
+
+	public void setCoursesubject(WebElement coursesubject) {
+		this.coursesubject = coursesubject;
+	}
+
+
+
+	public WebElement getSearchedTextbook() {
+		return searchedTextbook;
+	}
+
+
+
+	public WebElement getsearchedTextbook() {
+		return searchedTextbook;
+	}
+
+
 	
 	public WebElement getConfirmLeavebutton() {
 		return confirmLeavebutton;

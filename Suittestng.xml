@@ -7,16 +7,11 @@
   <test thread-count="5" name="Test">
     <classes>
 
-<class name="contentCreation.CreateBookAndVerify"/>
+<class name="Consumption.ConsumptionScenarios"/>
      
      
 
-	
-	  <class name="contentCreation.UploadAllContentsTypes"/>	
-	 
-	 
-
-    </classes>
+</classes>
 
   </test> <!-- Test -->
 </suite> <!-- Suite -->

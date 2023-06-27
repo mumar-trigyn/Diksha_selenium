@@ -25,7 +25,7 @@ public class CreateBookAndVerify extends BaseClass{
 		
 	}
 	
-//	@Test
+	//@Test
 	public void VerifyCreatorValidateQRCode() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -57,7 +57,7 @@ public class CreateBookAndVerify extends BaseClass{
 	
 	}
 	
-//	@Test
+	//@Test
 	public void VerifyAdminUdpateTextbookDetailsForDraftBookAndlive() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -70,7 +70,7 @@ public class CreateBookAndVerify extends BaseClass{
 		UserOnBoarding.login("Creator");
 	}
 	
-	@Test
+	//@Test
 	public void VerifyCreatorCopyeTextbookAndSendForReviewAndPublishTheContents() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -92,7 +92,7 @@ public class CreateBookAndVerify extends BaseClass{
 	}
 	
 	
-//	@Test
+	//@Test
 	public void VerifyReviewerPreviewAndRejecteTextbook() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -121,6 +121,20 @@ public class CreateBookAndVerify extends BaseClass{
 		
 			
 	}
+	
+	@Test
+	public void VerifyCreatorAddAllTypesOfContent() throws Exception {
+		
+		UserOnBoarding.schoolheadicon();
+		UserOnBoarding.bmcpopuphandle();
+		UserOnBoarding.locationpopuphandle();
+		UserOnBoarding.login("Creator");
+		String Bookname = Book_Creation.CreatorAddAllTypeOfContent();
+		Book_Creation.SearchTheBookFromDraft(Bookname);
+		
+		
+	}
+	
 	
 	
 }

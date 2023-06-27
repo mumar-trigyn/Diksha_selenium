@@ -89,6 +89,16 @@ public class CreateBatchForCourse {
 	@FindBy(how=How.XPATH,using="//span[text()=' admin (ad********@gmail.com) ']")
 	private WebElement MentorSelected;
 	
+	@FindBy(how=How.XPATH,using="//button[@id='add-certificate']")
+	private WebElement BeforeAddCertificate;
+	
+	@FindBy(how=How.XPATH,using="//button[text()=' Close ']")
+	private WebElement ClosePopup;
+	
+	
+	public WebElement getClosePopup() {
+		return ClosePopup;
+	}
 	public WebElement getsearchedTextbook() {
 		return searchedTextbook;
 	}

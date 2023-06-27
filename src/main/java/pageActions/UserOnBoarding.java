@@ -137,7 +137,7 @@ public class UserOnBoarding extends BaseClass {
 		DikshaUtils.waitToBeClickableAndSendKeys(loginpage.getPassword(), password);
 		DikshaUtils.waitToBeClickableAndClick(loginpage.getLogin());
 
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 	}
 	

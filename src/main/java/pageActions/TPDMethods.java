@@ -114,6 +114,50 @@ public class TPDMethods extends BaseClass {
 		
 	}
 	
+		public static void createBatchAndAddCertificate(String course) throws InterruptedException {
+			
+			CreateBatchForCourse createBatch=PageFactory.initElements(driver, CreateBatchForCourse.class);
+			 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+			 
+			 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getSearchtextfield(),course);
+			 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchbutton());
+			 Thread.sleep(1000);
+			 DikshaUtils.waitToBeClickableAndClick(createBatch.getSearchedcourse());
+			
+			 WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+			 wait.until(ExpectedConditions.elementToBeClickable(createBatch.getCreateBatchButton()));
+		   
+			 DikshaUtils.waitToBeClickableAndClick(createBatch.getCreateBatchButton());
+			 Thread.sleep(1000);
+			 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getBatchName(),"Batch 1");
+			 DikshaUtils.waitToBeClickableAndSendKeys(createBatch.getDescription(),"This course is created via Automation");
+			 Thread.sleep(2000);
+				Library.custom_click(createBatch.getIssueCertificateYes(), "IssueCertificateNo");
+				Thread.sleep(2000);
+			 DikshaUtils.waitToBeClickableAndClick(createBatch.getStartDate());
+			
+			Date.setTodayDate(driver);
+			Thread.sleep(1000);
+			Actions action=new Actions(driver);
+			action.sendKeys("\b").perform();
+			Thread.sleep(1000);
+			action.sendKeys("3").perform();
+			Thread.sleep(1000);
+			
+			DikshaUtils.waitToBeClickableAndClick(createBatch.getEndDate());
+			
+			Date.setTomorrowDate(driver);
+			Thread.sleep(1000);
+			DikshaUtils.waitToBeClickableAndClick(createBatch.getCourseterms());
+			wait.until(ExpectedConditions.elementToBeClickable(createBatch.getCreateButton()));
+			Thread.sleep(1000);
+			DikshaUtils.waitToBeClickableAndClick(createBatch.getCreateButton());
+			Thread.sleep(5000);
+			DikshaUtils.waitToBeVisibleAndClick(createBatch.getClosePopup());
+		}
+		
+		
+		
 		public static void verifyOneBatchInCourse(String course) throws InterruptedException {
 			
 			CreateBatchForCourse createBatch=PageFactory.initElements(driver, CreateBatchForCourse.class);

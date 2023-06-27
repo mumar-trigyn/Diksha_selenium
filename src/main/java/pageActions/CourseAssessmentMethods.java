@@ -94,7 +94,9 @@ public static String createAssessmentWithQuestion() throws InterruptedException,
 		WebElement iframe = driver.findElement(By.tagName("iframe"));
 		driver.switchTo().frame(iframe);
 		DikshaUtils.waitToBeClickableAndClick(assesment.getAddQuestionSetButton());
+		Thread.sleep(1000);
 		DikshaUtils.waitToBeClickableAndClick(rs.getCreateQuestionButton());
+		Thread.sleep(1000);
 		DikshaUtils.waitToBeClickableAndClick(rs.getSelectMCQButton());
 		Thread.sleep(2000);
 		WebElement iframe1 = driver.findElement(By.xpath("//iframe[contains(@title,'Rich Text Editor')]"));

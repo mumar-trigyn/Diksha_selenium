@@ -251,4 +251,30 @@ public class UpForReviewMethods extends BaseClass {
 		 
 	 }
 	 
-}
+ public static void QuestionSet_up_For_Review(String fullname) throws Exception {
+		 
+		 UpForReview review=PageFactory.initElements(driver, UpForReview.class);
+			Collections collections=PageFactory.initElements(driver, Collections.class);
+		
+			driver.get("https://diksha.gov.in/workspace/edit/Course/"+fullname+"/upForReview/Review#no");
+			
+			DikshaUtils.waitToBeVisibleAndClick(collections.getpublishCollections());
+			 Thread.sleep(1000);
+			 Library.custom_click(collections.getNoHateSpeech(), "NoHateSpeech");
+		     Library.custom_click(collections.getNoSexualContent(), "NoSexualContent");
+		     Library.custom_click(collections.getNoDiscrimination(), "NoDiscrimination");
+		     Library.custom_click(collections.getSuitableForChildren(), "SuitableForChildren");
+		     Library.custom_click(collections.getAppropriateTitle(), "AppropriateTitle");
+		     Library.custom_click(collections.getCorrectBMC(), "CorrectBMC");
+		     Library.custom_click(collections.getAppropriateTags(), "AppropriateTags");
+		     Library.custom_click(collections.getRelevantKeywords(), "RelevantKeywords");
+		     Library.custom_click(collections.getContentplayscorrectly(),"Contentplayscorrectly");
+		     Library.custom_click(collections.getCanseethecontent(), "Canseethecontent ");
+		     Library.custom_click(collections.getAudio(), "Audio");
+		     Library.custom_click(collections.getNoSpellingmistakes(), "NoSpellingmistakes");
+		     Library.custom_click(collections.getLanguage(), "Language");
+		     DikshaUtils.waitToBeClickableAndClick(collections.getYesTab());
+		     Thread.sleep(5000);
+ 
+    }
+ }
