@@ -2,6 +2,7 @@ package userOnBoarding;
 
 import org.testng.annotations.Test;
 
+import pageActions.Observation;
 import pageActions.UserOnBoarding;
 import utility.BaseClass;
 
@@ -15,13 +16,13 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.locationpopuphandle();
 		UserOnBoarding.login("Dont Use");
 		UserOnBoarding.VerifyTheUserShouldBeAbleToEditTheSubmittedDetailsOptionInProfile();
-		UserOnBoarding.logout();
 		UserOnBoarding.login("AddUserCred");
 		UserOnBoarding.VerifyUserShouldBeAbleToEditTheSubmittedDetails();
 		
 	}
 
-	//@Test
+//	@Test
+	//Application issue:- not able to select BMC value in one click
 	public void VerifyTheUserIsAbleToUpdateTheBMCAndLocationDetails() throws Exception {
 		
 		UserOnBoarding.studenticon();
@@ -31,7 +32,7 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.VerifyTheUserIsAbleToUpdateTheBMCAndLocationDetails();
 	} 
 	
-	//@Test
+	@Test
 	public void VerifyUserSelectsHTAndOfficialRoleUserIsGettingObservationTab() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -39,6 +40,7 @@ public class CustodianUser extends BaseClass {
 		UserOnBoarding.locationpopuphandle();
 		UserOnBoarding.login("AddUserCred");
 	   UserOnBoarding.validateObservationTab();
+	   Observation.SelectRoleAsTeacher();
 			
 	}
 	//@Test

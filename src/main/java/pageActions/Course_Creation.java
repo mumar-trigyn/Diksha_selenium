@@ -9,6 +9,7 @@ import org.testng.Assert;
 import pageObject.CourseCreation;
 import pageObject.CreateBook;
 import pageObject.LoginPage;
+import pageObject.ValidatePopUp;
 import utility.BaseClass;
 import utility.DikshaUtils;
 import utility.Library;
@@ -20,6 +21,8 @@ public class Course_Creation extends BaseClass {
 			
 	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
 	 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+	 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+	 
 	 DikshaUtils.waitToBeClickableAndClick(content.getHeaderDropdown());
 	 DikshaUtils.waitToBeClickableAndClick(content.getWorkspace());
 	 DikshaUtils.waitToBeClickableAndClick(content.getCoursetab());
@@ -67,6 +70,9 @@ public class Course_Creation extends BaseClass {
      
      DikshaUtils.waitToBeClickableAndClick(content.getSaveAsDraft());
      Thread.sleep(5000);
+     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+     Thread.sleep(1000);
      
      DikshaUtils.waitToBeClickableAndClick(content.getAddChild());
      DikshaUtils.waitToBeClickableAndSendKeys(content.getChildDesc1(),"Created via Automation");
@@ -77,12 +83,19 @@ public class Course_Creation extends BaseClass {
      Thread.sleep(3000);
      DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
      DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+     Thread.sleep(2000);
+     String ContentsuccessfullyaddPopup = popup.getContentAddFromLibraryPopup().getText();
+     Assert.assertEquals(ContentsuccessfullyaddPopup, "Content is added to the folder");
+     Thread.sleep(2000);
+     
      DikshaUtils.waitToBeClickableAndClick(content.getContentFromLibrayBackButton());
      DikshaUtils.waitToBeClickableAndClick(content.getSubmitForreviewButton());
      DikshaUtils.waitToBeClickableAndClick(content.getTermsAndConditionCheckbox());
      DikshaUtils.waitToBeClickableAndClick(content.getNewCoursesubmitButton());
-     Thread.sleep(5000);
-     Assert.assertTrue(loginpage.getHeaderDropdown().isDisplayed());
+     Thread.sleep(2000);
+     String ContentsendPopup = popup.getSendForReviewPopUp().getText();
+     Assert.assertEquals(ContentsendPopup, "Content is sent for review");
+     Thread.sleep(2000);
 		
 		return randomname;
 		
@@ -92,6 +105,8 @@ public class Course_Creation extends BaseClass {
 		
 	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
 	 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+	 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+	 
 	 DikshaUtils.waitToBeClickableAndClick(content.getHeaderDropdown());
 	 DikshaUtils.waitToBeClickableAndClick(content.getWorkspace());
 	 DikshaUtils.waitToBeClickableAndClick(content.getCoursetab());
@@ -139,6 +154,9 @@ public class Course_Creation extends BaseClass {
      
      DikshaUtils.waitToBeClickableAndClick(content.getSaveAsDraft());
      Thread.sleep(5000);
+     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+     Thread.sleep(1000);
      
      DikshaUtils.waitToBeClickableAndClick(content.getAddChild());
      DikshaUtils.waitToBeClickableAndSendKeys(content.getChildDesc1(),"Created via Automation");
@@ -149,10 +167,11 @@ public class Course_Creation extends BaseClass {
      Thread.sleep(3000);
      DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
      DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
-     DikshaUtils.waitToBeClickableAndClick(content.getContentFromLibrayBackButton());
-     DikshaUtils.waitToBeClickableAndClick(content.getCourseUnitExpandButton());
-     
-     Assert.assertTrue(content.getVerifyContentUnderCourse().isDisplayed());
+     Thread.sleep(2000);
+     String ContentsuccessfullyaddPopup = popup.getContentAddFromLibraryPopup().getText();
+     Assert.assertEquals(ContentsuccessfullyaddPopup, "Content is added to the folder");
+     Thread.sleep(2000);
+
 		
 		return randomname;
 	
@@ -161,6 +180,8 @@ public class Course_Creation extends BaseClass {
 		
  		 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
  		 LoginPage loginpage=PageFactory.initElements(driver, LoginPage.class);
+ 		ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+ 		
  		 DikshaUtils.waitToBeClickableAndClick(content.getHeaderDropdown());
  		 DikshaUtils.waitToBeClickableAndClick(content.getWorkspace());
  		 DikshaUtils.waitToBeClickableAndClick(content.getCoursetab());
@@ -207,7 +228,10 @@ public class Course_Creation extends BaseClass {
  	     js.executeScript("window.scrollTo(0, 0)");
  	     
  	     DikshaUtils.waitToBeClickableAndClick(content.getSaveAsDraft());
- 	     Thread.sleep(5000);
+ 	    Thread.sleep(5000);
+ 	     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+ 	     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+ 	     Thread.sleep(1000);
  	     
  	     DikshaUtils.waitToBeClickableAndClick(content.getAddChild());
  	     DikshaUtils.waitToBeClickableAndSendKeys(content.getChildDesc1(),"Created via Automation");
@@ -218,13 +242,18 @@ public class Course_Creation extends BaseClass {
  	     Thread.sleep(3000);
  	     DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
  	     DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+ 	    Thread.sleep(2000);
+ 	     String ContentsuccessfullyaddPopup = popup.getContentAddFromLibraryPopup().getText();
+ 	     Assert.assertEquals(ContentsuccessfullyaddPopup, "Content is added to the folder");
+ 	     Thread.sleep(2000);
  	     DikshaUtils.waitToBeClickableAndClick(content.getContentFromLibrayBackButton());
  	     DikshaUtils.waitToBeClickableAndClick(content.getSubmitForreviewButton());
  	     DikshaUtils.waitToBeClickableAndClick(content.getTermsAndConditionCheckbox());
  	     DikshaUtils.waitToBeClickableAndClick(content.getNewCoursesubmitButton());
- 	     Thread.sleep(5000);
- 	     Assert.assertTrue(loginpage.getHeaderDropdown().isDisplayed());
- 			
+ 	    Thread.sleep(2000);
+ 	     String ContentsendPopup = popup.getSendForReviewPopUp().getText();
+ 	     Assert.assertEquals(ContentsendPopup, "Content is sent for review");
+ 	     Thread.sleep(2000);
  			return randomname;
  			
  		}
@@ -233,7 +262,8 @@ public class Course_Creation extends BaseClass {
  		 
  		 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
  		 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
- 		 
+ 		ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+ 		
  		    DikshaUtils.waitToBeClickableAndClick(content.getHeaderDropdown());
  		    DikshaUtils.waitToBeClickableAndClick(content.getWorkspace());
  	        DikshaUtils.waitToBeClickableAndClick(content.getCoursetab());
@@ -277,6 +307,9 @@ public class Course_Creation extends BaseClass {
  			js.executeScript("window.scrollTo(0, 0)");
  			DikshaUtils.waitToBeClickableAndClick(content.getSaveAsDraft());
  			Thread.sleep(5000);
+ 		     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+ 		     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+ 		     Thread.sleep(1000);
  			DikshaUtils.waitToBeClickableAndClick(content.getAddChild());
  			DikshaUtils.waitToBeClickableAndClick(content.getChildDesc1());
  			DikshaUtils.waitToBeClickableAndClick(content.getAddFromLibraryButton());
@@ -287,11 +320,18 @@ public class Course_Creation extends BaseClass {
  			Thread.sleep(2000);
  			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
  			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+ 			 Thread.sleep(2000);
+ 		     String ContentsuccessfullyaddPopup = popup.getContentAddFromLibraryPopup().getText();
+ 		     Assert.assertEquals(ContentsuccessfullyaddPopup, "Content is added to the folder");
+ 		     Thread.sleep(2000);
  			DikshaUtils.waitToBeClickableAndClick(content.getContentFromLibrayBackButton());
  			DikshaUtils.waitToBeClickableAndClick(content.getSubmitForreviewButton());
  			DikshaUtils.waitToBeVisibleAndClick(content.getTermsAndConditionCheckbox());
  			DikshaUtils.waitToBeClickableAndClick(content.getNewCoursesubmitButton());
- 			Thread.sleep(5000);
+ 			Thread.sleep(2000);
+ 		     String ContentsendPopup = popup.getSendForReviewPopUp().getText();
+ 		     Assert.assertEquals(ContentsendPopup, "Content is sent for review");
+ 		     Thread.sleep(2000);
  			
  			return randomname;
  			

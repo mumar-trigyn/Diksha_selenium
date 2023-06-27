@@ -25,7 +25,7 @@ public class CreateBookAndVerify extends BaseClass{
 		
 	}
 	
-//	@Test
+	//@Test
 	public void VerifyCreatorValidateQRCode() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -57,7 +57,7 @@ public class CreateBookAndVerify extends BaseClass{
 	
 	}
 	
-//	@Test
+	//@Test
 	public void VerifyAdminUdpateTextbookDetailsForDraftBookAndlive() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -108,6 +108,7 @@ public class CreateBookAndVerify extends BaseClass{
 	}
 	
 	//@Test
+	//Currently known issue  
 	public void VerifyReviewerViewTheCollaboratorAddedToeTextbook() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();

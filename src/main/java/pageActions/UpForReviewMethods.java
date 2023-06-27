@@ -11,6 +11,7 @@ import org.testng.Assert;
 import pageObject.Collections;
 import pageObject.CreateBook;
 import pageObject.UpForReview;
+import pageObject.ValidatePopUp;
 import utility.BaseClass;
 import utility.DikshaUtils;
 import utility.Library;
@@ -22,7 +23,7 @@ public class UpForReviewMethods extends BaseClass {
 
 	        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       UpForReview review=PageFactory.initElements(driver, UpForReview.class);
-
+	       ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 
 	        Library.custom_click(review.getHeaderDropdown(),"c-icon");
 	        JavascriptExecutor js=(JavascriptExecutor)driver;
@@ -67,10 +68,11 @@ public class UpForReviewMethods extends BaseClass {
 	        Library.custom_click(review.getNoSpellingmistakes(), "NoSpellingmistakes");
 	        Library.custom_click(review.getLanguage(), "Language");
 	        Library.custom_click(review.getConfirmForPublishBook(), "Confirm Publish");
-
+	        Thread.sleep(3000);
+	        String ContentsuccessfullySavedPopup = popup.getContentPublishedPopUp().getText();
+	        Assert.assertEquals(ContentsuccessfullySavedPopup, "Content published successfully...");
+	        Thread.sleep(1000);
 	        
-
-	        Assert.assertTrue(review.getUpForReview().isDisplayed());
 
 	    }
 
@@ -107,7 +109,8 @@ public class UpForReviewMethods extends BaseClass {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				UpForReview review=PageFactory.initElements(driver, UpForReview.class);
 				Collections collections=PageFactory.initElements(driver, Collections.class);
-
+				ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+				
 				DikshaUtils.waitToBeClickableAndClick(review.getHeaderDropdown());
 				JavascriptExecutor js=(JavascriptExecutor)driver;
 				js.executeScript("arguments[0].scrollIntoView(true);",review.getWorkspace());
@@ -137,7 +140,10 @@ public class UpForReviewMethods extends BaseClass {
 			     Library.custom_click(collections.getNoSpellingmistakes(), "NoSpellingmistakes");
 			     Library.custom_click(collections.getLanguage(), "Language");
 			     DikshaUtils.waitToBeClickableAndClick(collections.getYesTab());
-				
+			     Thread.sleep(3000);
+			     String ContentsuccessfullySavedPopup = popup.getBookPublishedPopUp().getText();
+			        Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is published");
+			        Thread.sleep(1000);
 						 
 		  } 
 		  
@@ -145,7 +151,8 @@ public class UpForReviewMethods extends BaseClass {
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				UpForReview review=PageFactory.initElements(driver, UpForReview.class);
 				Collections collections=PageFactory.initElements(driver, Collections.class);
-
+				ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+				
 				DikshaUtils.waitToBeClickableAndClick(review.getHeaderDropdown());
 				JavascriptExecutor js=(JavascriptExecutor)driver;
 				js.executeScript("arguments[0].scrollIntoView(true);",review.getWorkspace());
@@ -175,7 +182,10 @@ public class UpForReviewMethods extends BaseClass {
 			     Library.custom_click(collections.getNoSpellingmistakes(), "NoSpellingmistakes");
 			     Library.custom_click(collections.getLanguage(), "Language");
 			     DikshaUtils.waitToBeClickableAndClick(collections.getYesTab());
-			     Thread.sleep(5000);
+			     Thread.sleep(3000);
+			        String ContentsuccessfullySavedPopup = popup.getBookPublishedPopUp().getText();
+			        Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is published");
+			        Thread.sleep(1000);
 						 
 		  }  
 		  
@@ -195,6 +205,8 @@ public class UpForReviewMethods extends BaseClass {
 				DikshaUtils.waitToBeClickableAndClick(review.getSearchedContentForPublish());
 				DikshaUtils.waitToBeClickableAndClick(review.getClickSearchContent());
 				Thread.sleep(2000);
+				driver.navigate().refresh();
+				driver.navigate().refresh();
 				DikshaUtils.waitToBeClickableAndClick(review.getRejectTheContent());
 				DikshaUtils.waitToBeClickableAndSendKeys(review.getAddReviewComment(), "Feedback");
 				DikshaUtils.waitToBeClickableAndClick(review.getSubmitReviewButton());
@@ -232,7 +244,8 @@ public class UpForReviewMethods extends BaseClass {
 		 
 		 UpForReview review=PageFactory.initElements(driver, UpForReview.class);
 			Collections collections=PageFactory.initElements(driver, Collections.class);
-
+			ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+			
 			DikshaUtils.waitToBeClickableAndClick(review.getHeaderDropdown());
 			JavascriptExecutor js=(JavascriptExecutor)driver;
 			js.executeScript("arguments[0].scrollIntoView(true);",review.getWorkspace());
@@ -246,7 +259,10 @@ public class UpForReviewMethods extends BaseClass {
 			Thread.sleep(2000);
 			DikshaUtils.waitToBeVisibleAndClick(collections.getpublishCollections());
 			DikshaUtils.waitToBeVisibleAndClick(collections.getYesTab());
-			 Thread.sleep(5000);
+			 Thread.sleep(3000);
+		        String ContentsuccessfullySavedPopup = popup.getBookPublishedPopUp().getText();
+		        Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is published");
+		        Thread.sleep(1000);
 		 
 		 
 	 }

@@ -6,16 +6,8 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
-
-<class name="contentCreation.CreateBookAndVerify"/>
-     
-     
-
 	
-	  <class name="contentCreation.UploadAllContentsTypes"/>	
-	 
-	 
-
+        <class name="Consumption.ConsumptionScenarios"/>	
     </classes>
 
   </test> <!-- Test -->

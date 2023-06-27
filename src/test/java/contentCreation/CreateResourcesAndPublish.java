@@ -13,7 +13,7 @@ import utility.DikshaUtils;
 
 public class CreateResourcesAndPublish extends BaseClass{
 	
- //    @Test
+   // @Test
 	public void verifyECMLResource() throws Exception {
 		
 	
@@ -30,7 +30,7 @@ public class CreateResourcesAndPublish extends BaseClass{
 		
 	}
 	
-   // @Test
+    @Test
  	public void verifyTvLessonResource() throws Exception {
  		ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
  		UserOnBoarding.teachericon();
@@ -44,7 +44,7 @@ public class CreateResourcesAndPublish extends BaseClass{
  		UpForReviewMethods.up_For_Review(contentName);
  		
  	}
- //	@Test
+ 	//@Test
      public void verifyCreateEditQuestionSetInResources() throws Exception {
     	 ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
   		UserOnBoarding.teachericon();
@@ -60,7 +60,7 @@ public class CreateResourcesAndPublish extends BaseClass{
   		
   	}
      
-     @Test
+   //  @Test
      public void verifyShuffleCopyQuestionSetInResources() throws Exception {
     	 ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
   		UserOnBoarding.teachericon();

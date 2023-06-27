@@ -1,9 +1,11 @@
 package pageActions;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import pageObject.LessonPlan;
 import pageObject.UploadPdfContent;
+import pageObject.ValidatePopUp;
 import utility.BaseClass;
 import utility.DikshaUtils;
 import utility.Library;
@@ -12,7 +14,7 @@ public class CreateLessonPlan extends BaseClass {
 
 	public static String createLessonPlan() throws Exception {
 		
-		
+		ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 		LessonPlan lesson=PageFactory.initElements(driver, LessonPlan.class);
 		
 		Thread.sleep(1000);
@@ -38,8 +40,10 @@ public class CreateLessonPlan extends BaseClass {
 		DikshaUtils.waitToBeClickableAndClick(lesson.getSelectResource());
 		DikshaUtils.waitToBeVisibleAndClick(lesson.getProceedTab());
 		DikshaUtils.waitToBeClickableAndClick(lesson.getSaveButton());
-		Thread.sleep(3000);
-	
+		Thread.sleep(4000);
+	     String ContentsuccessfullySavedPopup = popup.getSaveLessonPlanPopUp().getText();
+	     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content saved successfully!");
+	     Thread.sleep(1000);	
 		 excel.updateData("TestData","LessonPlan" ,name, "");
 		
 		return name;

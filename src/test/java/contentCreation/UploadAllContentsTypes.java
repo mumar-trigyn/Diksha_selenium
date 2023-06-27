@@ -30,7 +30,7 @@ public class UploadAllContentsTypes extends BaseClass {
 		
 	}
 	
-  // @Test
+ //  @Test
 	public void uploadMp4() throws Exception {
 		
 		UserOnBoarding.teachericon();
@@ -58,7 +58,7 @@ public class UploadAllContentsTypes extends BaseClass {
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
-  // @Test
+ //  @Test
 	public void uploadWebm() throws Exception {
 		
 		UserOnBoarding.teachericon();
@@ -103,7 +103,7 @@ public class UploadAllContentsTypes extends BaseClass {
 		
 	}
     
-  //  @Test
+ //  @Test
 	public void uploadHtmlContent() throws Exception {
 		
 		UserOnBoarding.teachericon();

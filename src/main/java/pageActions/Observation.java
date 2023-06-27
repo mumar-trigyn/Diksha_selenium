@@ -1,6 +1,9 @@
 package pageActions;
 
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -68,10 +71,19 @@ public class Observation extends BaseClass {
 		 Thread.sleep(2000);
 		 DikshaUtils.waitToBeClickableAndClick(user.getBackButton());
 		 Thread.sleep(2000);
-		 
-	  //  Assert.assertFalse(!home.getObservationTab().isDisplayed());
-		 
-		 
+		
+
+
+
+    WebElement observationTab = home.getObservationTab();
+    if (observationTab != null) {
+        System.out.println("Observation tab is not present.");
+        // Perform further actions or assertions when the element is present
+    } else {
+        System.out.println("Observation tab is present.");
+        // Perform alternative actions or assertions when the element is not present
+    }
+
 		
 	}
 	

@@ -2,7 +2,7 @@ package testScripts;
 
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
-import pageActions.Course_Consumption;
+import pageActions.CourseConsumptionMethods;
 import pageActions.Course_Creation;
 import utility.BaseClass;
 import utility.DikshaUtils;

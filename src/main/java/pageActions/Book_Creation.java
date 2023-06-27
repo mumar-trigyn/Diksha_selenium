@@ -18,6 +18,7 @@ import pageObject.Draft;
 import pageObject.HomePage;
 import pageObject.LoginPage;
 import pageObject.UpForReview;
+import pageObject.ValidatePopUp;
 import utility.BaseClass;
 import utility.DikshaUtils;
 
@@ -44,7 +45,9 @@ public static void VerifyCreatorAbleToGenerateAndDownloadQRCode() throws Excepti
 				DikshaUtils.waitToBeVisibleAndClick(create.getRequestButton());
 				DikshaUtils.waitToBeVisibleAndClick(create.getQRCodeDropdown());
 				DikshaUtils.waitToBeVisibleAndClick(create.getDownloadQRCode());
-	
+	     
+				
+				
 	}
 	
 	
@@ -91,7 +94,7 @@ public static void VerifyCreatorAbleToGenerateAndDownloadQRCode() throws Excepti
 	}
 	
 	public static String VerifyCreatorAbleToAddCollaboratorInTextbook() throws Exception {
-		
+		 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 		CreateBook create=PageFactory.initElements(driver, CreateBook.class);
 		
         DikshaUtils.waitToBeClickableAndClick(create.getHeaderDropdown());
@@ -152,7 +155,10 @@ public static void VerifyCreatorAbleToGenerateAndDownloadQRCode() throws Excepti
 			DikshaUtils.waitToBeClickableAndClick(create.getSubmitForreviewButton());
 			DikshaUtils.waitToBeClickableAndClick(create.getTermsAndConditionCheckbox());
 			DikshaUtils.waitToBeClickableAndClick(create.getNewCoursesubmitButton());
-			Thread.sleep(5000);
+			Thread.sleep(2000);
+		     String ContentsendPopup = popup.getSendForReviewPopUp().getText();
+		     Assert.assertEquals(ContentsendPopup, "Content is sent for review");
+		     Thread.sleep(2000);
 		
 			excel.updateData("TestData","Collections" ,Name, "");
 			
@@ -216,6 +222,7 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
     	 
     	 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
     	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
+    	 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
     	 
          DikshaUtils.waitToBeClickableAndClick(create.getHeaderDropdown());
  	    DikshaUtils.waitToBeClickableAndClick(create.getWorkspace());
@@ -251,13 +258,18 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
  			DikshaUtils.waitToBeVisibleAndClick(content.getAddFromLibraryButton());
  			
 			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
-			content.getSearchContentFromLibrary().sendKeys("textbook");
+			String textbook = excel.getContentName("PDF");
+			DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),textbook);	
 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
 			Thread.sleep(3000);
 			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
 			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
 			DikshaUtils.waitToBeClickableAndClick(content.getContentFromLibrayBackButton());
 			DikshaUtils.waitToBeVisibleAndClick(create.getSaveAsDraft());
+			Thread.sleep(5000);
+		     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+		     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+		     Thread.sleep(1000);
 			DikshaUtils.waitToBeVisibleAndClick(create.getBackButton());
 			Thread.sleep(5000);
 		
@@ -272,6 +284,7 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
     	 
     	 Draft draft=PageFactory.initElements(driver, Draft.class);
     	 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
+    	 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
     	 
     	 DikshaUtils.waitToBeClickableAndClick( draft.getHeaderDropdown());
 			JavascriptExecutor js=(JavascriptExecutor)driver;
@@ -294,7 +307,10 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
 			 Thread.sleep(2000);
 			 js.executeScript("window.scrollTo(0, 0)");
 	 		 DikshaUtils.waitToBeVisibleAndClick(create.getSaveAsDraft());
-	 		 Thread.sleep(2000);
+	 		Thread.sleep(5000);
+	 	     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+	 	     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+	 	     Thread.sleep(1000);
 	 		 DikshaUtils.waitToBeClickableAndClick(create.getSubmitForreviewButton());
 	 		 Thread.sleep(4000);
 		     DikshaUtils.waitToBeVisibleAndClick(create.getTermsAndConditionCheckbox());
@@ -303,10 +319,82 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
 			 DikshaUtils.waitToBeClickableAndClick( draft.getConfirmDeleteContentFromDraft());
      }
      
+     	public static String CreateBookWithQRCodeAndSendForReview() throws Exception {
+    	 
+    	 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
+    	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
+    	 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+    	 
+         DikshaUtils.waitToBeClickableAndClick(create.getHeaderDropdown());
+ 	    DikshaUtils.waitToBeClickableAndClick(create.getWorkspace());
+ 	    DikshaUtils.waitToBeClickableAndClick(create.getBook());
+ 		
+ 		String Name=DikshaUtils.set_Content_Name("eTextbook_");
+ 		
+ 		DikshaUtils.waitToBeClickableAndSendKeys(create.getBookname(), Name);
+ 		DikshaUtils.waitToBeVisibleAndClick(create.getBookname());
+ 		DikshaUtils.waitToBeVisibleAndClick(create.getStartCreating());
+ 		Thread.sleep(1000);
+ 		JavascriptExecutor js=(JavascriptExecutor)driver;
+ 		 js.executeScript("arguments[0].scrollIntoView(true);",create.getYesQRCodeRequired());
+ 		//    js.executeScript("window.scrollBy(0, 900)");
+ 		    Thread.sleep(1000);
+ 		   DikshaUtils.waitToBeClickableAndClick(create.getYesQRCodeRequired());
+ 			DikshaUtils.waitToBeClickableAndSendKeys(create.getEnterQRCode(), "V9X1R7");
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getQRCodeBlueTick());
+ 		   String id = DikshaUtils.generate_Do_id();
+			excel.updateData("TestData","ETextBook" ,Name, id);
+ 		    DikshaUtils.waitToBeVisibleAndClick(create.getSelectBoardSyllabus());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getBoardSelected());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getSelectMedium());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getMediumSelected());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getSelectClass());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getClassSelected());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getSelectSubject());
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getSubjectSelected());
+ 		    
+ 		    js.executeScript("arguments[0].scrollIntoView(true);", create.getCopyright());
+ 		    Thread.sleep(1000);
+ 		    DikshaUtils.waitToBeClickableAndClick(create.getCopyright());
+ 		    create.getCopyright().sendKeys("2023");
+ 		   js.executeScript("window.scrollTo(0, 0)");
+		   	DikshaUtils.waitToBeClickableAndClick(create.getSaveAsDraft());
+		   	Thread.sleep(5000);
+		     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+		     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+		     Thread.sleep(1000);
+ 			DikshaUtils.waitToBeClickableAndClick(create.getAddChild());
+ 			DikshaUtils.waitToBeVisibleAndClick(content.getAddFromLibraryButton());
+ 			
+			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
+			String textbook = excel.getContentName("PDF");
+			DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),"PDF_");	
+			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
+			Thread.sleep(3000);
+			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
+			DikshaUtils.waitToBeClickableAndClick(content.getAddContent());
+			DikshaUtils.waitToBeClickableAndClick(content.getContentFromLibrayBackButton());
+            DikshaUtils.waitToBeClickableAndClick(create.getSubmitForreviewButton());
+            Thread.sleep(3000);
+			DikshaUtils.waitToBeClickableAndClick(create.getTermsAndConditionCheckbox());
+			DikshaUtils.waitToBeClickableAndClick(create.getNewCoursesubmitButton());
+			Thread.sleep(2000);
+		     String ContentsendPopup = popup.getSendForReviewPopUp().getText();
+		     Assert.assertEquals(ContentsendPopup, "Content is sent for review");
+		     Thread.sleep(6000);
+		     
+			
+			return Name;
+    	 
+    	 
+     }
+     
+     
      public static String CreateBookAndSendForReview() throws Exception {
     	 
     	 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
     	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
+    	 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
     	 
          DikshaUtils.waitToBeClickableAndClick(create.getHeaderDropdown());
  	    DikshaUtils.waitToBeClickableAndClick(create.getWorkspace());
@@ -337,12 +425,16 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
  		    create.getCopyright().sendKeys("2023");
  		   js.executeScript("window.scrollTo(0, 0)");
 		   	DikshaUtils.waitToBeClickableAndClick(create.getSaveAsDraft());
-		    Thread.sleep(5000);
+		   	Thread.sleep(5000);
+		     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+		     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+		     Thread.sleep(1000);
  			DikshaUtils.waitToBeClickableAndClick(create.getAddChild());
  			DikshaUtils.waitToBeVisibleAndClick(content.getAddFromLibraryButton());
  			
 			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
-			content.getSearchContentFromLibrary().sendKeys("textbook");
+			String textbook = excel.getContentName("PDF");
+			DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),textbook);	
 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
 			Thread.sleep(3000);
 			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
@@ -352,7 +444,10 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
             DikshaUtils.waitToBeClickableAndClick(create.getSubmitForreviewButton());
 			DikshaUtils.waitToBeClickableAndClick(create.getTermsAndConditionCheckbox());
 			DikshaUtils.waitToBeClickableAndClick(create.getNewCoursesubmitButton());
-			Thread.sleep(5000);
+			Thread.sleep(2000);
+		     String ContentsendPopup = popup.getSendForReviewPopUp().getText();
+		     Assert.assertEquals(ContentsendPopup, "Content is sent for review");
+		     Thread.sleep(2000);
 		
 			excel.updateData("TestData","Collections" ,Name, "");
 			
@@ -366,13 +461,15 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
      CreateBook create=PageFactory.initElements(driver, CreateBook.class);
      CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
      HomePage home=PageFactory.initElements(driver, HomePage.class);
-        
+     ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+     
         Thread.sleep(1000);
         DikshaUtils.waitToBeVisibleAndClick(create.getDigitalTextbook());    
-        DikshaUtils.waitToBeClickableAndSendKeys(home.getSearchtextfield(),Fullname);
+        DikshaUtils.waitToBeClickableAndSendKeys(home.getSearchtextfield(),Fullname);   
 		DikshaUtils.waitToBeClickableAndClick(home.getSearchbutton());
+		Thread.sleep(2000);
 		DikshaUtils.waitToBeVisibleAndClick(home.getsearchedTextbook());    
-         Thread.sleep(1000);
+     
          
  	   
  	    DikshaUtils.waitToBeClickableAndClick(create.getCopyButton());
@@ -391,12 +488,16 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
 		
 		js.executeScript("window.scrollTo(0, 0)");
 		DikshaUtils.waitToBeClickableAndClick(create.getSaveAsDraft());
-		 Thread.sleep(5000);
+		Thread.sleep(5000);
+	     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+	     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+	     Thread.sleep(1000);
 		DikshaUtils.waitToBeClickableAndClick(create.getAddChild());
 	    DikshaUtils.waitToBeVisibleAndClick(content.getAddFromLibraryButton());
 			
 		DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
-		content.getSearchContentFromLibrary().sendKeys("textbook");
+		String textbook = excel.getContentName("PDF");
+		DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),textbook);	
 		content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 		DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
@@ -415,6 +516,7 @@ public static String CreateBookAddCollaboratorAndSendForReview() throws Exceptio
     	 
     	 CreateBook create=PageFactory.initElements(driver, CreateBook.class);
     	 CourseCreation content=PageFactory.initElements(driver, CourseCreation.class);
+    	 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
     	 
          DikshaUtils.waitToBeClickableAndClick(create.getHeaderDropdown());
  	    DikshaUtils.waitToBeClickableAndClick(create.getWorkspace());
@@ -445,11 +547,15 @@ public static String CreateBookAddCollaboratorAndSendForReview() throws Exceptio
  		    create.getCopyright().sendKeys("2023");
  		   js.executeScript("window.scrollTo(0, 0)");
 		   	DikshaUtils.waitToBeClickableAndClick(create.getSaveAsDraft());
-		    Thread.sleep(5000);
+		   	Thread.sleep(5000);
+		     String ContentsuccessfullySavedPopup = popup.getSaveAsDraftPopUp().getText();
+		     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is saved");
+		     Thread.sleep(1000);
 		   	DikshaUtils.waitToBeClickableAndClick(create.getAddChild());
  			DikshaUtils.waitToBeVisibleAndClick(content.getAddFromLibraryButton());
  			DikshaUtils.waitToBeVisibleAndClick(content.getSearchContentFromLibrary());
-			content.getSearchContentFromLibrary().sendKeys("textbook");
+ 			String textbook = excel.getContentName("PDF");
+			DikshaUtils.waitToBeClickableAndSendKeys(content.getSearchContentFromLibrary(),textbook);	
 			content.getSearchContentFromLibrary().sendKeys(Keys.ENTER);
 			Thread.sleep(3000);
 			DikshaUtils.waitToBeClickableAndClick(content.getSelectButton());
@@ -460,9 +566,9 @@ public static String CreateBookAddCollaboratorAndSendForReview() throws Exceptio
 			DikshaUtils.waitToBeClickableAndSendKeys(create.getSearchCollaborator(),"ContentCreator2.0");
 			Thread.sleep(1000);
 			create.getSearchCollaborator().sendKeys(Keys.ENTER);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
             DikshaUtils.waitToBeVisibleAndClick(create.getSelectContentCollaborator());
-			
+           
 			js.executeScript("arguments[0].scrollIntoView(true);",create.getDoneButton());
 		    Thread.sleep(2000);
 			DikshaUtils.waitToBeClickableAndClick(create.getDoneButton());
@@ -476,7 +582,10 @@ public static String CreateBookAddCollaboratorAndSendForReview() throws Exceptio
     	    DikshaUtils.waitToBeClickableAndClick(create.getSubmitForreviewButton());
 			DikshaUtils.waitToBeClickableAndClick(create.getTermsAndConditionCheckbox());
 			DikshaUtils.waitToBeClickableAndClick(create.getNewCoursesubmitButton());
-			Thread.sleep(5000);
+			Thread.sleep(2000);
+		     String ContentsendPopup = popup.getSendForReviewPopUp().getText();
+		     Assert.assertEquals(ContentsendPopup, "Content is sent for review");
+		     Thread.sleep(2000);
 		
 			excel.updateData("TestData","Collections" ,Name, "");
 			

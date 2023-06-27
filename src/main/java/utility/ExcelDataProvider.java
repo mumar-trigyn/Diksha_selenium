@@ -1,5 +1,6 @@
 package utility;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.aventstack.extentreports.ExtentTest;
 
@@ -48,6 +50,36 @@ public class ExcelDataProvider extends BaseClass {
 		return wb.getSheet(sheetname).getRow(row).getCell(cell).getStringCellValue();
 
 	}
+	
+
+    public String readDataForDownloadedQRCodeFile() {
+    	
+    	String value= null;
+    	String filePath = "C:\\Users\\Ashish.Dubey\\Downloads\\e2257771-b719-4ce4-9044-05759183cc24.csv";
+        try {
+           File file= new File(filePath);
+            FileInputStream fis = new FileInputStream(file);
+
+            Workbook workbook = new XSSFWorkbook(fis);
+            String sheet ="e2257771-b719-4ce4-9044-0575918"; 
+            int row=1;
+            int cell=1;
+            
+             value=workbook.getSheet(sheet).getRow(row).getCell(cell).getStringCellValue();
+            
+           System.out.println(value);
+
+            workbook.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       return value;
+		
+    }
+	
+	
+	
 
 	public void updateData(String sheetName, String Data1, String Data2, String Data3) throws IOException
 

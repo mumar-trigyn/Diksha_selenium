@@ -20,6 +20,7 @@ import pageObject.StudentProfile;
 import pageObject.SubmitDetails;
 import pageObject.TeacherProfile;
 import pageObject.UpdateProfile;
+import pageObject.ValidatePopUp;
 import pageObject.userProfile;
 import utility.BaseClass;
 import utility.DikshaUtils;
@@ -73,7 +74,7 @@ public class UserOnBoarding extends BaseClass {
 	}
 
 	public static void bmcpopuphandle() throws InterruptedException {
-
+		 ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
 		BMCPopup bmcpopup = PageFactory.initElements(driver, BMCPopup.class);
 
 		DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getBoard());
@@ -92,7 +93,10 @@ public class UserOnBoarding extends BaseClass {
 		act.moveByOffset(50, 100).click().build().perform();
 		Thread.sleep(1000);
 		DikshaUtils.waitToBeVisibleAndClick(bmcpopup.getBMCSubmit());
-		Thread.sleep(2000);
+		 Thread.sleep(2000);
+	     String BMCPopup = popup.getbMCPopUp().getText();
+	     Assert.assertEquals(BMCPopup, "User preference updated successfully");
+	     Thread.sleep(2000);
 
 	}
 
@@ -309,7 +313,14 @@ public static void NewUser() throws Exception {
 		 Thread.sleep(1000);
 		 sumbitdetails.getProfileSubmitbutton().isDisplayed();
 		 Thread.sleep(2000);
+		 js.executeScript("window.scrollTo(0, 0)");
+//		 js.executeScript("arguments[0].scrollIntoView(true);",user.getCustodianheaderDropdown());
+	     Thread.sleep(2000);
+		 DikshaUtils.waitToBeVisibleAndClick(user.headerDropdown());
+		 DikshaUtils.waitToBeClickableAndClick(log.getLogout());
 		 
+		 ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
+		 explore.getExplorebutton().click();
 		
 		 
 		 	 
@@ -452,9 +463,12 @@ public static void NewUser() throws Exception {
 		 Thread.sleep(2000);
 		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getSubRole());
 		 DikshaUtils.waitToBeVisibleAndClick(locationpopup.getStateLevelOIC());
-		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getPersonalDetailSubmitButton());
 		 Thread.sleep(2000);
 		 JavascriptExecutor js=(JavascriptExecutor)driver;
+		 js.executeScript("window.scrollTo(0, 1000)");
+		 DikshaUtils.waitToBeClickableAndClick(locationpopup.getPersonalDetailSubmitButton());
+		 Thread.sleep(2000);
+		 
 		 js.executeScript("window.scrollTo(0, 0)");
 		 Thread.sleep(2000);
 		 DikshaUtils.waitToBeClickableAndClick(user.getBackButton());

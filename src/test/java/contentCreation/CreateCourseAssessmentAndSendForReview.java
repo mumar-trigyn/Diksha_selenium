@@ -20,7 +20,7 @@ public class CreateCourseAssessmentAndSendForReview extends BaseClass {
 		UserOnBoarding.bmcpopuphandle();
 		UserOnBoarding.locationpopuphandle();
 		UserOnBoarding.login("Creator");
-		String contentName=CourseAssessmentMethods.createAssessmentWithAllTypeContent();
+		String contentName=CourseAssessmentMethods.createAssessmentWithQuestion();
 		SendForReviewMethods.sendCourseAssessment_For_Review(contentName);
 		UserOnBoarding.logout();
 		UserOnBoarding.login("Reviewer");

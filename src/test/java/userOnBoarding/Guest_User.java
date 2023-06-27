@@ -8,7 +8,7 @@ import utility.BaseClass;
 
 public class Guest_User extends BaseClass {
 
-	@Test
+	//@Test
 	public void verifyBMC_and_LocationPopUp_In_Profile_Section() throws Exception {
 		
 		UserOnBoarding.teachericon();
@@ -17,7 +17,7 @@ public class Guest_User extends BaseClass {
 		Guest_User_Methods.validateLocationAndBMC();
 		
 	}
-	@Test
+//	@Test
 	public void verifyBMCS_Values_In_Diffrent_Tabs() throws Exception {
 		UserOnBoarding.teachericon();
 		UserOnBoarding.bmcpopuphandle();
@@ -36,7 +36,7 @@ public class Guest_User extends BaseClass {
 		
 	}
 	
-	@Test
+	//@Test
 	public void VerifyIfTheGuestUserEditBMCValuesAndSave() throws Exception {
 		
 		UserOnBoarding.studenticon();

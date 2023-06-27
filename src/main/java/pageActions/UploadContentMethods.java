@@ -18,6 +18,7 @@ import org.testng.Assert;
 
 import pageObject.UpForReview;
 import pageObject.UploadPdfContent;
+import pageObject.ValidatePopUp;
 import utility.BaseClass;
 import utility.DikshaUtils;
 import utility.Library;
@@ -247,6 +248,8 @@ public static String UploadEpub() throws Exception {
 	
 	public static void publishCourseFromUpForReview(String coursename) throws InterruptedException {
 		UpForReview review=PageFactory.initElements(driver, UpForReview.class);
+		ValidatePopUp popup=PageFactory.initElements(driver, ValidatePopUp.class);
+		
 		wait=new WebDriverWait(driver, Duration.ofSeconds(30));
 		DikshaUtils.waitToBeClickableAndClick(review.getHeaderDropdown());
 		DikshaUtils.waitToBeClickableAndClick(review.getWorkspace());
@@ -258,10 +261,10 @@ public static String UploadEpub() throws Exception {
 		driver.navigate().refresh();
 		DikshaUtils.waitToBeVisibleAndClick(review.getPublishTheCourse());
 		DikshaUtils.waitToBeClickableAndClick(review.getConfirmpublishTheCourse());
-		Thread.sleep(1000);
-		WebElement publishPopup= driver.findElement(By.xpath("//strong[text()='Content is published']"));
-		String publish = publishPopup.getText();
-		Assert.assertEquals(publish , "Content is published");
+		 Thread.sleep(3000);
+	     String ContentsuccessfullySavedPopup = popup.getCoursePublishedPopUp().getText();
+	     Assert.assertEquals(ContentsuccessfullySavedPopup, "Content is published");
+	     Thread.sleep(1000);
 
 		Thread.sleep(1000);
 	
