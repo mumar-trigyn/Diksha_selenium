@@ -32,7 +32,8 @@ public static void AddCollaboratorInPublished_eTextbook(String fullname) throws 
 	DikshaUtils.waitToBeClickableAndClick(published.getSearchIcon());
 	DikshaUtils.waitToBeClickableAndClick(published.getClickSearchContent());
 	Thread.sleep(2000);
-	
+	driver.navigate().back();
+	Thread.sleep(1000);
 	DikshaUtils.waitToBeClickableAndClick(create.getAddCollaborator());
 	DikshaUtils.waitToBeClickableAndSendKeys(create.getSearchCollaborator(),"democontentcreator1");
 	Thread.sleep(1000);

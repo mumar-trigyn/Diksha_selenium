@@ -31,7 +31,7 @@ public class UploadAllContentsTypes extends BaseClass {
 	}
 	
 
- //  @Test
+   @Test
 
 	public void uploadMp4() throws Exception {
 		
@@ -46,7 +46,7 @@ public class UploadAllContentsTypes extends BaseClass {
 		UpForReviewMethods.up_For_Review(contentName);
 		
 	}
-    @Test
+   // @Test
 	public void uploadEpub() throws Exception {
 		
 		UserOnBoarding.teachericon();
@@ -62,7 +62,7 @@ public class UploadAllContentsTypes extends BaseClass {
 	}
 
 
- //  @Test
+   @Test
 	public void uploadWebm() throws Exception {
 		
 		UserOnBoarding.teachericon();
@@ -77,7 +77,7 @@ public class UploadAllContentsTypes extends BaseClass {
 		
 	}
     
-   @Test
+  // @Test
 	public void uploadH5p() throws Exception {
 		
 		UserOnBoarding.teachericon();
@@ -92,7 +92,7 @@ public class UploadAllContentsTypes extends BaseClass {
 		
 	}
     
-    @Test
+    //@Test
 	public void uploadYTContent() throws Exception {
 		
 		UserOnBoarding.teachericon();
@@ -109,7 +109,7 @@ public class UploadAllContentsTypes extends BaseClass {
     
 
 
- //  @Test
+   //@Test
 	public void uploadHtmlContent() throws Exception {
 		
 		UserOnBoarding.teachericon();
@@ -124,7 +124,7 @@ public class UploadAllContentsTypes extends BaseClass {
 		
 	}
     
-	  @Test
+	//  @Test
 		public void uploadMoreThan50MbContent() throws Exception {
 			
 			UserOnBoarding.teachericon();

@@ -21,7 +21,7 @@ import utility.ExcelDataProvider;
 
 public class ConsumptionScenarios extends BaseClass {
 
-	//@Test
+	@Test
 
 		
 
@@ -41,7 +41,7 @@ public class ConsumptionScenarios extends BaseClass {
 	
 
 
-	//@Test
+	@Test
 		public void searchETextbookWithNameAndDoidAndQRCode() throws Exception {
 
 		UserOnBoarding.schoolheadicon();
@@ -49,6 +49,7 @@ public class ConsumptionScenarios extends BaseClass {
 		UserOnBoarding.locationpopuphandle();
 		UserOnBoarding.login("Creator");
         String Bookname = Book_Creation.CreateBookWithQRCodeAndSendForReview();
+        UserOnBoarding.logout();
         UserOnBoarding.login("Reviewer");
 		UpForReviewMethods.eTextbook_up_For_Review(Bookname);
 		UserOnBoarding.logout();
@@ -61,7 +62,7 @@ public class ConsumptionScenarios extends BaseClass {
 		CourseConsumptionMethods.searchEtextbookForConsumption(QRCode);
 	}
 	
-	//@Test
+	@Test
 	public void VerifyUserClickOnViewAllAndCloseButtonForTheMyCoursesSectionAndCourseCardDetailIsDisplayed() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -72,7 +73,7 @@ public class ConsumptionScenarios extends BaseClass {
 
 	}
 	
-//	@Test
+	@Test
 	public void VerifyUserIsAbleToGetTheCompletionCertificate() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -96,7 +97,7 @@ public class ConsumptionScenarios extends BaseClass {
 		
 	}
 	
-//	@Test
+	@Test
 	public void VerifyUserSeeCeritificateCriteriaAndBatchDetailsInTheCourseTOC() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -152,7 +153,7 @@ public class ConsumptionScenarios extends BaseClass {
 	}
 
 	
-	//@Test
+	@Test
 	public void checkCourseExpiryMessageForUser() throws Exception {
 		UserOnBoarding.schoolheadicon();
 		UserOnBoarding.bmcpopuphandle();

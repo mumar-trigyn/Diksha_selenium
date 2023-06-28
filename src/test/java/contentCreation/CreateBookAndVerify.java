@@ -13,7 +13,7 @@ import utility.DikshaUtils;
 
 public class CreateBookAndVerify extends BaseClass{
 
-	//@Test
+	@Test
 	public void VerifyCreatorGenerateAndDownloadQRCode() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -24,8 +24,8 @@ public class CreateBookAndVerify extends BaseClass{
 		
 		
 	}
-	
-	//@Test
+
+	@Test
 	public void VerifyCreatorValidateQRCode() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -38,7 +38,7 @@ public class CreateBookAndVerify extends BaseClass{
 	}
 	
 	
-	//@Test
+	@Test
 	public void VerifyCreatorAddCollaboratorInTextbook() throws Exception {
 		
 		
@@ -57,7 +57,7 @@ public class CreateBookAndVerify extends BaseClass{
 	
 	}
 	
-	//@Test
+	@Test
 	public void VerifyAdminUdpateTextbookDetailsForDraftBookAndlive() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -70,7 +70,7 @@ public class CreateBookAndVerify extends BaseClass{
 		UserOnBoarding.login("Creator");
 	}
 	
-	//@Test
+	@Test
 	public void VerifyCreatorCopyeTextbookAndSendForReviewAndPublishTheContents() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();
@@ -92,7 +92,7 @@ public class CreateBookAndVerify extends BaseClass{
 	}
 	
 	
-	//@Test
+	@Test
 	public void VerifyReviewerPreviewAndRejecteTextbook() throws Exception {
 		
 		UserOnBoarding.schoolheadicon();

@@ -79,8 +79,7 @@ public class Guest_User_Methods extends BaseClass {
 		LoginAsCustodian Log=PageFactory.initElements(driver, LoginAsCustodian.class);
 		UserHomeTab home=PageFactory.initElements(driver, UserHomeTab.class);
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		
-		Library.custom_click(home.gethomeTab(), "Home tab Click");
+		DikshaUtils.waitToBeClickableAndClick(home.gethomeTab());
 		Thread.sleep(2000);
 		Assert.assertTrue(home.getBrowseBySubject().isDisplayed());
 		js.executeScript("window.scrollBy(0, 200)");
@@ -90,10 +89,9 @@ public class Guest_User_Methods extends BaseClass {
 		js.executeScript("window.scrollBy(0, 200)");
 		Assert.assertTrue(home.getRecentlyPublishedCourse().isDisplayed());
 		js.executeScript("window.scrollTo(0, 0)");
-		
-		Library.custom_click(Log.getHeaderDropdown(), "HeaderDropdown");
+		DikshaUtils.waitToBeClickableAndClick(Log.getHeaderDropdown());
 		Thread.sleep(1000);
-		Library.custom_click(Log.getLogintab(),"Logintab");
+		DikshaUtils.waitToBeClickableAndClick(Log.getLogintab());
 		Thread.sleep(1000);
 		Library.custom_sendkeys(Log.getUserName(),excel.getExcelData("Credentials", 5,1 ), "username");
 		Library.custom_sendkeys(Log.getPassword(),excel.getExcelData("Credentials", 5,2 ), "Password");
@@ -132,9 +130,6 @@ public class Guest_User_Methods extends BaseClass {
 	    Assert.assertTrue( filtertab.getClasss().isDisplayed());
 	    Assert.assertTrue( filtertab.getSelectclasss1().isDisplayed());
 		Thread.sleep(1000);
-		
-		DikshaUtils.waitToBeClickableAndClick( filtertab.getMedium());
-		DikshaUtils.waitToBeClickableAndClick( filtertab.getMediumhindi());
 		DikshaUtils.waitToBeClickableAndClick( filtertab.getClasss());
 		DikshaUtils.waitToBeClickableAndClick( filtertab.getSelectclasss2());
 		Thread.sleep(1000);

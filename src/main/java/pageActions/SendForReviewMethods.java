@@ -21,7 +21,7 @@ public class SendForReviewMethods extends BaseClass {
 		UpForReview review=PageFactory.initElements(driver, UpForReview.class);
 		DikshaUtils.waitToBeClickableAndClick(Upload.getSendforreview());
 		Upload.getName().clear();
-	    Library.custom_sendkeys(Upload.getName(),randomname,"nametextfield");
+		DikshaUtils.waitToBeClickableAndSendKeys(Upload.getName(),randomname);
 	    DikshaUtils.waitToBeClickableAndClick(Upload.getClickOnAddImage());
 	    DikshaUtils.waitToBeClickableAndClick(Upload.getClickOnAllImage());
 	    DikshaUtils.waitToBeClickableAndClick(Upload.getSelectImageFromAllImage());
@@ -41,9 +41,9 @@ public class SendForReviewMethods extends BaseClass {
 	    
 	    js.executeScript("arguments[0].scrollIntoView(true);", Upload.getCopyright());
 	    Thread.sleep(1000);
-	    Library.custom_sendkeys(Upload.getCopyright(),"2023", "copyright year");
+	    DikshaUtils.waitToBeClickableAndSendKeys(Upload.getCopyright(),"2023");
 	    Thread.sleep(1000);
-	    Library.custom_click(Upload.getSavebutton(),"savebutton");
+	    DikshaUtils.waitToBeClickableAndClick(Upload.getSavebutton());
 	    Thread.sleep(5000);
 	    
 	    Assert.assertTrue(review.getHeaderDropdown().isDisplayed());

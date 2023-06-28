@@ -40,7 +40,7 @@ public class UploadContentMethods extends BaseClass {
 		driver.switchTo().frame(0);
 		DikshaUtils.waitToBeClickableAndClick(Upload.getContenttypetab());
 		DikshaUtils.waitToBeClickableAndClick(Upload.geteTextbook());
-	    Library.custom_sendkeys(Upload.getBrowserbutton(),System.getProperty("user.dir")+"\\src\\main\\resources\\pdf_13.pdf", "file uploaded");
+		Upload.getBrowserbutton().sendKeys(System.getProperty("user.dir")+"\\src\\main\\resources\\pdf_13.pdf");
 	    Thread.sleep(3000);
 	    DikshaUtils.waitToBeClickableAndClick(Upload.getSave());
 	    DikshaUtils.waitToBeClickableAndClick(Upload.getClose());

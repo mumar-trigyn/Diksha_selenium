@@ -168,6 +168,7 @@ public class ResourcesMethods extends BaseClass {
 		DikshaUtils.waitToBeClickableAndClick(rs.getSelectMedium());
 		DikshaUtils.waitToBeClickableAndClick(rs.getMediumSelected());
 		DikshaUtils.waitToBeClickableAndClick(rs.getSelectGrade());
+		Thread.sleep(1000);
 		DikshaUtils.waitToBeClickableAndClick(rs.getGradeSelected());
 		DikshaUtils.waitToBeClickableAndClick(rs.getSelectSubject());
 		DikshaUtils.waitToBeClickableAndClick(rs.getSubjectSelected());

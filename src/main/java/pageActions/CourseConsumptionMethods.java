@@ -72,6 +72,7 @@ public class CourseConsumptionMethods extends BaseClass {
 	   Thread.sleep(4000);
 	    DikshaUtils.waitToBeClickableAndClick(cc.getClickNextButton());
 	    driver.switchTo().defaultContent();
+	    Thread.sleep(1000);
 	    DikshaUtils.waitToBeClickableAndClick(cc.getCloseRatingPopup());
 	    Thread.sleep(1000);
 	    driver.switchTo().frame(frame);

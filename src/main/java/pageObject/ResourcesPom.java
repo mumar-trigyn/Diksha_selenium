@@ -94,7 +94,8 @@ public class ResourcesPom {
 	@FindBy(how=How.XPATH,using="(//div[@class='qb-question-action three wide column'])[51]/child::span[2]")
 	private WebElement editQuestionButton;
 	
-	@FindBy(how=How.XPATH,using="(//div[@class='qb-question-action three wide column'])[1]//child::span")
+	//(//div[@class='qb-question-action three wide column'])[1]//child::span
+	@FindBy(how=How.XPATH,using="(//i[@class='copy icon'])[1]")
 	private WebElement copyQuestionButton;
 	
 	@FindBy(how=How.XPATH,using="//button[text()='Add answer ']")

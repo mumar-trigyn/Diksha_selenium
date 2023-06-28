@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import io.reactivex.rxjava3.functions.Action;
+
 import pageObject.CourseConsumption;
 import pageObject.CreateBatchForCourse;
 import pageObject.LoginPage;
@@ -57,6 +57,10 @@ public class TPDMethods extends BaseClass {
 		DikshaUtils.waitToBeClickableAndClick(createBatch.getEndDate());
 		
 		Date.setTomorrowDate(driver);
+		Thread.sleep(1000);
+		action.sendKeys("\b").perform();
+		Thread.sleep(1000);
+		action.sendKeys("3").perform();
 		Thread.sleep(1000);
 		DikshaUtils.waitToBeClickableAndClick(createBatch.getCourseterms());
 		wait.until(ExpectedConditions.elementToBeClickable(createBatch.getCreateButton()));
@@ -161,6 +165,10 @@ public class TPDMethods extends BaseClass {
 			
 			Date.setTomorrowDate(driver);
 			Thread.sleep(1000);
+			action.sendKeys("\b").perform();
+			Thread.sleep(1000);
+			action.sendKeys("3").perform();
+			Thread.sleep(1000);
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getCourseterms());
 			wait.until(ExpectedConditions.elementToBeClickable(createBatch.getCreateButton()));
 			Thread.sleep(1000);
@@ -203,6 +211,10 @@ public class TPDMethods extends BaseClass {
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getEndDate());
 			
 			Date.setTomorrowDate(driver);
+			Thread.sleep(1000);
+			action.sendKeys("\b").perform();
+			Thread.sleep(1000);
+			action.sendKeys("3").perform();
 			Thread.sleep(1000);
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getCourseterms());
 			wait.until(ExpectedConditions.elementToBeClickable(createBatch.getCreateButton()));
@@ -303,6 +315,10 @@ public class TPDMethods extends BaseClass {
 			
 			Date.setTomorrowDate(driver);
 			Thread.sleep(1000);
+			action.sendKeys("\b").perform();
+			Thread.sleep(1000);
+			action.sendKeys("3").perform();
+			Thread.sleep(1000);
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getCourseterms());
 			wait.until(ExpectedConditions.elementToBeClickable(createBatch.getCreateButton()));
 			Thread.sleep(1000);
@@ -362,9 +378,14 @@ public static void addMentor(String course) throws InterruptedException {
 			
 			Date.setTomorrowDate(driver);
 			Thread.sleep(1000);
+			action.sendKeys("\b").perform();
+			Thread.sleep(1000);
+			action.sendKeys("3").perform();
+			Thread.sleep(1000);
 			 int scrollX = 0; // horizontal scroll amount
-		     int scrollY = 100; // vertical scroll amount
+		     int scrollY = 150; // vertical scroll amount
 		     JavascriptExecutor js=(JavascriptExecutor)driver;
+		     
 		     js.executeScript("window.scrollBy(" + scrollX + ", " + scrollY + ");");
 			DikshaUtils.waitToBeClickableAndClick(createBatch.getSelectMentorDropdown());
 		

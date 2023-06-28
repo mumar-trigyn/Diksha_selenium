@@ -63,7 +63,7 @@ public class CreateCourseAndPublish extends BaseClass{
 	
 	}
 	
-	//	@Test
+		//@Test
 		public void CreateBatchWithFutureDate() throws Exception {
 			
 			ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
@@ -197,8 +197,8 @@ public class CreateCourseAndPublish extends BaseClass{
 			UserOnBoarding.login("Admin");
 			TPDMethods.verifyAddMentor(course);
 		}
-		
-	 //   @Test
+	
+	//   @Test
 	     public void verifyAddCourseAssessmentInCourse() throws Exception {
 	    	 UserOnBoarding.teachericon();
 	   		UserOnBoarding.bmcpopuphandle();
@@ -220,7 +220,7 @@ public class CreateCourseAndPublish extends BaseClass{
 			
 	     }  
 
-	 //		@Test
+	// 		@Test
 			public void verifyMentorCanCreateBatch() throws Exception {
 				UserOnBoarding.schoolheadicon();
 				UserOnBoarding.bmcpopuphandle();

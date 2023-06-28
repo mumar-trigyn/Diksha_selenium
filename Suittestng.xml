@@ -8,9 +8,8 @@
     <classes>
 
 
-<class name="Consumption.ConsumptionScenarios"/>
-     
-     
+
+<class name="contentCreation.CreateCourseAndPublish"/>
 
 </classes>
 

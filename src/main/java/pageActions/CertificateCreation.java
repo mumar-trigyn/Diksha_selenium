@@ -108,7 +108,7 @@ public class CertificateCreation extends BaseClass  {
 		DikshaUtils.waitToBeVisibleAndClick(certificate.getBeforeAddCertificateTab());
 	    DikshaUtils.waitToBeClickableAndClick(certificate.getCertificateRuleTab());
 	    DikshaUtils.waitToBeClickableAndClick(certificate.getAllTab());
-		
+	    Thread.sleep(1000);
 	    DikshaUtils.waitToBeVisibleAndClick(certificate.getPlusIcon());
 	    DikshaUtils.waitToBeVisibleAndClick(certificate.getSelectCriteria());
 	    Thread.sleep(1000);

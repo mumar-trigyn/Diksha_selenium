@@ -12,7 +12,6 @@ import utility.BaseClass;
 import utility.DikshaUtils;
 
 public class CreateCourseAssessmentAndSendForReview extends BaseClass {
-	ExplorePage explore=PageFactory.initElements(driver,  ExplorePage.class);
 	@Test
 	public void CreateAssessmentAndSendForReview() throws Exception {
 		

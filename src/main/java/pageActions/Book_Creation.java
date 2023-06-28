@@ -447,7 +447,7 @@ public static String VerifyCreatorAbleToAddCollaboratorInLiveTextbook() throws E
 			Thread.sleep(2000);
 		     String ContentsendPopup = popup.getSendForReviewPopUp().getText();
 		     Assert.assertEquals(ContentsendPopup, "Content is sent for review");
-		     Thread.sleep(2000);
+		     Thread.sleep(5000);
 		
 			excel.updateData("TestData","Collections" ,Name, "");
 			

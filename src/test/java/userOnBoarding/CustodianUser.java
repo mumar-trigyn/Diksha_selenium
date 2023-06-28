@@ -8,7 +8,7 @@ import utility.BaseClass;
 
 public class CustodianUser extends BaseClass {
 
-	//@Test
+	@Test
 	public void VerifyCustodianUsersAreGettingSubmitDetailsOptionInHisProfile() throws Exception {
 	
 		UserOnBoarding.studenticon();
@@ -21,7 +21,7 @@ public class CustodianUser extends BaseClass {
 		
 	}
 
-//	@Test
+	//@Test
 	//Application issue:- not able to select BMC value in one click
 	public void VerifyTheUserIsAbleToUpdateTheBMCAndLocationDetails() throws Exception {
 		
