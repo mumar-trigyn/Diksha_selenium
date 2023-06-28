@@ -23,8 +23,6 @@ public class ConsumptionScenarios extends BaseClass {
 
 	//@Test
 
-		
-
 		public void searchTvLessonWithNameAndDoidAndConsume() throws Exception {
 			UserOnBoarding.schoolheadicon();
 			UserOnBoarding.bmcpopuphandle();
